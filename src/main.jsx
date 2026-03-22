@@ -7,7 +7,7 @@ import App from './App.jsx'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <BrowserRouter>
+    <BrowserRouter basename="/np-hub-2026">
       <Theme accentColor="indigo" radius="large" scaling="100%">
         <App />
       </Theme>
