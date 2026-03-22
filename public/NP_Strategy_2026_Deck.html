@@ -1,0 +1,1262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>New Products 2026 — Strategy Deck</title>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --orange:   #FF6200;
+    --orange2:  #FF8533;
+    --violet:   #6B46FF;
+    --violet2:  #9B7FFF;
+    --teal:     #00C2A8;
+    --teal2:    #33D4BE;
+    --dark:     #13111A;
+    --dark2:    #1E1B2E;
+    --dark3:    #2A2640;
+    --white:    #FFFFFF;
+    --off:      #F4F3FC;
+    --muted:    #94A3B8;
+    --subtle:   #64748B;
+    --body:     #1E293B;
+    --border:   #E2E8F0;
+  }
+
+  html, body {
+    width: 100%; height: 100%;
+    overflow: hidden;
+    font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: #000;
+  }
+
+  /* ── DECK ── */
+  #deck {
+    position: relative;
+    width: 100vw; height: 100vh;
+    overflow: hidden;
+  }
+
+  /* ── SLIDES ── */
+  .slide {
+    position: absolute;
+    inset: 0;
+    width: 100%; height: 100%;
+    display: flex;
+    flex-direction: column;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.38s ease;
+    overflow: hidden;
+  }
+  .slide.active {
+    opacity: 1;
+    pointer-events: all;
+  }
+  .slide.dark  { background: var(--dark); }
+  .slide.dark2 { background: var(--dark2); }
+  .slide.light { background: var(--off); }
+
+  /* ── RIGHT-SIDE NAV ── */
+  #nav {
+    position: fixed;
+    right: 22px;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    z-index: 100;
+  }
+  .nav-btn {
+    width: 30px; height: 30px;
+    border-radius: 50%;
+    border: 1.5px solid rgba(255,255,255,0.2);
+    background: rgba(0,0,0,0.5);
+    color: #fff;
+    cursor: pointer;
+    display: flex; align-items: center; justify-content: center;
+    transition: border-color 0.2s, background 0.2s;
+    backdrop-filter: blur(8px);
+  }
+  .nav-btn:hover { border-color: rgba(255,255,255,0.55); background: rgba(0,0,0,0.7); }
+  .nav-btn svg { width: 12px; height: 12px; stroke: currentColor; stroke-width: 2; fill: none; stroke-linecap: round; stroke-linejoin: round; }
+  .dots { display: flex; flex-direction: column; gap: 7px; align-items: center; }
+  .dot {
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.25);
+    cursor: pointer;
+    transition: background 0.2s, transform 0.2s, height 0.25s;
+  }
+  .dot.active {
+    background: var(--orange);
+    transform: scale(1.3);
+    height: 18px;
+    border-radius: 3px;
+  }
+
+  /* ── SLIDE COUNTER ── */
+  .slide-counter {
+    position: fixed;
+    right: 14px;
+    top: 50%;
+    transform: translateY(-50%);
+    margin-top: 140px;
+    font-size: 9px;
+    color: rgba(255,255,255,0.2);
+    letter-spacing: 0.06em;
+    z-index: 100;
+    font-variant-numeric: tabular-nums;
+    writing-mode: vertical-rl;
+  }
+
+  /* ── BOTTOM FOOTER BAR ── */
+  .deck-footer {
+    position: fixed;
+    bottom: 0; left: 0; right: 0;
+    height: 36px;
+    background: rgba(19,17,26,0.85);
+    backdrop-filter: blur(10px);
+    border-top: 1px solid rgba(255,255,255,0.06);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    z-index: 99;
+  }
+  .deck-footer span {
+    font-size: 10px;
+    color: rgba(255,255,255,0.2);
+    letter-spacing: 0.06em;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .deck-footer span::before {
+    content: '';
+    width: 4px; height: 4px;
+    border-radius: 50%;
+    background: var(--orange);
+    opacity: 0.4;
+  }
+  .deck-footer .sep { color: rgba(255,255,255,0.1); }
+  .deck-footer .sep::before { display: none; }
+  .deck-footer .key-hint {
+    position: static;
+    font-size: 9px;
+    color: rgba(255,255,255,0.12);
+    letter-spacing: 0.04em;
+    margin-left: 16px;
+  }
+  .deck-footer .key-hint::before { display: none; }
+
+  /* ── TOC SLIDE ── */
+  #s-toc .toc-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0 88px 40px;
+    position: relative;
+    z-index: 1;
+  }
+  #s-toc .toc-eyebrow {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.3);
+    margin-bottom: 28px;
+  }
+  #s-toc .toc-title {
+    font-size: 28px;
+    font-weight: 800;
+    color: var(--white);
+    margin-bottom: 40px;
+    letter-spacing: -0.01em;
+  }
+  .toc-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+  .toc-item {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 16px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+    cursor: pointer;
+    transition: background 0.2s;
+  }
+  .toc-item:first-child { border-top: 1px solid rgba(255,255,255,0.06); }
+  .toc-item:hover { background: rgba(255,255,255,0.03); margin: 0 -20px; padding: 16px 20px; }
+  .toc-num {
+    width: 32px; height: 32px;
+    border-radius: 8px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 13px;
+    font-weight: 800;
+    flex-shrink: 0;
+    letter-spacing: -0.02em;
+  }
+  .toc-num.c-orange { background: rgba(255,98,0,0.12); color: var(--orange); border: 1px solid rgba(255,98,0,0.2); }
+  .toc-num.c-teal { background: rgba(0,194,168,0.1); color: var(--teal); border: 1px solid rgba(0,194,168,0.2); }
+  .toc-num.c-violet { background: rgba(107,70,255,0.1); color: var(--violet2); border: 1px solid rgba(107,70,255,0.2); }
+  .toc-num.c-muted { background: rgba(255,255,255,0.05); color: rgba(255,255,255,0.4); border: 1px solid rgba(255,255,255,0.08); }
+  .toc-label {
+    font-size: 15px;
+    font-weight: 600;
+    color: rgba(255,255,255,0.8);
+  }
+  .toc-sub {
+    font-size: 12px;
+    color: rgba(255,255,255,0.3);
+    margin-top: 2px;
+  }
+  .toc-arrow {
+    margin-left: auto;
+    color: rgba(255,255,255,0.15);
+    font-size: 16px;
+  }
+
+  /* ════════════════════════════════════════════════
+     SLIDE 1 — TITLE
+  ════════════════════════════════════════════════ */
+  #s1 { position: relative; overflow: hidden; }
+
+  #s1 .glow {
+    position: absolute;
+    top: -160px; right: -160px;
+    width: 600px; height: 600px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(255,98,0,0.18) 0%, transparent 65%);
+    pointer-events: none;
+  }
+  #s1 .glow2 {
+    position: absolute;
+    bottom: -200px; left: -100px;
+    width: 500px; height: 500px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(107,70,255,0.12) 0%, transparent 65%);
+    pointer-events: none;
+  }
+  #s1 .accent-bar {
+    position: absolute;
+    left: 0; top: 0; bottom: 0;
+    width: 5px;
+    background: linear-gradient(to bottom, var(--orange), var(--violet));
+  }
+  #s1 .content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0 88px 80px 88px;
+    position: relative;
+    z-index: 1;
+  }
+  #s1 .eyebrow {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--orange);
+    margin-bottom: 28px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  #s1 .eyebrow::before {
+    content: '';
+    display: inline-block;
+    width: 24px; height: 2px;
+    background: var(--orange);
+    border-radius: 2px;
+  }
+  #s1 h1 {
+    font-size: clamp(52px, 7.5vw, 96px);
+    font-weight: 800;
+    color: var(--white);
+    line-height: 1.0;
+    letter-spacing: -0.025em;
+    margin-bottom: 36px;
+  }
+  #s1 h1 span { color: var(--orange); }
+  #s1 .sub {
+    font-size: clamp(15px, 1.6vw, 18px);
+    color: var(--muted);
+    line-height: 1.7;
+    max-width: 560px;
+  }
+
+  /* ════════════════════════════════════════════════
+     SLIDE 2 — CURRENT GAP
+  ════════════════════════════════════════════════ */
+  #s2 .header-band {
+    background: var(--dark2);
+    padding: 24px 64px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    flex-shrink: 0;
+    border-bottom: 1px solid rgba(255,98,0,0.2);
+  }
+  #s2 .section-pill {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--orange);
+    background: rgba(255,98,0,0.12);
+    border: 1px solid rgba(255,98,0,0.3);
+    padding: 4px 10px;
+    border-radius: 4px;
+  }
+  #s2 .header-band h2 {
+    font-size: clamp(20px, 2.6vw, 30px);
+    font-weight: 800;
+    color: var(--white);
+  }
+  #s2 .lead-line {
+    padding: 18px 64px 14px;
+    font-size: clamp(13px, 1.35vw, 15px);
+    color: var(--orange2);
+    font-weight: 600;
+    font-style: italic;
+    letter-spacing: 0.01em;
+    flex-shrink: 0;
+  }
+  #s2 .bullets-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+    padding: 0 64px 20px;
+    flex: 1;
+    align-content: start;
+  }
+  .gap-card {
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,98,0,0.15);
+    border-radius: 10px;
+    padding: 18px 20px;
+  }
+  .gap-card .c-lead {
+    font-size: clamp(13px, 1.3vw, 14.5px);
+    font-weight: 700;
+    color: var(--white);
+    line-height: 1.35;
+    margin-bottom: 8px;
+  }
+  .gap-card .c-detail {
+    font-size: clamp(11px, 1.1vw, 12.5px);
+    color: var(--muted);
+    line-height: 1.6;
+  }
+  .gap-card .c-detail strong { color: rgba(255,255,255,0.7); font-weight: 600; }
+
+  /* ════════════════════════════════════════════════
+     SLIDE 3 — SUCCESS STATE
+  ════════════════════════════════════════════════ */
+  #s3 .header-band {
+    background: var(--dark2);
+    padding: 24px 64px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    flex-shrink: 0;
+    border-bottom: 1px solid rgba(0,194,168,0.25);
+  }
+  #s3 .section-pill {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--teal);
+    background: rgba(0,194,168,0.1);
+    border: 1px solid rgba(0,194,168,0.3);
+    padding: 4px 10px;
+    border-radius: 4px;
+  }
+  #s3 .header-band h2 {
+    font-size: clamp(20px, 2.6vw, 30px);
+    font-weight: 800;
+    color: var(--white);
+  }
+  #s3 .lead-line {
+    padding: 18px 64px 14px;
+    font-size: clamp(13px, 1.35vw, 15px);
+    color: var(--teal2);
+    font-weight: 600;
+    font-style: italic;
+    flex-shrink: 0;
+  }
+  #s3 .bullets-col {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    padding: 16px 64px 20px;
+    flex: 1;
+    justify-content: flex-start;
+  }
+  .success-card {
+    background: rgba(0,194,168,0.04);
+    border: 1px solid rgba(0,194,168,0.18);
+    border-radius: 10px;
+    padding: 18px 22px;
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+  }
+  .success-card .sc-icon {
+    width: 28px; height: 28px;
+    border-radius: 6px;
+    background: rgba(0,194,168,0.15);
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+  .success-card .sc-icon svg { width: 13px; height: 13px; stroke: var(--teal); stroke-width: 2.2; fill: none; stroke-linecap: round; stroke-linejoin: round; }
+  .success-card .sc-lead {
+    font-size: clamp(13px, 1.3vw, 14.5px);
+    font-weight: 700;
+    color: var(--white);
+    line-height: 1.35;
+    margin-bottom: 6px;
+  }
+  .success-card .sc-detail {
+    font-size: clamp(11px, 1.1vw, 12.5px);
+    color: var(--muted);
+    line-height: 1.6;
+  }
+  .success-card .sc-detail strong { color: rgba(255,255,255,0.7); font-weight: 600; }
+
+  /* ════════════════════════════════════════════════
+     SLIDE 4 — EXECUTION PATH
+  ════════════════════════════════════════════════ */
+  #s4 .header-band {
+    background: var(--dark2);
+    padding: 24px 64px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    flex-shrink: 0;
+    border-bottom: 1px solid rgba(107,70,255,0.25);
+  }
+  #s4 .section-pill {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--violet2);
+    background: rgba(107,70,255,0.12);
+    border: 1px solid rgba(107,70,255,0.3);
+    padding: 4px 10px;
+    border-radius: 4px;
+  }
+  #s4 .header-band h2 {
+    font-size: clamp(20px, 2.6vw, 30px);
+    font-weight: 800;
+    color: var(--white);
+  }
+  #s4 .intro {
+    padding: 20px 64px 16px;
+    font-size: clamp(13px, 1.35vw, 15px);
+    color: var(--muted);
+    flex-shrink: 0;
+    font-style: italic;
+  }
+  #s4 .bets-list {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    padding: 0 64px;
+    flex: 1;
+    justify-content: flex-start;
+  }
+  .exec-bet {
+    background: rgba(107,70,255,0.05);
+    border: 1px solid rgba(107,70,255,0.2);
+    border-radius: 12px;
+    padding: 20px 24px;
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+  }
+  .exec-bet .bet-num {
+    width: 34px; height: 34px;
+    border-radius: 8px;
+    background: rgba(107,70,255,0.2);
+    border: 1.5px solid rgba(107,70,255,0.4);
+    color: var(--violet2);
+    font-size: 16px;
+    font-weight: 800;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+    letter-spacing: -0.02em;
+  }
+  .exec-bet .bet-body { flex: 1; }
+  .exec-bet .bet-lead {
+    font-size: clamp(14px, 1.45vw, 16px);
+    font-weight: 700;
+    color: var(--white);
+    margin-bottom: 8px;
+    line-height: 1.3;
+  }
+  .exec-bet .sub-items {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+  .exec-bet .sub-items li {
+    font-size: clamp(11.5px, 1.15vw, 13px);
+    color: var(--muted);
+    line-height: 1.5;
+    display: flex;
+    gap: 8px;
+    align-items: baseline;
+  }
+  .exec-bet .sub-items li::before {
+    content: '—';
+    color: rgba(107,70,255,0.5);
+    flex-shrink: 0;
+    font-size: 11px;
+  }
+  .exec-bet .sub-items li strong { color: rgba(255,255,255,0.75); font-weight: 600; }
+  #s4 .coda-bar {
+    margin: 0 64px 20px;
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 8px;
+    padding: 14px 18px;
+    font-size: clamp(11px, 1.1vw, 12.5px);
+    color: var(--muted);
+    line-height: 1.55;
+  }
+  #s4 .coda-bar strong { color: rgba(255,255,255,0.6); }
+
+  /* ════════════════════════════════════════════════
+     SLIDE 5 — ENGINEER OPPORTUNITY
+  ════════════════════════════════════════════════ */
+  #s5 .header-band {
+    background: var(--dark2);
+    padding: 24px 64px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    flex-shrink: 0;
+    border-bottom: 1px solid rgba(255,98,0,0.2);
+  }
+  #s5 .section-pill {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--orange);
+    background: rgba(255,98,0,0.1);
+    border: 1px solid rgba(255,98,0,0.3);
+    padding: 4px 10px;
+    border-radius: 4px;
+  }
+  #s5 .header-band h2 {
+    font-size: clamp(20px, 2.6vw, 30px);
+    font-weight: 800;
+    color: var(--white);
+  }
+  #s5 .header-band .urgency {
+    margin-left: auto;
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--orange);
+    background: rgba(255,98,0,0.08);
+    border: 1px solid rgba(255,98,0,0.25);
+    padding: 4px 12px;
+    border-radius: 20px;
+    letter-spacing: 0.04em;
+  }
+  #s5 .ctx-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    padding: 20px 64px;
+    flex: 1;
+    align-content: start;
+  }
+  .ctx-card {
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.09);
+    border-radius: 12px;
+    padding: 24px 22px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    transition: border-color 0.2s;
+  }
+  .ctx-card:hover { border-color: rgba(255,98,0,0.3); }
+  .ctx-card .ctx-label {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--orange);
+    margin-bottom: 2px;
+  }
+  .ctx-card .ctx-title {
+    font-size: clamp(14px, 1.4vw, 15.5px);
+    font-weight: 700;
+    color: var(--white);
+    line-height: 1.3;
+  }
+  .ctx-card .ctx-body {
+    font-size: clamp(12px, 1.15vw, 13px);
+    color: var(--muted);
+    line-height: 1.65;
+  }
+  .ctx-card .ctx-body em { color: rgba(255,255,255,0.65); font-style: normal; font-weight: 600; }
+
+  /* ════════════════════════════════════════════════
+     SLIDE 6 — THREE BETS TO WIN ENGINEER
+  ════════════════════════════════════════════════ */
+  #s6 .header-band {
+    background: var(--dark2);
+    padding: 24px 64px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    flex-shrink: 0;
+    border-bottom: 1px solid rgba(255,98,0,0.2);
+  }
+  #s6 .section-pill {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--orange);
+    background: rgba(255,98,0,0.1);
+    border: 1px solid rgba(255,98,0,0.3);
+    padding: 4px 10px;
+    border-radius: 4px;
+  }
+  #s6 .header-band h2 {
+    font-size: clamp(20px, 2.6vw, 30px);
+    font-weight: 800;
+    color: var(--white);
+  }
+  #s6 .bets-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    padding: 20px 64px 24px;
+    flex: 1;
+    align-content: start;
+  }
+  .eng-bet-card {
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.09);
+    border-radius: 12px;
+    padding: 22px 20px;
+    display: flex;
+    flex-direction: column;
+  }
+  .eng-bet-card .ebc-head {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 16px;
+    padding-bottom: 14px;
+    border-bottom: 1px solid rgba(255,255,255,0.07);
+  }
+  .eng-bet-card .ebc-icon {
+    width: 32px; height: 32px;
+    border-radius: 8px;
+    background: rgba(255,98,0,0.12);
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+  }
+  .eng-bet-card .ebc-icon svg { width: 14px; height: 14px; stroke: var(--orange); stroke-width: 2.2; fill: none; stroke-linecap: round; stroke-linejoin: round; }
+  .eng-bet-card .ebc-name {
+    font-size: clamp(14px, 1.4vw, 15px);
+    font-weight: 700;
+    color: var(--white);
+    line-height: 1.25;
+  }
+  .eng-bet-card .ebc-bullets {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+    flex: 1;
+  }
+  .eng-bet-card .ebc-bullets li {
+    font-size: clamp(11.5px, 1.12vw, 12.5px);
+    color: var(--muted);
+    line-height: 1.55;
+    padding-left: 14px;
+    position: relative;
+  }
+  .eng-bet-card .ebc-bullets li::before {
+    content: '·';
+    position: absolute;
+    left: 3px;
+    color: var(--orange);
+    font-size: 16px;
+    line-height: 1.2;
+  }
+  .eng-bet-card .ebc-bullets li strong { color: rgba(255,255,255,0.75); font-weight: 600; }
+
+  /* ════════════════════════════════════════════════
+     SLIDE 7 — TEAM CHARTER
+  ════════════════════════════════════════════════ */
+  #s7 .header-band {
+    background: var(--dark2);
+    padding: 22px 64px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    flex-shrink: 0;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+  }
+  #s7 .section-pill {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.55);
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.12);
+    padding: 4px 10px;
+    border-radius: 4px;
+  }
+  #s7 .header-band h2 {
+    font-size: clamp(20px, 2.6vw, 30px);
+    font-weight: 800;
+    color: var(--white);
+  }
+  #s7 .header-band .sub {
+    font-size: 13px;
+    color: var(--muted);
+    margin-left: 8px;
+  }
+  #s7 .diagram {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 20px 64px 24px;
+    gap: 12px;
+    justify-content: flex-start;
+  }
+  #s7 .persona-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+  .persona-card {
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid rgba(255,255,255,0.09);
+  }
+  .persona-card .pc-header {
+    padding: 16px 20px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+  .persona-card.eng .pc-header { background: rgba(255,98,0,0.1); border-bottom: 1px solid rgba(255,98,0,0.2); }
+  .persona-card.eve .pc-header { background: rgba(107,70,255,0.1); border-bottom: 1px solid rgba(107,70,255,0.2); }
+  .persona-card .pc-icon {
+    width: 34px; height: 34px;
+    border-radius: 8px;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+  }
+  .persona-card.eng .pc-icon { background: rgba(255,98,0,0.15); }
+  .persona-card.eve .pc-icon { background: rgba(107,70,255,0.15); }
+  .persona-card .pc-icon svg { width: 15px; height: 15px; stroke-width: 2; fill: none; stroke-linecap: round; stroke-linejoin: round; }
+  .persona-card.eng .pc-icon svg { stroke: var(--orange); }
+  .persona-card.eve .pc-icon svg { stroke: var(--violet2); }
+  .persona-card .pc-name {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--white);
+    margin-bottom: 2px;
+  }
+  .persona-card .pc-desc {
+    font-size: 11px;
+    color: var(--muted);
+    letter-spacing: 0.02em;
+  }
+  .persona-card .pc-chips {
+    padding: 14px 16px;
+    background: rgba(255,255,255,0.02);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 7px;
+  }
+  .chip {
+    font-size: 11px;
+    font-weight: 600;
+    padding: 4px 10px;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+  .chip-dot { width: 5px; height: 5px; border-radius: 50%; flex-shrink: 0; }
+  .chip.eng { background: rgba(255,98,0,0.1); color: rgba(255,255,255,0.75); border: 1px solid rgba(255,98,0,0.22); }
+  .chip.eve { background: rgba(107,70,255,0.1); color: rgba(255,255,255,0.75); border: 1px solid rgba(107,70,255,0.25); }
+  .chip.fnd { background: rgba(255,255,255,0.04); color: rgba(255,255,255,0.65); border: 1px solid rgba(255,255,255,0.1); }
+  .chip .arr {
+    font-size: 9.5px;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    opacity: 0.6;
+    margin-left: 2px;
+  }
+
+  #s7 .bridge {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    height: 12px;
+  }
+  #s7 .bridge-half {
+    border-left: 2px solid;
+    border-right: 2px solid;
+    border-bottom: 2px solid;
+    border-radius: 0 0 8px 8px;
+  }
+  #s7 .bridge-half.bh-eng { border-color: rgba(255,98,0,0.3); }
+  #s7 .bridge-half.bh-eve { border-color: rgba(107,70,255,0.3); }
+
+  #s7 .foundation {
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 12px;
+    overflow: hidden;
+  }
+  #s7 .fnd-header {
+    padding: 12px 18px;
+    background: rgba(255,255,255,0.04);
+    border-bottom: 1px solid rgba(255,255,255,0.07);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  #s7 .fnd-label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.45);
+  }
+  #s7 .fnd-tag {
+    font-size: 10px;
+    color: rgba(255,255,255,0.3);
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.1);
+    padding: 2px 8px;
+    border-radius: 20px;
+  }
+  #s7 .fnd-chips {
+    padding: 12px 16px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 7px;
+  }
+</style>
+</head>
+<body>
+
+<div id="deck">
+
+  <!-- ══════════════════════════════════════════════
+       SLIDE 1 — TITLE
+  ══════════════════════════════════════════════ -->
+  <div class="slide dark active" id="s1">
+    <div class="glow"></div>
+    <div class="glow2"></div>
+    <div class="accent-bar"></div>
+    <div class="content">
+      <div class="eyebrow">New Products &nbsp;·&nbsp; 2026 Strategy Narrative</div>
+      <h1>Two Personas.<br><span>Three Bets.</span><br>One Plan.</h1>
+      <p class="sub">New Products serves two distinct buyers with different needs, different buying criteria, and different success metrics. This is where we are today, where we need to be by end of 2026, and how we plan to get there.</p>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════════
+       SLIDE TOC — TABLE OF CONTENTS
+  ══════════════════════════════════════════════ -->
+  <div class="slide dark" id="s-toc">
+    <div class="glow" style="opacity:0.5;top:-200px;right:-80px;width:400px;height:400px;"></div>
+    <div class="accent-bar" style="width:3px;background:linear-gradient(to bottom,var(--orange),var(--teal),var(--violet));"></div>
+    <div class="toc-content">
+      <div class="toc-eyebrow">Agenda</div>
+      <div class="toc-title">Table of Contents</div>
+      <div class="toc-list">
+        <div class="toc-item" data-goto="2">
+          <div class="toc-num c-orange">1</div>
+          <div><div class="toc-label">Current Gap</div><div class="toc-sub">Where we are today</div></div>
+          <div class="toc-arrow">→</div>
+        </div>
+        <div class="toc-item" data-goto="3">
+          <div class="toc-num c-teal">2</div>
+          <div><div class="toc-label">Success State</div><div class="toc-sub">Where we need to be by end of 2026</div></div>
+          <div class="toc-arrow">→</div>
+        </div>
+        <div class="toc-item" data-goto="4">
+          <div class="toc-num c-violet">3</div>
+          <div><div class="toc-label">Execution Path</div><div class="toc-sub">Three bets to get there</div></div>
+          <div class="toc-arrow">→</div>
+        </div>
+        <div class="toc-item" data-goto="5">
+          <div class="toc-num c-orange">4</div>
+          <div><div class="toc-label">Winning the Product Engineer</div><div class="toc-sub">Target, wedge, and timing</div></div>
+          <div class="toc-arrow">→</div>
+        </div>
+        <div class="toc-item" data-goto="6">
+          <div class="toc-num c-orange">5</div>
+          <div><div class="toc-label">Three Bets to Win the Engineer</div><div class="toc-sub">Release Validation · Error Monitoring · User Debugging</div></div>
+          <div class="toc-arrow">→</div>
+        </div>
+        <div class="toc-item" data-goto="7">
+          <div class="toc-num c-muted">6</div>
+          <div><div class="toc-label">Team Charter</div><div class="toc-sub">Product organization &amp; scope</div></div>
+          <div class="toc-arrow">→</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════════
+       SLIDE 2 — CURRENT GAP
+  ══════════════════════════════════════════════ -->
+  <div class="slide dark" id="s2">
+    <div class="header-band">
+      <span class="section-pill">Current Gap</span>
+      <h2>Where We Are Today</h2>
+    </div>
+    <div class="lead-line">Today, we serve two distinct builders — and both are under-penetrated.</div>
+    <div class="bullets-grid">
+      <div class="gap-card">
+        <div class="c-lead">One blended narrative for two very different buyers</div>
+        <div class="c-detail">The product engineer persona and the PM/Marketer/Growth persona are treated as one. Engineers buy on SDK quality, monitoring, and release management. PMs and marketers buy on insight speed, no-code leverage, and acting without a ticket.</div>
+      </div>
+      <div class="gap-card">
+        <div class="c-lead">Product engineers drive adoption but have no explicit motion</div>
+        <div class="c-detail">Engineers create <strong>53% of Feature Experiments</strong>, yet Feature Experiment attach sits at <strong>18.9%</strong> despite $33.8M ARR and 34% YoY growth. We have no dedicated engineering GTM motion and no narrative that speaks to how engineers actually buy.</div>
+      </div>
+      <div class="gap-card">
+        <div class="c-lead">The PM/Marketer/Growth loop needs connective tissue</div>
+        <div class="c-detail">SR at $9.6M, Web XP at $5M, Guides &amp; Surveys at $12.8M. AI Feedback at 4% source connection rate. AI Assistant launches April 7. Orchestration (Q3) is the connective tissue. The products are solid individually — the opportunity is routing signal between them.</div>
+      </div>
+      <div class="gap-card">
+        <div class="c-lead">Enterprise expansion routes through the data team — and stalls</div>
+        <div class="c-detail">Without an engineering motion, every large contract eventually routes through warehouse-native incumbents. Engineering buyers route around the data team, carry <strong>larger budgets</strong>, and use flags on a daily basis — creating high-frequency use cases we're not capturing.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════════
+       SLIDE 3 — SUCCESS STATE
+  ══════════════════════════════════════════════ -->
+  <div class="slide dark" id="s3">
+    <div class="header-band">
+      <span class="section-pill">Success State</span>
+      <h2>Where We Need to Be by End of 2026</h2>
+    </div>
+    <div class="lead-line">By the end of 2026, three products drive the revenue story.</div>
+    <div class="bullets-col">
+      <div class="success-card">
+        <div class="sc-icon">
+          <svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+        </div>
+        <div>
+          <div class="sc-lead">Three bets drive the 2026 revenue story; two products compound them</div>
+          <div class="sc-detail">Primary bets: <strong>Feature Flags + Feature XP</strong> (engineer wedge, $33.8M base), <strong>SR + Zoning</strong> (Contentsquare displacement), and <strong>AI Assistant</strong> (April 7 launch). Web Experiment ($8M ARR target, 2x) and Guides &amp; Surveys compound the bets without needing to be bets themselves.</div>
+        </div>
+      </div>
+      <div class="success-card">
+        <div class="sc-icon">
+          <svg viewBox="0 0 24 24"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+        </div>
+        <div>
+          <div class="sc-lead">The product engineer chooses Amplitude — and becomes the enterprise expand motion</div>
+          <div class="sc-detail">Feature XP attach grows from <strong>18.9% → 50%</strong> of eligible workspaces. Engineering buyers carry larger budgets and use flags as a daily driver — their adoption is the path into the rest of the platform.</div>
+        </div>
+      </div>
+      <div class="success-card">
+        <div class="sc-icon">
+          <svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+        </div>
+        <div>
+          <div class="sc-lead">SR + Zoning own the experience analytics layer; AI Assistant opens a new revenue line</div>
+          <div class="sc-detail">SR grows to <strong>$16.8M+ ARR</strong> with Zoning as a credible Contentsquare displacement story (GA May 19). AI Assistant opens another lane for Amplitude to sell into from day one.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════════
+       SLIDE 4 — EXECUTION PATH
+  ══════════════════════════════════════════════ -->
+  <div class="slide dark" id="s4">
+    <div class="header-band">
+      <span class="section-pill">Execution Path</span>
+      <h2>Three Bets to Get There</h2>
+    </div>
+    <div class="intro">We will focus on three product bets. Everything else compounds them.</div>
+    <div class="bets-list">
+      <div class="exec-bet">
+        <div class="bet-num">1</div>
+        <div class="bet-body">
+          <div class="bet-lead">Win the product engineer (H1+)</div>
+          <ul class="sub-items">
+            <li><strong>Release Validation</strong> — guardrail metrics auto-attached to every flag, with auto-rollback on breach</li>
+            <li><strong>Error Monitoring with User Impact</strong> — production health ranked by users affected, not raw error count</li>
+            <li><strong>User-Level Debugging</strong> — behavioral events, session replay, and errors in a single timeline</li>
+          </ul>
+        </div>
+      </div>
+      <div class="exec-bet">
+        <div class="bet-num">2</div>
+        <div class="bet-body">
+          <div class="bet-lead">Activate the Contentsquare displacement play with SR + Zoning (GA May 19)</div>
+        </div>
+      </div>
+      <div class="exec-bet">
+        <div class="bet-num">3</div>
+        <div class="bet-body">
+          <div class="bet-lead">Launch AI Assistant (GA April 7)</div>
+        </div>
+      </div>
+    </div>
+    <div class="coda-bar"><strong>Everything else compounds the bets.</strong> Web Experiment and Guides &amp; Surveys are executing well. Orchestration (Q3) becomes the connective tissue that makes the everyone-else loop code-free. We'll reassess AI Feedback traction in Q2.</div>
+  </div>
+
+  <!-- ══════════════════════════════════════════════
+       SLIDE 5 — ENGINEER OPPORTUNITY
+  ══════════════════════════════════════════════ -->
+  <div class="slide dark" id="s5">
+    <div class="header-band">
+      <span class="section-pill">Product Engineer Bet</span>
+      <h2>Winning the Product Engineer</h2>
+      <span class="urgency">H1 2026 · Critical Window</span>
+    </div>
+    <div class="ctx-grid">
+      <div class="ctx-card">
+        <div class="ctx-label">The Target</div>
+        <div class="ctx-title">The product engineer — not DevOps, not the SRE</div>
+        <div class="ctx-body">The person who owns a feature end-to-end: spec → flag → experiment → outcome. Their primary output <em>is the code</em>. They evaluate tools on SDK quality, time-to-first-flag, stats rigor, and whether results are interpretable without a data scientist.</div>
+      </div>
+      <div class="ctx-card">
+        <div class="ctx-label">The Wedge</div>
+        <div class="ctx-title">Feature Flags is the entry product. Analytics is the unfair advantage.</div>
+        <div class="ctx-body">An engineer installs the SDK to control a rollout — no analytics relationship required, no sales conversation. From there, Feature Experiment follows naturally: <em>"want to measure this?"</em> No separate measurement system needed because Amplitude is already there.</div>
+      </div>
+      <div class="ctx-card">
+        <div class="ctx-label">The Timing</div>
+        <div class="ctx-title">A strategic shift is putting engineers in active re-evaluation — right now.</div>
+        <div class="ctx-body">Recent consolidation among the leading independent flag and experimentation platforms has created a meaningful evaluation window. The specifics aren't public, but the opportunity is real and time-bound. <em>Engineering teams that sign in H1 2026 lock in for 2–3 years.</em></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════════
+       SLIDE 6 — THREE BETS (ENGINEER)
+  ══════════════════════════════════════════════ -->
+  <div class="slide dark" id="s6">
+    <div class="header-band">
+      <span class="section-pill">Product Engineer Bet</span>
+      <h2>Three Bets to Win the Product Engineer</h2>
+    </div>
+    <div class="bets-grid">
+      <div class="eng-bet-card">
+        <div class="ebc-head">
+          <div class="ebc-icon">
+            <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </div>
+          <div class="ebc-name">Release Validation</div>
+        </div>
+        <ul class="ebc-bullets">
+          <li><strong>Guardrail metrics auto-attached to every flag</strong> — define KPIs once, they apply to every rollout with experimentation-grade stats.</li>
+          <li><strong>Auto-rollback on guardrail breach</strong> — flag causes a regression, Amplitude disables it and alerts via Slack or PagerDuty automatically.</li>
+          <li><strong>Flag → Experiment promotion</strong> — one click turns a percentage rollout into a measured A/B test.</li>
+        </ul>
+      </div>
+      <div class="eng-bet-card">
+        <div class="ebc-head">
+          <div class="ebc-icon">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+          </div>
+          <div class="ebc-name">Error Monitoring with User Impact</div>
+        </div>
+        <ul class="ebc-bullets">
+          <li><strong>Production health ranked by user impact</strong> — an exception affecting 3,000 checkout users ranks above one firing 10,000 times but hitting 12.</li>
+          <li>Sentry fires on every exception. <strong>Amplitude shows which ones actually matter</strong> — because only Amplitude has the behavioral layer.</li>
+          <li><strong>AI-named, severity-scored issues</strong> with reproducible steps and one-click session replay.</li>
+        </ul>
+      </div>
+      <div class="eng-bet-card">
+        <div class="ebc-head">
+          <div class="ebc-icon">
+            <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          </div>
+          <div class="ebc-name">User-Level Debugging</div>
+        </div>
+        <ul class="ebc-bullets">
+          <li><strong>Single timeline</strong> — behavioral events, session replay, and error signals in one view. No manual stitching across Datadog, Sentry, and your flag tool.</li>
+          <li><strong>Error-focused filtering</strong> and click-to-replay at any moment in the timeline.</li>
+          <li><strong>Natural language search</strong> — "show me the moment the user hit a 500 error on checkout" — no event scanning required.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════════
+       SLIDE 7 — TEAM CHARTER
+  ══════════════════════════════════════════════ -->
+  <div class="slide dark" id="s7">
+    <div class="header-band">
+      <span class="section-pill">Team Charter</span>
+      <h2>Product Organization &amp; Scope</h2>
+      <span class="sub">— Two personas built on a shared foundation</span>
+    </div>
+    <div class="diagram">
+      <div class="persona-row">
+        <div class="persona-card eng">
+          <div class="pc-header">
+            <div class="pc-icon">
+              <svg viewBox="0 0 24 24"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+            </div>
+            <div>
+              <div class="pc-name">Product Engineer</div>
+              <div class="pc-desc">Ships code · Safe releases · Debugs production</div>
+            </div>
+          </div>
+          <div class="pc-chips">
+            <div class="chip eng"><span class="chip-dot" style="background:var(--orange)"></span>Feature Experiment<span class="arr">$33.8M</span></div>
+            <div class="chip eng"><span class="chip-dot" style="background:var(--orange)"></span>Feature Flag</div>
+            <div class="chip eng"><span class="chip-dot" style="background:var(--orange)"></span>Error Monitoring</div>
+            <div class="chip eng"><span class="chip-dot" style="background:var(--orange)"></span>User Debugging</div>
+          </div>
+        </div>
+        <div class="persona-card eve">
+          <div class="pc-header">
+            <div class="pc-icon">
+              <svg viewBox="0 0 24 24"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/><line x1="2" y1="20" x2="22" y2="20"/></svg>
+            </div>
+            <div>
+              <div class="pc-name">PM · Marketer · Growth</div>
+              <div class="pc-desc">Insight speed · No-code leverage · Act without a ticket</div>
+            </div>
+          </div>
+          <div class="pc-chips">
+            <div class="chip eve"><span class="chip-dot" style="background:var(--violet2)"></span>Zoning<span class="arr">$9.6M w/ SR</span></div>
+            <div class="chip eve"><span class="chip-dot" style="background:var(--violet2)"></span>Guides &amp; Surveys<span class="arr">$12.8M</span></div>
+            <div class="chip eve"><span class="chip-dot" style="background:var(--violet2)"></span>Web Experiment<span class="arr">$5M</span></div>
+            <div class="chip eve"><span class="chip-dot" style="background:var(--violet2)"></span>Orchestration</div>
+            <div class="chip eve"><span class="chip-dot" style="background:var(--violet2)"></span>Activation</div>
+            <div class="chip eve"><span class="chip-dot" style="background:var(--violet2)"></span>AI Assistant</div>
+          </div>
+        </div>
+      </div>
+      <div class="bridge">
+        <div class="bridge-half bh-eng"></div>
+        <div class="bridge-half bh-eve"></div>
+      </div>
+      <div class="foundation">
+        <div class="fnd-header">
+          <span class="fnd-label">Shared Foundation</span>
+          <span class="fnd-tag">Supports both personas</span>
+        </div>
+        <div class="fnd-chips">
+          <div class="chip fnd"><span class="chip-dot" style="background:#A78BFA"></span>Session Replay<span class="arr">$9.6M</span></div>
+          <div class="chip fnd"><span class="chip-dot" style="background:#34D399"></span>AI Feedback<span class="arr">4% conn. rate</span></div>
+          <div class="chip fnd"><span class="chip-dot" style="background:#60A5FA"></span>Amplitude SDK &amp; Data Layer</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div><!-- /deck -->
+
+<!-- ── RIGHT-SIDE NAV ── -->
+<nav id="nav">
+  <button class="nav-btn" id="prev" aria-label="Previous">
+    <svg viewBox="0 0 24 24"><polyline points="18 15 12 9 6 15"/></svg>
+  </button>
+  <div class="dots" id="dots"></div>
+  <button class="nav-btn" id="next" aria-label="Next">
+    <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+  </button>
+</nav>
+
+<div class="slide-counter" id="counter"></div>
+
+<!-- ── FIXED BOTTOM FOOTER ── -->
+<div class="deck-footer">
+  <span>Confidential</span>
+  <span class="sep">·</span>
+  <span>Amplitude Inc.</span>
+  <span class="sep">·</span>
+  <span>March 2026</span>
+  <span class="key-hint">↑ ↓ to navigate</span>
+</div>
+
+<script>
+  (function() {
+    const slides = Array.from(document.querySelectorAll('.slide'));
+    const dotsEl = document.getElementById('dots');
+    const counter = document.getElementById('counter');
+    const total = slides.length;
+    let cur = 0;
+
+    slides.forEach(function(_, i) {
+      const d = document.createElement('div');
+      d.className = 'dot' + (i === 0 ? ' active' : '');
+      d.addEventListener('click', function() { go(i); });
+      dotsEl.appendChild(d);
+    });
+
+    function go(idx) {
+      slides[cur].classList.remove('active');
+      dotsEl.children[cur].classList.remove('active');
+      cur = (idx + total) % total;
+      slides[cur].classList.add('active');
+      dotsEl.children[cur].classList.add('active');
+      counter.textContent = (cur + 1) + ' / ' + total;
+    }
+
+    document.getElementById('prev').addEventListener('click', function() { go(cur - 1); });
+    document.getElementById('next').addEventListener('click', function() { go(cur + 1); });
+
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'ArrowRight' || e.key === 'ArrowDown') go(cur + 1);
+      if (e.key === 'ArrowLeft'  || e.key === 'ArrowUp')   go(cur - 1);
+    });
+
+    let tx = 0;
+    document.addEventListener('touchstart', function(e) { tx = e.touches[0].clientX; }, { passive: true });
+    document.addEventListener('touchend', function(e) {
+      const dx = e.changedTouches[0].clientX - tx;
+      if (Math.abs(dx) > 40) dx < 0 ? go(cur + 1) : go(cur - 1);
+    }, { passive: true });
+
+    document.querySelectorAll('.toc-item[data-goto]').forEach(function(item) {
+      item.addEventListener('click', function() {
+        go(parseInt(this.getAttribute('data-goto'), 10));
+      });
+    });
+
+    counter.textContent = '1 / ' + total;
+  })();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,848 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Engineering Persona Deep Dive</title>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --amp-orange:  #FF6200;
+      --amp-violet:  #6B46FF;
+      --amp-teal:    #00C2A8;
+      --amp-dark:    #13111A;
+      --amp-dark-2:  #1E1B2E;
+      --surface:     #F4F3FC;
+      --card:        #ffffff;
+      --eng-accent:  #0EA5E9;
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--surface);
+      color: #111827;
+      line-height: 1.6;
+    }
+
+    /* ── Hero ── */
+    .hero {
+      background: var(--amp-dark);
+      color: #fff;
+      padding: 100px 80px 80px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -180px; right: -120px;
+      width: 600px; height: 600px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(14,165,233,0.18) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .hero::after {
+      content: '';
+      position: absolute;
+      bottom: -200px; left: -80px;
+      width: 500px; height: 500px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(107,70,255,0.10) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .hero-inner {
+      max-width: 960px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-eyebrow {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--eng-accent);
+      margin-bottom: 24px;
+    }
+
+    .hero h1 {
+      font-size: 48px;
+      font-weight: 800;
+      line-height: 1.1;
+      letter-spacing: -0.025em;
+      margin-bottom: 24px;
+    }
+
+    .hero h1 span { color: var(--eng-accent); }
+
+    .hero .subtitle {
+      font-size: 18px;
+      color: #94A3B8;
+      line-height: 1.7;
+      max-width: 640px;
+    }
+
+    /* ── Content ── */
+    .content {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 64px 40px 80px;
+    }
+
+    .section { margin-bottom: 64px; }
+
+    .section-label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--eng-accent);
+      margin-bottom: 14px;
+    }
+
+    .section h2 {
+      font-size: 30px;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      line-height: 1.2;
+      margin-bottom: 20px;
+      color: var(--amp-dark);
+    }
+
+    .section p {
+      font-size: 15px;
+      color: #374151;
+      line-height: 1.75;
+      margin-bottom: 16px;
+    }
+
+    .section p strong { color: var(--amp-dark); font-weight: 600; }
+
+    /* ── Pull quote ── */
+    .pullquote {
+      border-left: 3px solid var(--eng-accent);
+      padding: 20px 28px;
+      margin: 32px 0;
+      background: rgba(14,165,233,0.04);
+      border-radius: 0 10px 10px 0;
+    }
+
+    .pullquote p {
+      font-size: 16px;
+      font-weight: 500;
+      color: var(--amp-dark);
+      line-height: 1.65;
+      margin: 0;
+      font-style: italic;
+    }
+
+    .pullquote .attr {
+      font-size: 12px;
+      font-style: normal;
+      color: #6B7280;
+      margin-top: 10px;
+      font-weight: 500;
+    }
+
+    /* ── Frame box ── */
+    .frame-box {
+      background: var(--card);
+      border: 2px solid var(--eng-accent);
+      border-radius: 12px;
+      padding: 32px;
+      margin: 32px 0;
+    }
+
+    .frame-box h3 {
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--amp-dark);
+      margin-bottom: 12px;
+    }
+
+    .frame-box p {
+      font-size: 14px;
+      color: #374151;
+      line-height: 1.7;
+      margin-bottom: 12px;
+    }
+
+    .frame-box p:last-child { margin-bottom: 0; }
+
+    /* ── Archetype cards ── */
+    .eng-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 16px;
+      margin: 32px 0;
+    }
+
+    .eng-card {
+      background: var(--card);
+      border-radius: 12px;
+      padding: 28px;
+      border: 1px solid #E5E7EB;
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 20px;
+      transition: box-shadow 0.2s, transform 0.15s;
+    }
+
+    .eng-card:hover {
+      box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+      transform: translateY(-1px);
+    }
+
+    .eng-card.primary {
+      border: 2px solid var(--eng-accent);
+      background: linear-gradient(135deg, rgba(14,165,233,0.03) 0%, rgba(255,255,255,1) 100%);
+    }
+
+    .eng-card .card-num {
+      width: 40px;
+      height: 40px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+      font-weight: 800;
+      flex-shrink: 0;
+    }
+
+    .eng-card h3 {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--amp-dark);
+      margin-bottom: 4px;
+    }
+
+    .eng-card .card-tagline {
+      font-size: 13px;
+      font-weight: 500;
+      color: #6B7280;
+      font-style: italic;
+      margin-bottom: 10px;
+    }
+
+    .eng-card p {
+      font-size: 13px;
+      color: #4B5563;
+      line-height: 1.7;
+      margin: 0;
+    }
+
+    .eng-card .card-tools {
+      margin-top: 10px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .eng-card .tool-chip {
+      font-size: 10.5px;
+      font-weight: 600;
+      padding: 3px 9px;
+      border-radius: 100px;
+      background: #F1F5F9;
+      color: #475569;
+    }
+
+    /* ── Workflow timeline ── */
+    .timeline {
+      margin: 32px 0;
+      position: relative;
+      padding-left: 32px;
+    }
+
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 11px;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      background: linear-gradient(to bottom, var(--eng-accent), var(--amp-violet));
+      border-radius: 2px;
+    }
+
+    .timeline-item {
+      position: relative;
+      margin-bottom: 28px;
+    }
+
+    .timeline-item:last-child { margin-bottom: 0; }
+
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      left: -25px;
+      top: 6px;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--eng-accent);
+      border: 2px solid var(--surface);
+    }
+
+    .timeline-item .tl-time {
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--eng-accent);
+      letter-spacing: 0.05em;
+      margin-bottom: 4px;
+    }
+
+    .timeline-item .tl-desc {
+      font-size: 13.5px;
+      color: #374151;
+      line-height: 1.65;
+    }
+
+    /* ── Evaluation criteria ── */
+    .eval-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+      margin: 28px 0;
+    }
+
+    .eval-card {
+      background: var(--card);
+      border-radius: 10px;
+      padding: 22px;
+      border: 1px solid #E5E7EB;
+    }
+
+    .eval-card .eval-weight {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+
+    .eval-card h4 {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--amp-dark);
+      margin-bottom: 8px;
+    }
+
+    .eval-card p {
+      font-size: 12.5px;
+      color: #4B5563;
+      line-height: 1.6;
+      margin: 0;
+    }
+
+    /* ── Statsig void ── */
+    .void-banner {
+      background: linear-gradient(135deg, var(--amp-dark) 0%, #1a1035 100%);
+      border-radius: 14px;
+      padding: 36px;
+      margin: 40px 0;
+      color: #fff;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .void-banner::before {
+      content: '';
+      position: absolute;
+      top: -60px; right: -60px;
+      width: 200px; height: 200px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(255,98,0,0.25) 0%, transparent 70%);
+    }
+
+    .void-banner h3 {
+      font-size: 22px;
+      font-weight: 700;
+      margin-bottom: 16px;
+      position: relative;
+    }
+
+    .void-banner p {
+      font-size: 14px;
+      color: #CBD5E1;
+      line-height: 1.7;
+      margin-bottom: 12px;
+      position: relative;
+    }
+
+    .void-banner .void-stats {
+      display: flex;
+      gap: 32px;
+      margin-top: 20px;
+      position: relative;
+    }
+
+    .void-banner .vs {
+      text-align: center;
+    }
+
+    .void-banner .vs .vs-val {
+      font-size: 28px;
+      font-weight: 800;
+      color: var(--amp-orange);
+    }
+
+    .void-banner .vs .vs-label {
+      font-size: 11px;
+      color: #94A3B8;
+      margin-top: 4px;
+    }
+
+    /* ── AI engineer ── */
+    .ai-needs {
+      list-style: none;
+      margin: 24px 0;
+    }
+
+    .ai-needs li {
+      padding: 16px 0;
+      border-bottom: 1px solid #E5E7EB;
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+    }
+
+    .ai-needs li:last-child { border-bottom: none; }
+
+    .ai-needs .ai-icon {
+      width: 28px;
+      height: 28px;
+      border-radius: 7px;
+      background: var(--amp-dark);
+      color: var(--eng-accent);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 13px;
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+
+    .ai-needs .ai-title {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--amp-dark);
+      margin-bottom: 3px;
+    }
+
+    .ai-needs .ai-desc {
+      font-size: 13px;
+      color: #4B5563;
+      line-height: 1.6;
+    }
+
+    /* ── Footer ── */
+    footer {
+      text-align: center;
+      padding: 28px;
+      font-size: 11.5px;
+      color: #475569;
+      border-top: 1px solid rgba(255,255,255,0.06);
+      background: var(--amp-dark);
+    }
+
+    @media (max-width: 768px) {
+      .hero { padding: 60px 24px 50px; }
+      .hero h1 { font-size: 32px; }
+      .content { padding: 40px 20px 60px; }
+      .eval-grid { grid-template-columns: 1fr; }
+      .eng-card { grid-template-columns: 1fr; }
+      .void-banner .void-stats { flex-direction: column; gap: 16px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ═══════════ HERO ═══════════ -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-eyebrow">New Products &nbsp;·&nbsp; Persona Deep Dive</div>
+    <h1>The <span>Engineering</span> Builder</h1>
+    <p class="subtitle">
+      Everyone ships now — but the engineer ships for a living.
+      This is the deep dive on who they are, what they need, and why winning them is the single most important motion for Amplitude's New Products in 2026.
+    </p>
+  </div>
+</section>
+
+<!-- ═══════════ CONTENT ═══════════ -->
+<div class="content">
+
+  <!-- The Frame -->
+  <div class="section">
+    <div class="section-label">The Key Distinction</div>
+    <h2>Shipping Is the Job, Not Part of the Job</h2>
+
+    <div class="frame-box">
+      <h3>The frame that defines the entire engineering persona strategy</h3>
+      <p>
+        For the engineer, <strong>shipping code is the job</strong>. For everyone else, shipping code is increasingly part of the job — but not the whole job.
+      </p>
+      <p>
+        A PM who codes is still a PM. Their primary output is a spec, a decision, a strategy. Code is a means.
+        A marketer who runs an A/B test is still a marketer. Their primary output is a campaign.
+        The engineer's primary output <strong>is the code</strong>. Reliability, velocity, and correctness are the measurement.
+      </p>
+      <p>
+        When a PM uses feature flags, they want a dashboard that tells them the feature is working.
+        When an engineer uses feature flags, they want an SDK that doesn't add latency, a reliable evaluation engine, an API they can script, and a rollback that takes 10 seconds. These are different products served by the same underlying infrastructure.
+      </p>
+    </div>
+  </div>
+
+  <!-- Who is the engineer -->
+  <div class="section">
+    <div class="section-label">The Target</div>
+    <h2>Who Is the Engineer? The Product Engineer.</h2>
+    <p>
+      The persona this strategy is built around is the <strong>product engineer</strong> — not the DevOps engineer, not the SRE, not the backend platform engineer.
+      The product engineer owns a feature end-to-end: they write the feature, ship it behind a flag, run the experiment, and care whether users liked it.
+    </p>
+    <p>
+      They are the <strong>most tool-opinionated persona</strong> in any company. They choose their own stack, advocate for it internally, and resist tools that feel like they were designed by people who don't code.
+      They are the <strong>fastest-growing budget owner in tech</strong>. As AI increases code throughput, the volume of flags, experiments, and releases is accelerating — and product engineers own all of it.
+    </p>
+  </div>
+
+  <!-- 5 Archetypes -->
+  <div class="section">
+    <div class="section-label">The Five Archetypes</div>
+    <h2>Engineering Is Not One Persona — It's Five</h2>
+    <p>
+      Of the five archetypes below, the <strong>Product Engineer is the primary target</strong>.
+      Every product decision, SDK investment, and GTM motion should be optimized for the product engineer first.
+    </p>
+
+    <div class="eng-grid">
+      <div class="eng-card primary">
+        <div class="card-num" style="background: rgba(14,165,233,0.12); color: var(--eng-accent);">★</div>
+        <div>
+          <h3>The Product Engineer</h3>
+          <div class="card-tagline">"I own the feature end-to-end — from spec to flag to experiment."</div>
+          <p>
+            Works closely with PMs and designers but writes all the code. Uses feature flags to decouple deployment from release.
+            Runs A/B tests on their own features, often without a data scientist. Measures their own success: did the feature ship, did users engage, did the business metric move?
+            Biggest frustration: having to use 3 separate tools for flagging, experimenting, and debugging — none of which talk to each other.
+          </p>
+          <div class="card-tools">
+            <span class="tool-chip">LaunchDarkly</span>
+            <span class="tool-chip">Statsig</span>
+            <span class="tool-chip">Mixpanel / Amplitude</span>
+            <span class="tool-chip">Sentry</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="eng-card">
+        <div class="card-num" style="background: #F1F5F9; color: #475569;">2</div>
+        <div>
+          <h3>The Platform / DevOps Engineer</h3>
+          <div class="card-tagline">"I build the infra other engineers ship on."</div>
+          <p>
+            Owns CI/CD pipelines, deployment tooling, and the observability stack. Cares about flag evaluation latency, SDK reliability, and incident response. Makes or heavily influences tooling decisions across the engineering org.
+            Hardest to win from Datadog. Best path is complementary, not replacement.
+          </p>
+          <div class="card-tools">
+            <span class="tool-chip">Datadog</span>
+            <span class="tool-chip">PagerDuty</span>
+            <span class="tool-chip">GitHub Actions</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="eng-card">
+        <div class="card-num" style="background: #F1F5F9; color: #475569;">3</div>
+        <div>
+          <h3>The Growth Engineer</h3>
+          <div class="card-tagline">"I build the systems that run experiments at scale."</div>
+          <p>
+            Sits at the intersection of engineering and growth. Writes the experimentation infrastructure non-technical teams run tests on.
+            Cares deeply about stats rigor, sample ratio mismatch detection, and throughput. Biggest frustration: experimentation platforms built for PMs, not engineers.
+            <strong>This archetype is in active evaluation mode right now — Statsig displacement.</strong>
+          </p>
+          <div class="card-tools">
+            <span class="tool-chip">Statsig (was gold standard)</span>
+            <span class="tool-chip">Optimizely</span>
+            <span class="tool-chip">Home-built</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="eng-card">
+        <div class="card-num" style="background: #F1F5F9; color: #475569;">4</div>
+        <div>
+          <h3>The Mobile Engineer</h3>
+          <div class="card-tagline">"My release cycle is 2 weeks, not 2 hours."</div>
+          <p>
+            Cannot hot-fix bugs in production — every mistake means a week-long wait for App Store review.
+            Uses feature flags as a production safety valve. Cares about offline mode, low-latency flag evaluation, and native SDK support.
+            Modern SDK investment (Flutter, Jetpack Compose) directly addresses this persona.
+          </p>
+          <div class="card-tools">
+            <span class="tool-chip">LaunchDarkly</span>
+            <span class="tool-chip">Statsig</span>
+            <span class="tool-chip">React Native</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="eng-card">
+        <div class="card-num" style="background: #F1F5F9; color: #475569;">5</div>
+        <div>
+          <h3>The AI/ML Engineer</h3>
+          <div class="card-tagline">"I'm shipping models, prompts, and configs — not just feature flags."</div>
+          <p>
+            New archetype, growing fast as every product team ships AI features. Uses feature flags to control model versions, prompt templates, and inference configs.
+            Needs A/B testing that works for non-binary outcomes (latency, cost, quality scores).
+            <strong>Possibly the highest-growth segment — and a greenfield opportunity. No existing tool owns it.</strong>
+          </p>
+          <div class="card-tools">
+            <span class="tool-chip">LaunchDarkly AI Configs</span>
+            <span class="tool-chip">Statsig</span>
+            <span class="tool-chip">MLflow</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Daily Workflow -->
+  <div class="section">
+    <div class="section-label">Daily Workflow</div>
+    <h2>A Day in the Life of the Product Engineer</h2>
+    <p>
+      Understanding what the engineer <em>actually does</em> every day is the key to winning them.
+      They don't start their day in a dashboard. They start it in their IDE.
+    </p>
+
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="tl-time">8:30 AM</div>
+        <div class="tl-desc">Open VS Code. Pull latest. Check GitHub notifications.</div>
+      </div>
+      <div class="timeline-item">
+        <div class="tl-time">9:00 AM</div>
+        <div class="tl-desc">PR review. See a flagged comment about a performance regression in prod.</div>
+      </div>
+      <div class="timeline-item">
+        <div class="tl-time">9:15 AM</div>
+        <div class="tl-desc">Open Datadog or Sentry. Find the trace. Correlate with the deploy from yesterday.</div>
+      </div>
+      <div class="timeline-item">
+        <div class="tl-time">9:30 AM</div>
+        <div class="tl-desc">Suspect it's tied to a feature flag rolled out to 10% last week. Check LaunchDarkly. <strong>No direct correlation view.</strong> Manual cross-reference.</div>
+      </div>
+      <div class="timeline-item">
+        <div class="tl-time">10:00 AM</div>
+        <div class="tl-desc">Write the flag rollback. Deploy. Incident resolved.</div>
+      </div>
+      <div class="timeline-item">
+        <div class="tl-time">10:30 AM</div>
+        <div class="tl-desc">Sprint planning. PM wants an experiment on the new onboarding flow. Open Statsig. Configure. Write the SDK call. Ship behind the flag.</div>
+      </div>
+      <div class="timeline-item">
+        <div class="tl-time">1:00 PM</div>
+        <div class="tl-desc">SDK integration issue. LaunchDarkly SDK doesn't support the new React 19 hook pattern. Open a support ticket. Wait.</div>
+      </div>
+      <div class="timeline-item">
+        <div class="tl-time">3:00 PM</div>
+        <div class="tl-desc">AI feature ship. Need to test two prompt configs. Experimentation tool doesn't support non-binary outcomes. <strong>Build custom logging layer.</strong></div>
+      </div>
+      <div class="timeline-item">
+        <div class="tl-time">5:00 PM</div>
+        <div class="tl-desc">Weekly metrics review. Data lives in 3 tools. Manually stitch Datadog (latency) + Sentry (errors) + Statsig (experiments).</div>
+      </div>
+    </div>
+
+    <div class="pullquote">
+      <p>The core pain: the engineer touches 5+ tools in a single day and manually stitches together context that should be automatic.</p>
+    </div>
+  </div>
+
+  <!-- What engineers evaluate -->
+  <div class="section">
+    <div class="section-label">Evaluation Criteria</div>
+    <h2>What Engineers Actually Evaluate Tools On</h2>
+    <p>
+      Not what shows up in a G2 review. What gets said in Slack and engineering all-hands.
+    </p>
+
+    <div class="eval-grid">
+      <div class="eval-card">
+        <div class="eval-weight" style="color: #DC2626;">Weight: Very High</div>
+        <h4>SDK Quality</h4>
+        <p>Does it support my framework? Actively maintained? Adds latency? Can I use it offline/edge? Is the API idiomatic or a Java wrapper?</p>
+      </div>
+      <div class="eval-card">
+        <div class="eval-weight" style="color: var(--amp-orange);">Weight: High</div>
+        <h4>Time to First Flag</h4>
+        <p>How long from <code>npm install</code> to a flag evaluating in production? Is there a CLI wizard or do I have to configure a web UI first?</p>
+      </div>
+      <div class="eval-card">
+        <div class="eval-weight" style="color: var(--amp-orange);">Weight: High</div>
+        <h4>Stats Engine Trust</h4>
+        <p>Auto-detect sample ratio mismatch? Support CUPED / variance reduction? Custom metrics or only pre-built? Peer-reviewed methodology?</p>
+      </div>
+      <div class="eval-card">
+        <div class="eval-weight" style="color: #D97706;">Weight: Medium–High</div>
+        <h4>Observability Integration</h4>
+        <p>Can I see flag state in Datadog / Sentry? Correlate a flag rollout with a latency spike without switching tools? Emit events to my warehouse?</p>
+      </div>
+      <div class="eval-card">
+        <div class="eval-weight" style="color: #6B7280;">Weight: Medium</div>
+        <h4>Pricing Transparency</h4>
+        <p>Can I start free? Per seat, per event, or per MAU? What does the bill look like at 1M MAUs?</p>
+      </div>
+      <div class="eval-card">
+        <div class="eval-weight" style="color: #6B7280;">Weight: Medium</div>
+        <h4>Not Feeling Locked In</h4>
+        <p>Public API for my data? Programmatic export of flags and experiments? Will my data be locked in OpenAI's platform? (the Statsig question)</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Statsig void -->
+  <div class="section">
+    <div class="section-label">Market Opportunity</div>
+    <h2>The Statsig Void</h2>
+
+    <div class="void-banner">
+      <h3>What Engineers Are Feeling Right Now — March 2026</h3>
+      <p>
+        OpenAI acquired Statsig for $1.1B in September 2025. Statsig processed ~80% of its ingest volume from OpenAI's own usage.
+        Its ability to serve external customers is now OpenAI's 1000th priority.
+        Engineers are asking: <strong>"Will my data go to OpenAI? Will pricing change? Will the product be sunset?"</strong>
+      </p>
+      <p>
+        Squarespace's VP of Applied Data raised Statsig as a risk at their February 2026 EBR.
+        Multiple win reports show Statsig customers switching to Amplitude explicitly due to the acquisition.
+      </p>
+
+      <div class="void-stats">
+        <div class="vs">
+          <div class="vs-val">2,000+</div>
+          <div class="vs-label">Statsig WAUs (engineers, not PMs)</div>
+        </div>
+        <div class="vs">
+          <div class="vs-val">50%</div>
+          <div class="vs-label">of Statsig customers on warehouse native</div>
+        </div>
+        <div class="vs">
+          <div class="vs-val">6 mo</div>
+          <div class="vs-label">Window before customers re-sign elsewhere</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="pullquote" style="border-left-color: var(--amp-orange); background: rgba(255,98,0,0.04);">
+      <p>"Statsig was the first tool that felt like it was built by engineers for engineers. Now it's OpenAI's internal tool. I need to find something else."</p>
+      <div class="attr">— Developer forum, October 2025</div>
+    </div>
+  </div>
+
+  <!-- AI engineer -->
+  <div class="section">
+    <div class="section-label">Emerging Segment</div>
+    <h2>The AI Engineer's Emerging Needs</h2>
+    <p>
+      The fastest-growing segment of the engineering persona has needs that almost no tool fully serves today. This is a greenfield opportunity.
+    </p>
+
+    <ul class="ai-needs">
+      <li>
+        <span class="ai-icon">1</span>
+        <div>
+          <div class="ai-title">Prompt Versioning & A/B Testing</div>
+          <div class="ai-desc">Ship prompt A vs. prompt B to 50/50 of users, measure quality score, cost per token, and latency simultaneously.</div>
+        </div>
+      </li>
+      <li>
+        <span class="ai-icon">2</span>
+        <div>
+          <div class="ai-title">Model Config Management</div>
+          <div class="ai-desc">Toggle between GPT-4o and Claude at the flag level without a deploy.</div>
+        </div>
+      </li>
+      <li>
+        <span class="ai-icon">3</span>
+        <div>
+          <div class="ai-title">Agent Behavior Flags</div>
+          <div class="ai-desc">Control which tools an agent can call, what its system prompt is, and at what confidence threshold it escalates to human.</div>
+        </div>
+      </li>
+      <li>
+        <span class="ai-icon">4</span>
+        <div>
+          <div class="ai-title">Non-Binary Experiment Metrics</div>
+          <div class="ai-desc">Traditional A/B tests measure clicks and conversions. AI experiments measure qualitative quality, cost, and latency — requiring different statistical approaches.</div>
+        </div>
+      </li>
+      <li>
+        <span class="ai-icon">5</span>
+        <div>
+          <div class="ai-title">Synthetic User Testing</div>
+          <div class="ai-desc">Run experiments against AI-simulated user personas before rolling out to real traffic. Validate experiment design before a single real user sees it.</div>
+        </div>
+      </li>
+    </ul>
+  </div>
+
+  <!-- Key quotes -->
+  <div class="section">
+    <div class="section-label">Signal from the Field</div>
+    <h2>What Engineers Are Saying</h2>
+
+    <div class="pullquote">
+      <p>"I don't want an analytics tool that happens to have flags. I want a flags tool that happens to have analytics."</p>
+      <div class="attr">— Common sentiment in engineering Slack communities</div>
+    </div>
+
+    <div class="pullquote" style="border-left-color: var(--amp-violet); background: rgba(107,70,255,0.04);">
+      <p>"LaunchDarkly is the gold standard but I can't justify $70K to my CTO for what is essentially a boolean in a database."</p>
+      <div class="attr">— G2 review, 2025</div>
+    </div>
+
+    <div class="pullquote" style="border-left-color: var(--amp-teal); background: rgba(0,194,168,0.04);">
+      <p>"73% of DevEx friction comes from tools not matching how developers actually think and work."</p>
+      <div class="attr">— Multitudes research, 2025</div>
+    </div>
+
+    <div class="pullquote" style="border-left-color: var(--amp-orange); background: rgba(255,98,0,0.04);">
+      <p>"The observability bill is coming due. AI wrote most of the code and nobody knows how to debug it."</p>
+      <div class="attr">— DevOps.com, 2025</div>
+    </div>
+  </div>
+
+  <!-- What the engineer is NOT -->
+  <div class="section">
+    <div class="section-label">Anti-Patterns</div>
+    <h2>What the Engineer Persona Is NOT</h2>
+    <p>To avoid building the wrong things, be clear about boundaries:</p>
+    <p><strong>They are not the DevOps/SRE engineer.</strong> That persona owns pipeline health and incident response. They live in Datadog. The product engineer wants a flag and experiment tool that <em>integrates</em> with Datadog, not one that pretends to be Datadog.</p>
+    <p><strong>They are not PM-adjacent.</strong> They don't want a "no-code experiment builder." They want a great API and good CLI.</p>
+    <p><strong>They are not data scientists.</strong> They don't want to configure Bayesian priors. They want a stats engine that "just works" and tells them when to call.</p>
+    <p><strong>They are not the buyer.</strong> They're the champion and user. The buyer is an Engineering Director or VP Eng. But the champion's recommendation carries enormous weight.</p>
+    <p><strong>They are not loyal to dashboards.</strong> They live in their IDE and terminal. Any tool that requires a web UI for core tasks will lose them.</p>
+  </div>
+
+</div>
+
+<!-- ═══════════ FOOTER ═══════════ -->
+<footer>
+  Confidential &nbsp;·&nbsp; Amplitude Inc. &nbsp;·&nbsp; March 2026
+</footer>
+
+</body>
+</html>

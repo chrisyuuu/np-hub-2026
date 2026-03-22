@@ -1,0 +1,763 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>What is the Product Builder?</title>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --amp-orange:  #FF6200;
+      --amp-violet:  #6B46FF;
+      --amp-teal:    #00C2A8;
+      --amp-dark:    #13111A;
+      --amp-dark-2:  #1E1B2E;
+      --surface:     #F4F3FC;
+      --card:        #ffffff;
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--surface);
+      color: #111827;
+      line-height: 1.6;
+    }
+
+    /* ── Hero ── */
+    .hero {
+      background: var(--amp-dark);
+      color: #fff;
+      padding: 100px 80px 80px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -180px; right: -120px;
+      width: 600px; height: 600px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(255,98,0,0.20) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .hero::after {
+      content: '';
+      position: absolute;
+      bottom: -200px; left: -80px;
+      width: 500px; height: 500px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(107,70,255,0.12) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .hero-inner {
+      max-width: 960px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-eyebrow {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--amp-orange);
+      margin-bottom: 24px;
+    }
+
+    .hero h1 {
+      font-size: 52px;
+      font-weight: 800;
+      line-height: 1.08;
+      letter-spacing: -0.025em;
+      margin-bottom: 24px;
+    }
+
+    .hero h1 span { color: var(--amp-orange); }
+
+    .hero .subtitle {
+      font-size: 18px;
+      color: #94A3B8;
+      line-height: 1.7;
+      max-width: 620px;
+    }
+
+    /* ── Content ── */
+    .content {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 64px 40px 80px;
+    }
+
+    .section {
+      margin-bottom: 64px;
+    }
+
+    .section-label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--amp-orange);
+      margin-bottom: 14px;
+    }
+
+    .section h2 {
+      font-size: 30px;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      line-height: 1.2;
+      margin-bottom: 20px;
+      color: var(--amp-dark);
+    }
+
+    .section p {
+      font-size: 15px;
+      color: #374151;
+      line-height: 1.75;
+      margin-bottom: 16px;
+    }
+
+    .section p strong {
+      color: var(--amp-dark);
+      font-weight: 600;
+    }
+
+    /* ── Pull quote ── */
+    .pullquote {
+      border-left: 3px solid var(--amp-orange);
+      padding: 20px 28px;
+      margin: 32px 0;
+      background: rgba(255,98,0,0.04);
+      border-radius: 0 10px 10px 0;
+    }
+
+    .pullquote p {
+      font-size: 16px;
+      font-weight: 500;
+      color: var(--amp-dark);
+      line-height: 1.65;
+      margin: 0;
+      font-style: italic;
+    }
+
+    .pullquote .attr {
+      font-size: 12px;
+      font-style: normal;
+      color: #6B7280;
+      margin-top: 10px;
+      font-weight: 500;
+    }
+
+    /* ── Archetype cards ── */
+    .archetype-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+      margin: 32px 0;
+    }
+
+    .archetype-card {
+      background: var(--card);
+      border-radius: 12px;
+      padding: 28px;
+      border: 1px solid #E5E7EB;
+      transition: box-shadow 0.2s, transform 0.15s;
+    }
+
+    .archetype-card:hover {
+      box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+      transform: translateY(-2px);
+    }
+
+    .archetype-card .card-badge {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 4px 10px;
+      border-radius: 100px;
+      display: inline-block;
+      margin-bottom: 14px;
+    }
+
+    .archetype-card h3 {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--amp-dark);
+      margin-bottom: 4px;
+    }
+
+    .archetype-card .card-tagline {
+      font-size: 13px;
+      font-weight: 500;
+      color: #6B7280;
+      font-style: italic;
+      margin-bottom: 14px;
+    }
+
+    .archetype-card p {
+      font-size: 13px;
+      color: #4B5563;
+      line-height: 1.7;
+      margin: 0;
+    }
+
+    /* ── Workflow loop ── */
+    .loop-strip {
+      display: flex;
+      gap: 2px;
+      margin: 32px 0;
+      border-radius: 12px;
+      overflow: hidden;
+    }
+
+    .loop-step {
+      flex: 1;
+      padding: 24px 18px;
+      text-align: center;
+      color: #fff;
+    }
+
+    .loop-step .step-label {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      opacity: 0.7;
+      margin-bottom: 8px;
+    }
+
+    .loop-step .step-title {
+      font-size: 16px;
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+
+    .loop-step .step-desc {
+      font-size: 11.5px;
+      opacity: 0.8;
+      line-height: 1.5;
+    }
+
+    /* ── Product map ── */
+    .product-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 28px 0;
+      font-size: 13.5px;
+    }
+
+    .product-table th {
+      text-align: left;
+      padding: 12px 16px;
+      background: var(--amp-dark);
+      color: #fff;
+      font-weight: 600;
+      font-size: 11px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .product-table th:first-child { border-radius: 8px 0 0 0; }
+    .product-table th:last-child { border-radius: 0 8px 0 0; }
+
+    .product-table td {
+      padding: 14px 16px;
+      border-bottom: 1px solid #E5E7EB;
+      vertical-align: top;
+    }
+
+    .product-table tr:last-child td { border-bottom: none; }
+
+    .product-table tr:nth-child(even) td {
+      background: rgba(244,243,252,0.5);
+    }
+
+    .product-table .prod-name {
+      font-weight: 700;
+      color: var(--amp-dark);
+    }
+
+    /* ── Stat banner ── */
+    .stat-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      margin: 40px 0;
+    }
+
+    .stat-card {
+      background: var(--card);
+      border-radius: 12px;
+      padding: 28px;
+      text-align: center;
+      border: 1px solid #E5E7EB;
+    }
+
+    .stat-card .stat-value {
+      font-size: 36px;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      line-height: 1;
+      margin-bottom: 8px;
+    }
+
+    .stat-card .stat-label {
+      font-size: 12px;
+      color: #6B7280;
+      font-weight: 500;
+    }
+
+    /* ── Needs list ── */
+    .needs-list {
+      list-style: none;
+      margin: 24px 0;
+    }
+
+    .needs-list li {
+      padding: 18px 0;
+      border-bottom: 1px solid #E5E7EB;
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+    }
+
+    .needs-list li:last-child { border-bottom: none; }
+
+    .needs-list .need-num {
+      width: 32px;
+      height: 32px;
+      border-radius: 8px;
+      background: var(--amp-dark);
+      color: var(--amp-orange);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 13px;
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+
+    .needs-list .need-title {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--amp-dark);
+      margin-bottom: 4px;
+    }
+
+    .needs-list .need-desc {
+      font-size: 13px;
+      color: #4B5563;
+      line-height: 1.65;
+    }
+
+    /* ── Footer ── */
+    footer {
+      text-align: center;
+      padding: 28px;
+      font-size: 11.5px;
+      color: #475569;
+      border-top: 1px solid rgba(255,255,255,0.06);
+      background: var(--amp-dark);
+    }
+
+    @media (max-width: 768px) {
+      .hero { padding: 60px 24px 50px; }
+      .hero h1 { font-size: 32px; }
+      .content { padding: 40px 20px 60px; }
+      .archetype-grid { grid-template-columns: 1fr; }
+      .loop-strip { flex-direction: column; }
+      .stat-row { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ═══════════ HERO ═══════════ -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-eyebrow">New Products &nbsp;·&nbsp; Builder Persona</div>
+    <h1>What is the Product <span>Builder?</span></h1>
+    <p class="subtitle">
+      The software development lifecycle is being fundamentally restructured.
+      AI agents are collapsing the walls between roles.
+      A new organizational unit of one is emerging — and it changes everything about how tools get built, bought, and used.
+    </p>
+  </div>
+</section>
+
+<!-- ═══════════ CONTENT ═══════════ -->
+<div class="content">
+
+  <!-- Thesis -->
+  <div class="section">
+    <div class="section-label">The Core Thesis</div>
+    <h2>Everyone Ships Now</h2>
+    <p>
+      PMs are shipping code. Marketers are running experiments. Designers are prototyping working software.
+      At Ramp, <strong>57% of PRs ship via coding agents</strong>. At Stripe, agents merge thousands of PRs.
+      At Coinbase, PMs build their own coding agent harnesses to manage multiple workstreams.
+    </p>
+    <p>
+      The job title of "software engineer" is starting to go away — replaced by <strong>Builder</strong>.
+      A builder is anyone who has collapsed the traditional EPD handoff into a single continuous loop they can run themselves.
+      They have <strong>taste</strong> (can identify what's worth building), <strong>context</strong> (enough technical understanding to execute or direct an agent),
+      and <strong>agency</strong> (organizational permission and personal drive to ship without waiting).
+    </p>
+
+    <div class="pullquote">
+      <p>"By end of year, everyone's gonna be a product manager and everyone codes. The title software engineer is gonna start to go away; it's just gonna be replaced by builder."</p>
+      <div class="attr">— Boris Cherny, Head of Claude Code, on Lenny's Podcast</div>
+    </div>
+
+    <p>
+      The builder is most accurately described as someone who has internalized the full product development loop:
+      <strong>discover → decide → build → measure → improve</strong>.
+      Previously, that loop required four or five people with four or five different tools. Now it requires one person and a good set of agents.
+    </p>
+  </div>
+
+  <!-- Stats -->
+  <div class="stat-row">
+    <div class="stat-card">
+      <div class="stat-value" style="color: var(--amp-orange);">100×</div>
+      <div class="stat-label">AI-native API usage growth since Oct 2025</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-value" style="color: var(--amp-violet);">57%</div>
+      <div class="stat-label">of Ramp's PRs shipped via coding agents</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-value" style="color: var(--amp-teal);">6</div>
+      <div class="stat-label">distinct builder archetypes identified</div>
+    </div>
+  </div>
+
+  <!-- Six archetypes -->
+  <div class="section">
+    <div class="section-label">The Archetypes</div>
+    <h2>The Builder Is Not One Person — It's Six</h2>
+    <p>
+      The builder persona spans at least six distinct archetypes, each with different tools, workflows, and needs.
+      Treating them as one person will produce mediocre product decisions.
+    </p>
+
+    <div class="archetype-grid">
+      <div class="archetype-card">
+        <span class="card-badge" style="background: #FFF4EE; color: #C74A00;">Engineering</span>
+        <h3>The Engineering Builder</h3>
+        <div class="card-tagline">"I write code. I also own the outcome."</div>
+        <p>
+          Reviews agent-generated PRs in the morning, directs agents on new features by midday, writes complex logic themselves when the agent isn't good enough.
+          Their job isn't coding — it's taste, architecture, and signal.
+          <strong>Needs:</strong> Low-friction SDK, CLI-first flag management, session replay for debugging, experiment results in their code review flow.
+        </p>
+      </div>
+
+      <div class="archetype-card">
+        <span class="card-badge" style="background: #EDEBFF; color: #3B28CC;">Product</span>
+        <h3>The Product Builder</h3>
+        <div class="card-tagline">"I used to write specs. Now I ship features."</div>
+        <p>
+          A PM with Cursor can ship a feature. The spec IS the prompt. The acceptance criteria IS the experiment.
+          The product builder has collapsed two to three handoff points and runs at 2–3× the throughput of a traditional PM.
+          <strong>Needs:</strong> AI-powered experiment setup, no-code guides, session replay for stakeholder demos.
+        </p>
+      </div>
+
+      <div class="archetype-card">
+        <span class="card-badge" style="background: #E6FAF8; color: #007A6A;">Growth</span>
+        <h3>The Growth Builder</h3>
+        <div class="card-tagline">"I run experiments like a scientist and ship landing pages like a developer."</div>
+        <p>
+          Uses tools like Lovable, Replit, and v0 to spin up new experiences. Runs dozens of LP tests simultaneously with agent direction.
+          Thinks in conversion rates, activation funnels, and experiment velocity.
+          <strong>Needs:</strong> Near-zero-code web experiments, guides for in-product context, AI feedback for the qualitative "why."
+        </p>
+      </div>
+
+      <div class="archetype-card">
+        <span class="card-badge" style="background: #FFF1F2; color: #BE123C;">Marketing</span>
+        <h3>The Marketing Builder</h3>
+        <div class="card-tagline">"I used to write copy. Now I'm deploying to prod."</div>
+        <p>
+          The most surprising archetype. Uses Claude Code for automations, Lovable for microsites, AI agents for campaign pipelines.
+          Their superpower is storytelling combined with speed.
+          <strong>Needs:</strong> Marketer-friendly web experiments (no SDK required), retention campaigns via guides, a dashboard they can interpret without an analyst.
+        </p>
+      </div>
+
+      <div class="archetype-card">
+        <span class="card-badge" style="background: #EFF6FF; color: #1D4ED8;">Design</span>
+        <h3>The Design Builder</h3>
+        <div class="card-tagline">"I used to hand off Figma files. Now I ship prototypes that work."</div>
+        <p>
+          Designers with v0 or Lovable can build working prototypes by lunch. They care intensely about what users see and feel, and advocate for better UX observability.
+          <strong>Needs:</strong> Session replay with heatmaps and zone analysis, AI feedback for qualitative sentiment, guides for in-product validation.
+        </p>
+      </div>
+
+      <div class="archetype-card">
+        <span class="card-badge" style="background: #FEFCE8; color: #A16207;">Data</span>
+        <h3>The Data Builder</h3>
+        <div class="card-tagline">"I used to make charts. Now I make features that respond to data."</div>
+        <p>
+          An analyst or data scientist who has crossed the line into execution. They build data products, self-improving features, and agent-driven feedback loops.
+          <strong>Needs:</strong> Programmatic API/MCP access for agents, feature flags for data-driven rollouts, experiment analysis that integrates with notebooks.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- The Loop -->
+  <div class="section">
+    <div class="section-label">The Workflow</div>
+    <h2>The Builder's Loop — Not a Handoff Chain</h2>
+    <p>
+      The key insight: <strong>the builder's workflow is a loop, not a handoff chain.</strong> Traditional enterprise software was built for handoffs.
+      The builder needs tools built for loops. Their day is a continuous cycle of signal intake, decision-making, shipping, and measurement.
+    </p>
+
+    <div class="loop-strip">
+      <div class="loop-step" style="background: #C74A00;">
+        <div class="step-label">Phase 1</div>
+        <div class="step-title">Sense</div>
+        <div class="step-desc">What's different today? What's broken? What's working?</div>
+      </div>
+      <div class="loop-step" style="background: var(--amp-violet);">
+        <div class="step-label">Phase 2</div>
+        <div class="step-title">Decide</div>
+        <div class="step-desc">Direct agents on 2–3 tasks based on signal</div>
+      </div>
+      <div class="loop-step" style="background: #0D9488;">
+        <div class="step-label">Phase 3</div>
+        <div class="step-title">Build</div>
+        <div class="step-desc">Ship a flag change, guide, experiment, or fix</div>
+      </div>
+      <div class="loop-step" style="background: #1D4ED8;">
+        <div class="step-label">Phase 4</div>
+        <div class="step-title">Measure</div>
+        <div class="step-desc">Instrument it. Track the result. Watch sessions.</div>
+      </div>
+      <div class="loop-step" style="background: var(--amp-dark-2);">
+        <div class="step-label">Phase 5</div>
+        <div class="step-title">Improve</div>
+        <div class="step-desc">Did it work? What should the agent do tomorrow?</div>
+      </div>
+    </div>
+
+    <p>
+      Every product Amplitude builds maps to one or more phases of this loop. The vision is not seven separate products — it's a connected
+      platform where signal flows naturally from sensing to acting to learning.
+    </p>
+  </div>
+
+  <!-- Product map -->
+  <div class="section">
+    <div class="section-label">Product Mapping</div>
+    <h2>How Each Product Serves the Builder</h2>
+    <p>
+      Every product in scope maps to one or more phases of the builder's loop. The vision: a builder can move through their entire loop — from spotting an opportunity to shipping a fix to validating the result — without leaving the Amplitude platform.
+    </p>
+
+    <table class="product-table">
+      <thead>
+        <tr>
+          <th>Product</th>
+          <th>Phase</th>
+          <th>Builder Value</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="prod-name">AI Feedback</td>
+          <td>Sense</td>
+          <td>"What are users saying?"</td>
+        </tr>
+        <tr>
+          <td class="prod-name">Session Replay</td>
+          <td>Sense + Measure</td>
+          <td>"What are users actually doing?"</td>
+        </tr>
+        <tr>
+          <td class="prod-name">Feature Experiment</td>
+          <td>Build + Measure</td>
+          <td>"How do I safely ship and validate?"</td>
+        </tr>
+        <tr>
+          <td class="prod-name">Web Experiment</td>
+          <td>Build + Measure</td>
+          <td>"How do I optimize without touching code?"</td>
+        </tr>
+        <tr>
+          <td class="prod-name">Guides & Surveys</td>
+          <td>Build + Improve</td>
+          <td>"How do I change behavior in the product?"</td>
+        </tr>
+        <tr>
+          <td class="prod-name">Activation SDK</td>
+          <td>Build</td>
+          <td>"How do I instrument the experience layer?"</td>
+        </tr>
+        <tr>
+          <td class="prod-name">Assistant</td>
+          <td>Decide + Improve</td>
+          <td>"What should I build or change?"</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Builder motivations -->
+  <div class="section">
+    <div class="section-label">Motivations</div>
+    <h2>What Builders Are Optimizing For</h2>
+    <p>
+      Builders are not optimizing for the same things as traditional software buyers.
+      Understanding their motivations is critical for both product and marketing decisions.
+    </p>
+
+    <ul class="needs-list">
+      <li>
+        <span class="need-num">1</span>
+        <div>
+          <div class="need-title">Velocity</div>
+          <div class="need-desc">The builder's primary motivation is shipping speed. They are measured on output, not process. Every tool that makes them faster gets adopted. Every tool that requires a meeting to use gets abandoned.</div>
+        </div>
+      </li>
+      <li>
+        <span class="need-num">2</span>
+        <div>
+          <div class="need-title">Craft</div>
+          <div class="need-desc">Good builders care about quality — not just speed. They want to ship things that actually work, that users love. This is why signal matters so much: they need to know whether what they shipped worked.</div>
+        </div>
+      </li>
+      <li>
+        <span class="need-num">3</span>
+        <div>
+          <div class="need-title">Autonomy</div>
+          <div class="need-desc">Builders resist process overhead. They adopted agent tools precisely because those tools don't require a Jira ticket, a sprint planning meeting, or a manager approval.</div>
+        </div>
+      </li>
+      <li>
+        <span class="need-num">4</span>
+        <div>
+          <div class="need-title">Status</div>
+          <div class="need-desc">In builder cultures, shipping is the currency of respect. A builder who ships ten things a week is more respected than one who ships one thing after twelve planning meetings.</div>
+        </div>
+      </li>
+      <li>
+        <span class="need-num">5</span>
+        <div>
+          <div class="need-title">Learning</div>
+          <div class="need-desc">Builders reward tools that help them learn — about their users, about what works, about their domain. "Amplitude on Amplitude" type content is the kind of content builders share.</div>
+        </div>
+      </li>
+    </ul>
+  </div>
+
+  <!-- Unmet needs -->
+  <div class="section">
+    <div class="section-label">The Gaps</div>
+    <h2>The Builder's Biggest Unmet Needs</h2>
+    <p>
+      Across all six archetypes and all signal gathered, a consistent set of unmet needs emerges.
+      These are the gaps Amplitude's product portfolio needs to close.
+    </p>
+
+    <ul class="needs-list">
+      <li>
+        <span class="need-num" style="background: var(--amp-orange); color: #fff;">1</span>
+        <div>
+          <div class="need-title">The "Zero to Useful" Gap</div>
+          <div class="need-desc">Getting started with Amplitude is too hard. Builders want to be instrumenting events within minutes of signup. The ambition: a builder instruments their first event, sees it in Amplitude, and runs their first experiment — all before their coffee gets cold.</div>
+        </div>
+      </li>
+      <li>
+        <span class="need-num" style="background: var(--amp-violet); color: #fff;">2</span>
+        <div>
+          <div class="need-title">The "Act on Signal" Gap</div>
+          <div class="need-desc">Amplitude is excellent at showing what happened. It is not yet excellent at telling builders what to do about it. The opportunity: an AI layer that connects anomalies to probable causes, surfaces relevant session replays, and suggests next actions.</div>
+        </div>
+      </li>
+      <li>
+        <span class="need-num" style="background: var(--amp-teal); color: #fff;">3</span>
+        <div>
+          <div class="need-title">The "Agent-Native Workflow" Gap</div>
+          <div class="need-desc">Builders run their work through Cursor, Claude Code, and similar tools. Amplitude is not yet a first-class citizen in those workflows. The vision: "pull up Amplitude signal on the checkout flow" from any coding context.</div>
+        </div>
+      </li>
+      <li>
+        <span class="need-num" style="background: #1D4ED8; color: #fff;">4</span>
+        <div>
+          <div class="need-title">The "Low-Code Experience" Gap</div>
+          <div class="need-desc">Builders who aren't engineers need to create in-product experiences — guides, surveys, experiment variants — without filing a Jira ticket. Describe the experience in natural language, AI generates it.</div>
+        </div>
+      </li>
+      <li>
+        <span class="need-num" style="background: #BE123C; color: #fff;">5</span>
+        <div>
+          <div class="need-title">The "Qual + Quant Loop" Gap</div>
+          <div class="need-desc">Builders need both "what is happening" and "why is it happening." Session Replay and AI Feedback exist — but they're not yet telling a unified story. When conversion drops 12%, surface the funnel, the replays, AND the synthesized user feedback.</div>
+        </div>
+      </li>
+    </ul>
+  </div>
+
+  <!-- Two personas split -->
+  <div class="section">
+    <div class="section-label">The Two-Persona Model</div>
+    <h2>Not One Builder — Two Distinct Buyers</h2>
+    <p>
+      The "builder" framing is too broad to win with one narrative. There are two distinct builders with different buying triggers, evaluation criteria, competitive sets, and relationships with the products we build.
+    </p>
+    <p>
+      <strong>Persona 1: The Engineer.</strong> Shipping code is the job. They evaluate tools on SDK quality, time to first flag, stats engine trust, and observability integration. Their competitive set is LaunchDarkly, Statsig, and Datadog. They live in the terminal and their IDE.
+    </p>
+    <p>
+      <strong>Persona 2: Everyone Else (PM, Marketer, Growth).</strong> Shipping code is increasingly part of the job — but not the whole job. They evaluate tools on time to insight, no-code UX, funnel clarity, and whether results are trustworthy enough to present to leadership. Their competitive set is PostHog, Pendo, Optimizely.
+    </p>
+
+    <div class="pullquote" style="border-left-color: var(--amp-violet); background: rgba(107,70,255,0.04);">
+      <p>"When you build for 'builders' generically, you risk building a product that's too technical for PMs and too product-oriented for engineers. The two-persona split is the answer."</p>
+    </div>
+
+    <p>
+      The proposal is simple: continue positioning for "builders" but start selling specifically to each. Map our seven products cleanly to the two personas. Build distinct onboarding, packaging, and messaging for each.
+      Then use the shared platform underneath as the enterprise consolidation story.
+    </p>
+  </div>
+
+  <!-- North star -->
+  <div class="section">
+    <div class="section-label">North Star</div>
+    <h2>What We Need Builders to Say</h2>
+
+    <div class="pullquote" style="border-left-color: var(--amp-teal); background: rgba(0,194,168,0.04);">
+      <p>"Amplitude is where my agent goes to figure out what to ship next. It's the tool that makes me 2× faster because it connects the signal I need to the actions I can take — without me having to go looking."</p>
+      <div class="attr">— The product north star embedded in social proof</div>
+    </div>
+
+    <p>
+      Everything in the roadmap should be pointing toward that quote. The builder's relationship with Amplitude shouldn't be "I log in to check a dashboard." It should be "Amplitude is the ambient intelligence layer that makes my product better every day."
+    </p>
+    <p>
+      Amplitude has the most complete set of tools for the new builder era — signal (what's happening, why) and action (experiments, flags, guides) — in a single connected platform. No other company in the world can make this claim.
+    </p>
+  </div>
+
+</div>
+
+<!-- ═══════════ FOOTER ═══════════ -->
+<footer>
+  Confidential &nbsp;·&nbsp; Amplitude Inc. &nbsp;·&nbsp; March 2026
+</footer>
+
+</body>
+</html>

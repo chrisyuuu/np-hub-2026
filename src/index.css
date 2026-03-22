@@ -1,0 +1,26 @@
+@import "tailwindcss";
+@import "@radix-ui/themes/styles.css";
+
+:root {
+  --amp-orange:  #FF6200;
+  --amp-orange-light: #FFF4EE;
+  --amp-violet:  #6B46FF;
+  --amp-violet-light: #EDEBFF;
+  --amp-teal:    #00C2A8;
+  --amp-teal-light: #E6FAF8;
+  --amp-dark:    #13111A;
+  --amp-dark-2:  #1E1B2E;
+  --color-surface: #F4F3FC;
+  --color-surface-raised: #ffffff;
+  --color-text-primary: #111827;
+  --color-text-secondary: #6B7280;
+  --color-border: #E2E8F0;
+}
+
+body {
+  margin: 0;
+  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  background-color: var(--color-surface);
+  color: var(--color-text-primary);
+  line-height: 1.6;
+}

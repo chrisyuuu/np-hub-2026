@@ -1,0 +1,1096 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>New Products 2026 — Strategy Narrative</title>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    /* Amplitude brand tokens */
+    :root {
+      --amp-orange:  #FF6200;
+      --amp-violet:  #6B46FF;
+      --amp-teal:    #00C2A8;
+      --amp-dark:    #13111A;
+      --amp-dark-2:  #1E1B2E;
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: #F4F3FC;
+      color: #111827;
+      line-height: 1.6;
+    }
+
+    /* ── Sticky Nav ──────────────────────────────────────── */
+    .sticky-nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      background: rgba(19, 17, 26, 0.72);
+      backdrop-filter: blur(18px) saturate(1.4);
+      -webkit-backdrop-filter: blur(18px) saturate(1.4);
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      transition: background 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .sticky-nav.scrolled {
+      background: rgba(19, 17, 26, 0.92);
+      box-shadow: 0 2px 24px rgba(0,0,0,0.3);
+    }
+
+    .sticky-nav-inner {
+      max-width: 1440px;
+      margin: 0 auto;
+      padding: 0 80px;
+      height: 52px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .sticky-nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      color: #fff;
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.01em;
+      opacity: 0.85;
+    }
+
+    .sticky-nav-logo svg {
+      color: var(--amp-orange);
+      flex-shrink: 0;
+    }
+
+    .sticky-nav-links {
+      list-style: none;
+      display: flex;
+      align-items: center;
+      gap: 2px;
+      flex-shrink: 0;
+    }
+
+    .snav-link {
+      display: inline-block;
+      padding: 6px 14px;
+      font-size: 13px;
+      font-weight: 500;
+      color: rgba(255,255,255,0.55);
+      text-decoration: none;
+      border-radius: 6px;
+      position: relative;
+      transition: color 0.18s ease, background 0.18s ease;
+      letter-spacing: 0.01em;
+    }
+
+    .sticky-nav-links li {
+      position: relative;
+      display: flex;
+      align-items: center;
+      height: 52px;
+    }
+
+    /* Active + hover underline at nav bottom edge */
+    .sticky-nav-links li::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 8px;
+      right: 8px;
+      height: 2px;
+      background: var(--amp-orange);
+      border-radius: 2px 2px 0 0;
+      transform: scaleX(0);
+      transition: transform 0.2s ease, opacity 0.2s ease;
+      opacity: 0;
+    }
+
+    .sticky-nav-links li.nav-active::after {
+      transform: scaleX(1);
+      opacity: 1;
+    }
+
+    .sticky-nav-links li:hover::after {
+      transform: scaleX(0.7);
+      opacity: 0.35;
+      background: #fff;
+    }
+
+    .sticky-nav-links li.nav-active:hover::after {
+      transform: scaleX(1);
+      opacity: 1;
+      background: var(--amp-orange);
+    }
+
+    .snav-link:hover {
+      color: #fff;
+      background: rgba(255,255,255,0.08);
+    }
+
+    .snav-link.active {
+      color: #fff;
+      font-weight: 600;
+    }
+
+    /* push body content below fixed nav */
+    body { scroll-padding-top: 64px; }
+    .hero { scroll-margin-top: 0; }
+    #section-overview, #section-engineer, #section-charter { scroll-margin-top: 60px; }
+
+    /* ── Hero ─────────────────────────────────────────────── */
+    .hero {
+      background: var(--amp-dark);
+      color: #fff;
+      padding: 120px 80px 64px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -120px; right: -120px;
+      width: 480px; height: 480px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(255,98,0,0.22) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .hero-eyebrow {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--amp-orange);
+      margin-bottom: 20px;
+    }
+
+    .hero-title {
+      font-size: 52px;
+      font-weight: 700;
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      margin-bottom: 24px;
+      max-width: 680px;
+    }
+
+    .hero-title span { color: var(--amp-orange); }
+
+    .hero-desc {
+      font-size: 16px;
+      color: #94A3B8;
+      max-width: 560px;
+      line-height: 1.7;
+    }
+
+
+    /* ── Grid ─────────────────────────────────────────────── */
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 20px;
+      max-width: 1440px;
+      margin: 0 auto;
+      padding: 40px 40px 60px;
+    }
+
+    /* ── Column card ──────────────────────────────────────── */
+    .col {
+      background: #fff;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 1px 2px rgba(0,0,0,0.06), 0 4px 16px rgba(0,0,0,0.04);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .col-header {
+      padding: 16px 24px;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .col-header .dot {
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    .col-header.gap   { background: #FFF1EA; color: #C74A00; }
+    .col-header.gap .dot   { background: var(--amp-orange); }
+
+    .col-header.success { background: #EDEBFF; color: #3B28CC; }
+    .col-header.success .dot { background: var(--amp-violet); }
+
+    .col-header.exec { background: #E6FAF8; color: #007A6A; }
+    .col-header.exec .dot   { background: var(--amp-teal); }
+
+    .col-body { padding: 24px; flex: 1; }
+
+    .lead {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 22px;
+    }
+
+    .lead.gap     { color: var(--amp-orange); }
+    .lead.success { color: var(--amp-violet); }
+    .lead.exec    { color: var(--amp-teal); }
+
+    /* ── Bullets ──────────────────────────────────────────── */
+    .bullet {
+      padding: 0 0 18px 16px;
+      border-left: 3px solid #E5E7EB;
+      margin-bottom: 18px;
+    }
+
+    .bullet:last-child { margin-bottom: 0; padding-bottom: 0; }
+
+    .bullet.gap     { border-color: #FFB38A; }
+    .bullet.success { border-color: #B5ACFF; }
+
+    .b-lead {
+      font-size: 13.5px;
+      font-weight: 600;
+      color: #111827;
+      line-height: 1.45;
+      margin-bottom: 7px;
+    }
+
+    .b-detail {
+      font-size: 12.5px;
+      color: #6B7280;
+      line-height: 1.65;
+    }
+
+    /* ── Execution path — numbered bets ──────────────────── */
+    .bets-intro {
+      font-size: 12.5px;
+      color: #374151;
+      font-style: italic;
+      margin-bottom: 18px;
+    }
+
+    .bet {
+      display: flex;
+      gap: 14px;
+      margin-bottom: 16px;
+    }
+
+    .bet-num {
+      width: 26px; height: 26px;
+      border-radius: 7px;
+      background: var(--amp-teal);
+      color: #fff;
+      font-size: 12px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    .bet-body { flex: 1; }
+
+    .bet-lead {
+      font-size: 13.5px;
+      font-weight: 600;
+      color: #111827;
+      margin-bottom: 8px;
+      line-height: 1.4;
+    }
+
+    .sub-list {
+      list-style: none;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+    }
+
+    .sub-list li {
+      font-size: 12px;
+      color: #6B7280;
+      line-height: 1.55;
+      padding-left: 12px;
+      border-left: 2px solid #99EBE3;
+    }
+
+    .sub-list li strong {
+      color: #374151;
+      font-weight: 600;
+    }
+
+    /* ── Coda ─────────────────────────────────────────────── */
+    .coda {
+      margin-top: 20px;
+      background: #F9FAFB;
+      border: 1px solid #E5E7EB;
+      border-radius: 8px;
+      padding: 16px 18px;
+      font-size: 12.5px;
+      color: #374151;
+      line-height: 1.7;
+    }
+
+    .coda strong { color: #111827; }
+
+    /* ── Footer ───────────────────────────────────────────── */
+    footer {
+      text-align: center;
+      padding: 28px;
+      font-size: 11.5px;
+      color: #64748B;
+      border-top: 1px solid rgba(255,255,255,0.06);
+      background: var(--amp-dark);
+      color: #475569;
+    }
+
+    /* ── Charter section ─────────────────────────────────── */
+    .charter-section {
+      background: #fff;
+      padding: 64px 40px 72px;
+    }
+
+    .charter-inner {
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .charter-header {
+      text-align: center;
+      margin-bottom: 44px;
+    }
+
+    .charter-eyebrow {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: #FF6200;
+      margin-bottom: 10px;
+    }
+
+    .charter-title {
+      font-size: 28px;
+      font-weight: 800;
+      color: var(--amp-dark);
+      letter-spacing: -0.02em;
+      margin-bottom: 8px;
+    }
+
+    .charter-subtitle {
+      font-size: 14px;
+      color: #6B7280;
+    }
+
+    .charter-diagram {
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Persona row */
+    .charter-persona-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+
+    .charter-persona {
+      border-radius: 12px 12px 0 0;
+      overflow: hidden;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.2);
+    }
+
+    .cp-header {
+      padding: 18px 22px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .eng-header { background: #FF6200; }
+    .eve-header { background: #6B46FF; }
+
+    .cp-icon {
+      width: 34px; height: 34px;
+      border-radius: 8px;
+      background: rgba(255,255,255,0.15);
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .cp-icon svg {
+      width: 18px; height: 18px;
+      stroke: rgba(255,255,255,0.9);
+      fill: none;
+      stroke-width: 1.75;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .cp-name {
+      font-size: 14px;
+      font-weight: 700;
+      color: #fff;
+    }
+
+    .cp-desc {
+      font-size: 11px;
+      color: rgba(255,255,255,0.6);
+      margin-top: 2px;
+    }
+
+    .cp-products {
+      padding: 16px 18px 18px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      border-radius: 0;
+    }
+
+    .eng-products { background: #FFF4EE; border: 2px solid #FFD5B8; border-top: none; }
+    .eve-products { background: #F3F1FF; border: 2px solid #C9BFFF; border-top: none; }
+
+    .cp-chip {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      padding: 8px 12px;
+      border-radius: 7px;
+      font-size: 12px;
+      font-weight: 600;
+      white-space: nowrap;
+    }
+
+    .eng-chip { background: #fff; color: #7C2D00; border: 1.5px solid #FFBA8A; }
+    .eve-chip { background: #fff; color: #2E1787; border: 1.5px solid #A99EF5; }
+
+    .cc-dot {
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    .eng-dot { background: #FF6200; }
+    .eve-dot { background: #6B46FF; }
+
+    /* Bridge */
+    .charter-bridge {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+
+    .bridge-half { height: 18px; }
+    .bh-eng { background: #FFB38A; }
+    .bh-eve { background: #A99EF5; }
+
+    /* Foundation */
+    .charter-foundation {
+      background: #fff;
+      border-radius: 0 0 14px 14px;
+      border: 2px solid #D1D5DB;
+      border-top: none;
+      overflow: hidden;
+    }
+
+    .cf-header {
+      padding: 13px 22px;
+      border-bottom: 1px solid #E5E7EB;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: #F9F8FF;
+    }
+
+    .cf-label {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: #4B5563;
+    }
+
+    .cf-tag {
+      font-size: 10px;
+      background: #EDE9FF;
+      color: var(--amp-violet);
+      padding: 2px 8px;
+      border-radius: 4px;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      font-weight: 600;
+    }
+
+    .cf-products {
+      padding: 18px 22px 22px;
+      display: flex;
+      gap: 12px;
+    }
+
+    .cf-chip {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 9px;
+      padding: 14px 16px;
+      border-radius: 9px;
+      background: #F4F3FC;
+      border: 1.5px solid #D1CBF7;
+      font-size: 13px;
+      font-weight: 600;
+      color: #1F1835;
+    }
+
+    .cf-dot {
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    /* ── Engineer Opportunity Section ────────────────────── */
+    .eng-section {
+      background: #FFF4EE;
+      border-top: 3px solid #FF6200;
+      padding: 60px 40px 64px;
+    }
+
+    .eng-inner {
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .eng-topbar {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 32px;
+    }
+
+    .eng-eyebrow {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--amp-orange);
+    }
+
+    .eng-urgency-pill {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      background: var(--amp-orange);
+      color: #fff;
+      padding: 3px 10px;
+      border-radius: 20px;
+    }
+
+    .eng-title {
+      font-size: 26px;
+      font-weight: 800;
+      color: var(--amp-dark);
+      letter-spacing: -0.02em;
+      margin-bottom: 6px;
+    }
+
+    .eng-subtitle {
+      font-size: 14px;
+      color: #6B7280;
+      max-width: 620px;
+    }
+
+    /* Context trio */
+    .eng-context {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+      margin: 28px 0 36px;
+    }
+
+    .eng-ctx-card {
+      background: #fff;
+      border: 1.5px solid #FFD5B8;
+      border-radius: 10px;
+      padding: 18px 20px 20px;
+    }
+
+    .eng-ctx-label {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--amp-orange);
+      margin-bottom: 8px;
+    }
+
+    .eng-ctx-title {
+      font-size: 14px;
+      font-weight: 700;
+      color: #111827;
+      margin-bottom: 7px;
+      line-height: 1.35;
+    }
+
+    .eng-ctx-body {
+      font-size: 12.5px;
+      color: #6B7280;
+      line-height: 1.65;
+    }
+
+    /* Three bets inline */
+    .eng-bets-section {
+      border-top: 1px solid #FFD5B8;
+      padding-top: 28px;
+    }
+
+    .eng-bets-label {
+      font-size: 10.5px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #9CA3AF;
+      margin-bottom: 16px;
+    }
+
+    .eng-bets {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+
+    .eng-bet-item {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .eng-bet-title-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .eng-bet-num {
+      width: 26px; height: 26px;
+      border-radius: 7px;
+      background: var(--amp-orange);
+      color: #fff;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .eng-bet-num svg {
+      stroke: #fff;
+    }
+
+    .eng-bet-name {
+      font-size: 13px;
+      font-weight: 700;
+      color: #111827;
+    }
+
+    .eng-bet-bullets {
+      list-style: none;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 7px;
+    }
+
+    .eng-bet-bullets li {
+      font-size: 12.5px;
+      color: #4B5563;
+      padding-left: 13px;
+      border-left: 2.5px solid #FFB38A;
+      line-height: 1.55;
+    }
+
+    .eng-bet-bullets li strong {
+      color: #111827;
+      font-weight: 600;
+    }
+
+    .eng-detail-divider {
+      border: none;
+      border-top: 1px dashed #FFD5B8;
+      margin: 24px 0 0;
+    }
+
+/* ── Responsive ───────────────────────────────────────── */
+    @media (max-width: 960px) {
+      .sticky-nav-inner { padding: 0 24px; }
+      .sticky-nav-logo span { display: none; }
+      .snav-link { padding: 6px 10px; font-size: 12px; }
+      .hero { padding: 80px 28px 48px; }
+      .hero-title { font-size: 36px; }
+      .grid { grid-template-columns: 1fr; padding: 24px 20px 40px; }
+      .eng-section { padding: 40px 20px 48px; }
+      .eng-context { grid-template-columns: 1fr; }
+      .eng-bets { grid-template-columns: 1fr; }
+      .eng-bets-section { padding-top: 24px; }
+      .charter-section { padding: 48px 20px 56px; }
+      .charter-persona-row { grid-template-columns: 1fr; }
+      .charter-bridge { grid-template-columns: 1fr; }
+      .cf-products { flex-direction: column; }
+      .appendix-section { padding: 40px 20px 48px; }
+      .appendix-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ── Sticky Nav ─────────────────────────────────────────────── -->
+<nav class="sticky-nav" id="sticky-nav">
+  <div class="sticky-nav-inner">
+    <div class="sticky-nav-logo">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>
+      <span>New Products</span>
+    </div>
+    <ul class="sticky-nav-links">
+      <li><a href="#section-overview" class="snav-link" data-section="section-overview">Overview</a></li>
+      <li><a href="#section-engineer" class="snav-link" data-section="section-engineer">Engineer Bet</a></li>
+      <li><a href="#section-charter" class="snav-link" data-section="section-charter">Team Charter</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- ── Hero ─────────────────────────────────────────────────── -->
+<div class="hero" id="section-hero">
+  <div class="hero-eyebrow">New Products &nbsp;·&nbsp; 2026 Strategy Narrative</div>
+  <h1 class="hero-title">Two Personas.<br><span>Three Bets.</span><br>One Plan.</h1>
+  <p class="hero-desc">
+    New Products serves two distinct buyers with different needs, different buying criteria, and different success metrics.
+    This is where we are today, where we need to be by end of 2026, and how we plan to get there.
+  </p>
+</div>
+
+<!-- ── Three-column grid ─────────────────────────────────────── -->
+<div class="grid" id="section-overview">
+
+  <!-- COLUMN 1 · Current Gap -->
+  <div class="col">
+    <div class="col-header gap"><span class="dot"></span>Current Gap</div>
+    <div class="col-body">
+      <div class="lead gap">Today, …</div>
+
+      <div class="bullet gap">
+        <div class="b-lead">New Products serves two distinct "builder" personas with one blended narrative — and both are under-penetrated.</div>
+        <div class="b-detail">The first is the product engineer persona; the second is the PM/Marketer/Growth persona. Engineers buy on SDK quality, monitoring/debugging capabilities, and release management. PMs and marketers buy on insight speed, no-code leverage, and ability to act without a ticket.</div>
+      </div>
+
+      <div class="bullet gap">
+        <div class="b-lead">The product engineer drives the most adoption but has no explicit motion.</div>
+        <div class="b-detail">Engineers create 53% of Feature Experiments, sign off on feature flags in most deals, and represent a significant share of SR prospects. Yet Feature Experiment attach sits at 18.9% despite $33.8M ARR and 34% YoY growth. We have no dedicated engineering GTM motion and no narrative that speaks to how engineers actually buy.</div>
+      </div>
+
+      <div class="bullet gap">
+        <div class="b-lead">The PM/Marketer/Growth builder has five products that need a more connected loop.</div>
+        <div class="b-detail">SR at $9.6M (Zoning expected to close the gap in Q2+, once past the May GA). Web XP at $5M ARR, growing well but still early. Guides &amp; Surveys at $12.8M ARR, steady. AI Feedback at 4% source connection rate — the product exists, the activation funnel needs work. AI Assistant launches April 7. Orchestration, the connective tissue for this persona, releases Q3. The products are solid individually; the opportunity is in routing signal between them.</div>
+      </div>
+
+      <div class="bullet gap">
+        <div class="b-lead">Enterprise expansion forces the data-team conversation and leaves Amplitude without a clear champion.</div>
+        <div class="b-detail">Without an engineering motion, every large contract eventually routes through warehouse-native incumbents. Engineering buyers route around the data team, carry larger budgets, use flags, monitor and triage issues on a daily basis — creating multiple high-frequency use cases that customers look to us to solve.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- COLUMN 2 · Success State -->
+  <div class="col">
+    <div class="col-header success"><span class="dot"></span>Success State</div>
+    <div class="col-body">
+      <div class="lead success">By the end of 2026, …</div>
+
+      <div class="bullet success">
+        <div class="b-lead">Three products drive the 2026 revenue story; two are humming along.</div>
+        <div class="b-detail">Primary bets: Feature Flags + Feature XP (engineer wedge, $33.8M base), SR + Zoning (qualitative analytics layer, Contentsquare displacement), and AI Assistant (new AI-native surface, April 7 launch). Web Experiment ($8M ARR target, 2x) and Guides &amp; Surveys are executing well and compound the three bets — they don't need to be bets themselves.</div>
+      </div>
+
+      <div class="bullet success">
+        <div class="b-lead">The product engineer chooses Amplitude — and becomes the enterprise expand motion.</div>
+        <div class="b-detail">Feature XP attach grows from 18.9% → 50% of eligible workspaces. Engineering buyers carry larger budgets and use flags as a daily driver — their adoption is the expand path into the rest of the platform.</div>
+      </div>
+
+      <div class="bullet success">
+        <div class="b-lead">SR + Zoning own the experience analytics layer; AI Assistant opens a new revenue line.</div>
+        <div class="b-detail">SR at $16.8M+ ARR with Zoning as a credible Contentsquare displacement story. AI Assistant opens another lane for Amplitude to sell into.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- COLUMN 3 · Execution Path -->
+  <div class="col">
+    <div class="col-header exec"><span class="dot"></span>Execution Path</div>
+    <div class="col-body">
+      <div class="lead exec">To get there, …</div>
+
+      <p class="bets-intro">We will focus on three product bets:</p>
+
+      <div class="bet">
+        <div class="bet-num">1</div>
+        <div class="bet-body">
+          <div class="bet-lead">Win the product engineer (H1+)</div>
+          <ul class="sub-list">
+            <li><strong>Release Validation</strong> — guardrail metrics auto-attached to every flag, with auto-rollback on breach</li>
+            <li><strong>Error Monitoring with User Impact</strong> — production health ranked by users affected, not raw error count</li>
+            <li><strong>User-Level Debugging</strong> — behavioral events, session replay, and errors in a single timeline</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="bet">
+        <div class="bet-num">2</div>
+        <div class="bet-body">
+          <div class="bet-lead">Activate the Contentsquare displacement play with SR + Zoning (GA May 19)</div>
+        </div>
+      </div>
+
+      <div class="bet">
+        <div class="bet-num">3</div>
+        <div class="bet-body">
+          <div class="bet-lead">Launch AI Assistant (GA April 7)</div>
+        </div>
+      </div>
+
+      <div class="coda">
+        <strong>Everything else compounds the bets.</strong> Web Experiment and Guides &amp; Surveys are executing well. Orchestration (Q3) becomes the connective tissue that makes the everyone-else loop code-free. We'll reassess AI Feedback traction in Q2 — for now, it remains a rich qualitative layer closing the insight-to-action loop.
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- ── Engineer Opportunity Section ──────────────────────────── -->
+<div class="eng-section" id="section-engineer">
+  <div class="eng-inner">
+
+    <div class="eng-topbar">
+      <span class="eng-eyebrow">Product Engineer Bet</span>
+      <span class="eng-urgency-pill">H1 2026 · Critical Window</span>
+    </div>
+
+    <h2 class="eng-title">Winning the Product Engineer</h2>
+
+    <div class="eng-context">
+
+      <div class="eng-ctx-card">
+        <div class="eng-ctx-label">The Target</div>
+        <div class="eng-ctx-title">The product engineer — not DevOps, not the SRE</div>
+        <div class="eng-ctx-body">The person who owns a feature end-to-end: spec → flag → experiment → outcome. Their primary output <em>is</em> the code. They evaluate tools on SDK quality, time-to-first-flag, stats rigor, and whether results are interpretable without a data scientist.</div>
+      </div>
+
+      <div class="eng-ctx-card">
+        <div class="eng-ctx-label">The Wedge</div>
+        <div class="eng-ctx-title">Feature Flags is the entry product. Analytics is the unfair advantage.</div>
+        <div class="eng-ctx-body">An engineer installs the SDK to control a rollout — no analytics relationship required, no sales conversation. From there, Feature Experiment follows naturally: "want to measure this?" No separate measurement system needed because Amplitude is already there.</div>
+      </div>
+
+      <div class="eng-ctx-card">
+        <div class="eng-ctx-label">The Timing</div>
+        <div class="eng-ctx-title">A strategic shift in the market is putting engineers in active re-evaluation — right now.</div>
+        <div class="eng-ctx-body">Recent consolidation among the leading independent flag and experimentation platforms has created a meaningful evaluation window. The specifics aren't public, but the opportunity is real and time-bound. Engineering teams that sign in H1 2026 lock in for 2–3 years.</div>
+      </div>
+
+    </div>
+
+    <div class="eng-bets-section">
+      <div class="eng-bets-label">Three bets to win the product engineer</div>
+      <div class="eng-bets">
+
+        <div class="eng-bet-item">
+          <div class="eng-bet-title-row">
+            <div class="eng-bet-num">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" width="11" height="11"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            </div>
+            <div class="eng-bet-name">Release Validation</div>
+          </div>
+          <ul class="eng-bet-bullets">
+            <li><strong>Guardrail metrics auto-attached to every flag</strong> — define KPIs once, they apply to every rollout with experimentation-grade stats.</li>
+            <li><strong>Auto-rollback on guardrail breach</strong> — flag causes a regression, Amplitude disables it and alerts via Slack or PagerDuty automatically.</li>
+            <li><strong>Flag → Experiment promotion</strong> — one click turns a percentage rollout into a measured A/B test.</li>
+          </ul>
+        </div>
+
+        <div class="eng-bet-item">
+          <div class="eng-bet-title-row">
+            <div class="eng-bet-num">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" width="11" height="11"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+            </div>
+            <div class="eng-bet-name">Error Monitoring with User Impact</div>
+          </div>
+          <ul class="eng-bet-bullets">
+            <li><strong>Production health ranked by user impact</strong> — an exception affecting 3,000 checkout users ranks above one firing 10,000 times but affecting 12.</li>
+            <li>Sentry fires on every exception. <strong>Amplitude shows which ones actually matter</strong> — because only Amplitude has the behavioral layer.</li>
+            <li><strong>AI-named, severity-scored issues</strong> with reproducible steps and one-click session replay.</li>
+          </ul>
+        </div>
+
+        <div class="eng-bet-item">
+          <div class="eng-bet-title-row">
+            <div class="eng-bet-num">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" width="11" height="11"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+            </div>
+            <div class="eng-bet-name">User-Level Debugging</div>
+          </div>
+          <ul class="eng-bet-bullets">
+            <li><strong>Single timeline</strong> — behavioral events, session replay, and error signals in one view. No manual stitching across Datadog, Sentry, and your flag tool.</li>
+            <li><strong>Error-focused filtering</strong> and click-to-replay at any moment in the timeline.</li>
+            <li><strong>Natural language search</strong> — "show me the moment the user hit a 500 error on checkout" — no event scanning required.</li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ── Team Charter Section ──────────────────────────────────── -->
+<div class="charter-section" id="section-charter">
+  <div class="charter-inner">
+    <div class="charter-header">
+      <div class="charter-eyebrow">Team Charter</div>
+      <h2 class="charter-title">Product Organization &amp; Scope</h2>
+      <p class="charter-subtitle">Two personas built on a shared foundation</p>
+    </div>
+
+    <div class="charter-diagram">
+
+      <!-- Persona row -->
+      <div class="charter-persona-row">
+
+        <!-- Product Engineer -->
+        <div class="charter-persona eng">
+          <div class="cp-header eng-header">
+            <div class="cp-icon"><svg viewBox="0 0 24 24"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg></div>
+            <div>
+              <div class="cp-name">Product Engineer</div>
+              <div class="cp-desc">Ships code · Safe releases · Debugs production</div>
+            </div>
+          </div>
+          <div class="cp-products eng-products">
+            <div class="cp-chip eng-chip"><span class="cc-dot eng-dot"></span>Feature Experiment</div>
+            <div class="cp-chip eng-chip"><span class="cc-dot eng-dot"></span>Feature Flag</div>
+            <div class="cp-chip eng-chip"><span class="cc-dot eng-dot"></span>Error Monitoring</div>
+            <div class="cp-chip eng-chip"><span class="cc-dot eng-dot"></span>User Debugging</div>
+          </div>
+        </div>
+
+        <!-- Everyone Else -->
+        <div class="charter-persona eve">
+          <div class="cp-header eve-header">
+            <div class="cp-icon"><svg viewBox="0 0 24 24"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/><line x1="2" y1="20" x2="22" y2="20"/></svg></div>
+            <div>
+              <div class="cp-name">PM · Marketer · Growth</div>
+              <div class="cp-desc">Insight speed · No-code leverage · Act without a ticket</div>
+            </div>
+          </div>
+          <div class="cp-products eve-products">
+            <div class="cp-chip eve-chip"><span class="cc-dot eve-dot"></span>Zoning</div>
+            <div class="cp-chip eve-chip"><span class="cc-dot eve-dot"></span>Guides &amp; Surveys</div>
+            <div class="cp-chip eve-chip"><span class="cc-dot eve-dot"></span>Web Experiment</div>
+            <div class="cp-chip eve-chip"><span class="cc-dot eve-dot"></span>Orchestration</div>
+            <div class="cp-chip eve-chip"><span class="cc-dot eve-dot"></span>Activation</div>
+            <div class="cp-chip eve-chip"><span class="cc-dot eve-dot"></span>AI Assistant</div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Bridge -->
+      <div class="charter-bridge">
+        <div class="bridge-half bh-eng"></div>
+        <div class="bridge-half bh-eve"></div>
+      </div>
+
+      <!-- Foundation -->
+      <div class="charter-foundation">
+        <div class="cf-header">
+          <span class="cf-label">Shared Persona Foundation</span>
+          <span class="cf-tag">Supports both personas</span>
+        </div>
+        <div class="cf-products">
+          <div class="cf-chip"><span class="cf-dot" style="background:#A78BFA"></span>Session Replay</div>
+          <div class="cf-chip"><span class="cf-dot" style="background:#34D399"></span>AI Feedback</div>
+          <div class="cf-chip"><span class="cf-dot" style="background:#FF6200"></span>SDK</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+<footer>© 2025 Amplitude Inc. &nbsp;·&nbsp; Confidential &nbsp;·&nbsp; All Rights Reserved</footer>
+
+<script>
+  (function() {
+    const nav = document.getElementById('sticky-nav');
+    const links = document.querySelectorAll('.snav-link');
+    const sections = ['section-overview', 'section-engineer', 'section-charter'];
+
+    // Scrolled shadow
+    window.addEventListener('scroll', function() {
+      nav.classList.toggle('scrolled', window.scrollY > 10);
+      updateActive();
+    }, { passive: true });
+
+    function updateActive() {
+      const scrollY = window.scrollY + 80;
+      let current = null;
+
+      sections.forEach(function(id) {
+        const el = document.getElementById(id);
+        if (el && el.offsetTop <= scrollY) {
+          current = id;
+        }
+      });
+
+      links.forEach(function(link) {
+        const target = link.getAttribute('data-section');
+        const isActive = target === current;
+        link.classList.toggle('active', isActive);
+        // also mark the parent <li> for the underline indicator
+        if (link.parentElement) {
+          link.parentElement.classList.toggle('nav-active', isActive);
+        }
+      });
+    }
+
+    // Smooth scroll on click
+    links.forEach(function(link) {
+      link.addEventListener('click', function(e) {
+        e.preventDefault();
+        const id = link.getAttribute('data-section');
+        const target = document.getElementById(id);
+        if (target) {
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    });
+
+    updateActive();
+  })();
+</script>
+
+</body>
+</html>

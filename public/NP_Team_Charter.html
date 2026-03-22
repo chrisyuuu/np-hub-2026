@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>New Products 2026 — Team Charter</title>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --amp-orange:  #FF6200;
+      --amp-violet:  #6B46FF;
+      --amp-teal:    #00C2A8;
+      --amp-dark:    #13111A;
+      --amp-dark-2:  #1E1B2E;
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: #F4F3FC;
+      color: #111827;
+      line-height: 1.6;
+    }
+
+    .charter-section {
+      background: #fff;
+      padding: 64px 40px 72px;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+    }
+
+    .charter-inner {
+      max-width: 1000px;
+      margin: 0 auto;
+      width: 100%;
+    }
+
+    .charter-header {
+      text-align: center;
+      margin-bottom: 44px;
+    }
+
+    .charter-eyebrow {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: #FF6200;
+      margin-bottom: 10px;
+    }
+
+    .charter-title {
+      font-size: 28px;
+      font-weight: 800;
+      color: var(--amp-dark);
+      letter-spacing: -0.02em;
+      margin-bottom: 8px;
+    }
+
+    .charter-subtitle {
+      font-size: 14px;
+      color: #6B7280;
+    }
+
+    .charter-diagram {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .charter-persona-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+
+    .charter-persona {
+      border-radius: 12px 12px 0 0;
+      overflow: hidden;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.2);
+    }
+
+    .cp-header {
+      padding: 18px 22px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .eng-header { background: #FF6200; }
+    .eve-header { background: #6B46FF; }
+
+    .cp-icon {
+      width: 34px; height: 34px;
+      border-radius: 8px;
+      background: rgba(255,255,255,0.15);
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .cp-icon svg {
+      width: 18px; height: 18px;
+      stroke: rgba(255,255,255,0.9);
+      fill: none;
+      stroke-width: 1.75;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .cp-name {
+      font-size: 14px;
+      font-weight: 700;
+      color: #fff;
+    }
+
+    .cp-desc {
+      font-size: 11px;
+      color: rgba(255,255,255,0.6);
+      margin-top: 2px;
+    }
+
+    .cp-products {
+      padding: 16px 18px 18px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      border-radius: 0;
+    }
+
+    .eng-products { background: #FFF4EE; border: 2px solid #FFD5B8; border-top: none; }
+    .eve-products { background: #F3F1FF; border: 2px solid #C9BFFF; border-top: none; }
+
+    .cp-chip {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      padding: 8px 12px;
+      border-radius: 7px;
+      font-size: 12px;
+      font-weight: 600;
+      white-space: nowrap;
+    }
+
+    .eng-chip { background: #fff; color: #7C2D00; border: 1.5px solid #FFBA8A; }
+    .eve-chip { background: #fff; color: #2E1787; border: 1.5px solid #A99EF5; }
+
+    .cc-dot {
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    .eng-dot { background: #FF6200; }
+    .eve-dot { background: #6B46FF; }
+
+    .charter-bridge {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+
+    .bridge-half { height: 18px; }
+    .bh-eng { background: #FFB38A; }
+    .bh-eve { background: #A99EF5; }
+
+    .charter-foundation {
+      background: #fff;
+      border-radius: 0 0 14px 14px;
+      border: 2px solid #D1D5DB;
+      border-top: none;
+      overflow: hidden;
+    }
+
+    .cf-header {
+      padding: 13px 22px;
+      border-bottom: 1px solid #E5E7EB;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: #F9F8FF;
+    }
+
+    .cf-label {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: #4B5563;
+    }
+
+    .cf-tag {
+      font-size: 10px;
+      background: #EDE9FF;
+      color: var(--amp-violet);
+      padding: 2px 8px;
+      border-radius: 4px;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      font-weight: 600;
+    }
+
+    .cf-products {
+      padding: 18px 22px 22px;
+      display: flex;
+      gap: 12px;
+    }
+
+    .cf-chip {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 9px;
+      padding: 14px 16px;
+      border-radius: 9px;
+      background: #F4F3FC;
+      border: 1.5px solid #D1CBF7;
+      font-size: 13px;
+      font-weight: 600;
+      color: #1F1835;
+    }
+
+    .cf-dot {
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    footer {
+      text-align: center;
+      padding: 28px;
+      font-size: 11.5px;
+      color: #475569;
+      border-top: 1px solid rgba(255,255,255,0.06);
+      background: var(--amp-dark);
+    }
+
+    @media (max-width: 960px) {
+      .charter-section { padding: 48px 20px 56px; }
+      .charter-persona-row { grid-template-columns: 1fr; }
+      .charter-bridge { grid-template-columns: 1fr; }
+      .cf-products { flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="charter-section" id="section-charter">
+  <div class="charter-inner">
+    <div class="charter-header">
+      <div class="charter-eyebrow">Team Charter</div>
+      <h2 class="charter-title">Product Organization &amp; Scope</h2>
+      <p class="charter-subtitle">Two personas built on a shared foundation</p>
+    </div>
+
+    <div class="charter-diagram">
+
+      <div class="charter-persona-row">
+        <div class="charter-persona eng">
+          <div class="cp-header eng-header">
+            <div class="cp-icon"><svg viewBox="0 0 24 24"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg></div>
+            <div>
+              <div class="cp-name">Product Engineer</div>
+              <div class="cp-desc">Ships code · Safe releases · Debugs production</div>
+            </div>
+          </div>
+          <div class="cp-products eng-products">
+            <div class="cp-chip eng-chip"><span class="cc-dot eng-dot"></span>Feature Experiment</div>
+            <div class="cp-chip eng-chip"><span class="cc-dot eng-dot"></span>Feature Flag</div>
+            <div class="cp-chip eng-chip"><span class="cc-dot eng-dot"></span>Error Monitoring</div>
+            <div class="cp-chip eng-chip"><span class="cc-dot eng-dot"></span>User Debugging</div>
+          </div>
+        </div>
+
+        <div class="charter-persona eve">
+          <div class="cp-header eve-header">
+            <div class="cp-icon"><svg viewBox="0 0 24 24"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/><line x1="2" y1="20" x2="22" y2="20"/></svg></div>
+            <div>
+              <div class="cp-name">PM · Marketer · Growth</div>
+              <div class="cp-desc">Insight speed · No-code leverage · Act without a ticket</div>
+            </div>
+          </div>
+          <div class="cp-products eve-products">
+            <div class="cp-chip eve-chip"><span class="cc-dot eve-dot"></span>Zoning</div>
+            <div class="cp-chip eve-chip"><span class="cc-dot eve-dot"></span>Guides &amp; Surveys</div>
+            <div class="cp-chip eve-chip"><span class="cc-dot eve-dot"></span>Web Experiment</div>
+            <div class="cp-chip eve-chip"><span class="cc-dot eve-dot"></span>Orchestration</div>
+            <div class="cp-chip eve-chip"><span class="cc-dot eve-dot"></span>Activation</div>
+            <div class="cp-chip eve-chip"><span class="cc-dot eve-dot"></span>AI Assistant</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="charter-bridge">
+        <div class="bridge-half bh-eng"></div>
+        <div class="bridge-half bh-eve"></div>
+      </div>
+
+      <div class="charter-foundation">
+        <div class="cf-header">
+          <span class="cf-label">Shared Persona Foundation</span>
+          <span class="cf-tag">Supports both personas</span>
+        </div>
+        <div class="cf-products">
+          <div class="cf-chip"><span class="cf-dot" style="background:#A78BFA"></span>Session Replay</div>
+          <div class="cf-chip"><span class="cf-dot" style="background:#34D399"></span>AI Feedback</div>
+          <div class="cf-chip"><span class="cf-dot" style="background:#FF6200"></span>SDK</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<footer>Confidential &nbsp;·&nbsp; Amplitude Inc. &nbsp;·&nbsp; March 2026</footer>
+
+</body>
+</html>
