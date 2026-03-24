@@ -108,7 +108,7 @@
   .deck-footer .key-hint::before { display: none; }
 
   /* ── TOC ── */
-  #s-toc .toc-content { flex: 1; display: flex; flex-direction: column; justify-content: center; padding: 0 88px 40px; position: relative; z-index: 1; }
+  #s-toc .toc-content { flex: 1; display: flex; flex-direction: column; justify-content: flex-start; padding: 40px 88px 40px; position: relative; z-index: 1; }
   #s-toc .toc-eyebrow { font-size: 10px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--subtle); margin-bottom: 28px; }
   #s-toc .toc-title { font-size: 28px; font-weight: 800; color: var(--text); margin-bottom: 40px; letter-spacing: -0.01em; }
   .toc-list { display: flex; flex-direction: column; gap: 0; }
@@ -344,7 +344,7 @@
   </div>
 
   <div class="slide" id="s-toc">
-    <div class="glow" style="opacity:0.4;top:-200px;right:-80px;width:400px;height:400px;"></div>
+    <div class="glow" style="position:absolute;opacity:0.4;top:-200px;right:-80px;width:400px;height:400px;pointer-events:none;"></div>
     <div class="accent-bar" style="width:3px;background:linear-gradient(to bottom,var(--orange),var(--teal),var(--violet));position:absolute;left:0;top:0;bottom:0;"></div>
     <div class="toc-content">
       <div class="toc-eyebrow">Agenda</div>
