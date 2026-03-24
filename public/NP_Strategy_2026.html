@@ -30,9 +30,16 @@
     .hero {
       background: var(--amp-dark);
       color: #fff;
-      padding: 64px 80px 64px;
       position: relative;
       overflow: hidden;
+    }
+
+    .hero-inner {
+      max-width: 1440px;
+      margin: 0 auto;
+      padding: 64px 80px;
+      position: relative;
+      z-index: 1;
     }
 
     .hero::before {
@@ -246,12 +253,12 @@
     /* ── Charter section ─────────────────────────────────── */
     .charter-section {
       background: #fff;
-      padding: 64px 80px 72px;
     }
 
     .charter-inner {
-      max-width: 1000px;
+      max-width: 1440px;
       margin: 0 auto;
+      padding: 64px 80px 72px;
     }
 
     .charter-header {
@@ -451,12 +458,12 @@
     .eng-section {
       background: #FFF4EE;
       border-top: 3px solid #FF6200;
-      padding: 60px 80px 64px;
     }
 
     .eng-inner {
-      max-width: 1000px;
+      max-width: 1440px;
       margin: 0 auto;
+      padding: 60px 80px 64px;
     }
 
     .eng-topbar {
@@ -656,12 +663,14 @@
 
 <!-- ── Hero ─────────────────────────────────────────────────── -->
 <div class="hero" id="section-hero">
-  <div class="hero-eyebrow">New Products &nbsp;·&nbsp; 2026 Strategy Narrative</div>
-  <h1 class="hero-title">Two Personas.<br><span>Three Bets.</span><br>One Plan.</h1>
-  <p class="hero-desc">
-    New Products serves two distinct buyers with different needs, different buying criteria, and different success metrics.
-    This is where we are today, where we need to be by end of 2026, and how we plan to get there.
-  </p>
+  <div class="hero-inner">
+    <div class="hero-eyebrow">New Products &nbsp;·&nbsp; 2026 Strategy Narrative</div>
+    <h1 class="hero-title">Two Personas.<br><span>Three Bets.</span><br>One Plan.</h1>
+    <p class="hero-desc">
+      New Products serves two distinct buyers with different needs, different buying criteria, and different success metrics.
+      This is where we are today, where we need to be by end of 2026, and how we plan to get there.
+    </p>
+  </div>
 </div>
 
 <!-- ── Three-column grid ─────────────────────────────────────── -->
