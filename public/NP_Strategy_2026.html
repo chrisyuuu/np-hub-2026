@@ -17,6 +17,8 @@
       --amp-dark-2:  #1E1B2E;
     }
 
+    html { overflow: hidden; }
+
     body {
       font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
       background: #F4F3FC;
@@ -980,6 +982,17 @@
 
     updateActive();
   })();
+</script>
+
+<script>
+  if (window.frameElement) {
+    function syncHeight() {
+      window.frameElement.style.height = document.documentElement.scrollHeight + 'px';
+    }
+    syncHeight();
+    window.addEventListener('load', syncHeight);
+    new ResizeObserver(syncHeight).observe(document.documentElement);
+  }
 </script>
 
 </body>

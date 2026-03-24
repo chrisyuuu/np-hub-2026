@@ -315,5 +315,16 @@
 
 <footer>Confidential &nbsp;·&nbsp; Amplitude Inc. &nbsp;·&nbsp; March 2026</footer>
 
+<script>
+  if (window.frameElement) {
+    function syncHeight() {
+      window.frameElement.style.height = document.documentElement.scrollHeight + 'px';
+    }
+    syncHeight();
+    window.addEventListener('load', syncHeight);
+    new ResizeObserver(syncHeight).observe(document.documentElement);
+  }
+</script>
+
 </body>
 </html>

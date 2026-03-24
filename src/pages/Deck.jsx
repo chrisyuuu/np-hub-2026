@@ -6,7 +6,7 @@ export default function Deck() {
       src={`${base}NP_Strategy_2026_Deck.html`}
       title="New Products 2026 Slide Deck"
       className="flex-1 w-full border-0"
-      style={{ minHeight: 'calc(100vh - 48px)' }}
+      style={{ minHeight: 'calc(100vh - 52px)' }}
     />
   )
 }

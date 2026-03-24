@@ -5,8 +5,8 @@ export default function Builder() {
     <iframe
       src={`${base}NP_Product_Builder.html`}
       title="What is the Product Builder?"
-      className="flex-1 w-full border-0"
-      style={{ minHeight: 'calc(100vh - 52px)' }}
+      className="w-full border-0"
+      style={{ minHeight: 'calc(100vh - 52px)', overflow: 'hidden' }}
     />
   )
 }
