@@ -25,19 +25,20 @@ export default function Navbar() {
         className="mx-auto flex items-center justify-between"
         style={{ maxWidth: 1440, padding: '0 80px', height: 52 }}
       >
-        <Link to="/" className="flex items-center gap-[9px]" style={{ opacity: 0.85 }}>
-          <svg
-            width="18" height="18" viewBox="0 0 24 24"
-            fill="none" stroke="#FF6200" strokeWidth="2.2"
-            strokeLinecap="round" strokeLinejoin="round"
-          >
-            <polygon points="12 2 2 7 12 12 22 7 12 2" />
-            <polyline points="2 17 12 22 22 17" />
-            <polyline points="2 12 12 17 22 12" />
+        <Link to="/" className="flex items-center gap-[10px]" style={{ textDecoration: 'none' }}>
+          <svg width="20" height="20" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="14" cy="14" r="14" fill="white"/>
+            <path d="M9.1 18.2h1.92l.88-2.38h4.2l.88 2.38H18.9L14.88 7.8h-1.76L9.1 18.2Zm3.34-3.96 1.56-4.2 1.56 4.2h-3.12Z" fill="#13111A"/>
           </svg>
-          <span className="text-[13px] font-semibold tracking-[0.01em] text-white">
-            New Products
-          </span>
+          <div className="flex items-center gap-[7px]">
+            <span className="text-[14px] font-bold tracking-[-0.01em] text-white" style={{ lineHeight: 1 }}>
+              Amplitude
+            </span>
+            <span style={{ width: 1, height: 14, background: 'rgba(255,255,255,0.2)', borderRadius: 1 }} />
+            <span className="text-[12px] font-medium text-white/50" style={{ lineHeight: 1 }}>
+              New Products
+            </span>
+          </div>
         </Link>
 
         <ul className="flex items-center gap-[2px] list-none m-0 p-0">
