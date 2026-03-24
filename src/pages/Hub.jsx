@@ -100,7 +100,6 @@ export default function Hub() {
         style={{
           background: 'var(--amp-dark)',
           color: '#fff',
-          padding: '72px 80px 56px',
           position: 'relative',
           overflow: 'hidden',
         }}
@@ -125,7 +124,15 @@ export default function Hub() {
             pointerEvents: 'none',
           }}
         />
-        <div style={{ position: 'relative', zIndex: 1 }}>
+        <div
+          style={{
+            position: 'relative',
+            zIndex: 1,
+            maxWidth: 1440,
+            margin: '0 auto',
+            padding: '72px 40px 56px',
+          }}
+        >
           <div
             style={{
               fontSize: 11,
