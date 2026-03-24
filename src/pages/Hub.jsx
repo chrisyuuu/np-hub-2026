@@ -130,7 +130,7 @@ export default function Hub() {
             zIndex: 1,
             maxWidth: 1440,
             margin: '0 auto',
-            padding: '72px 40px 56px',
+            padding: '72px 80px 56px',
           }}
         >
           <div
@@ -179,7 +179,7 @@ export default function Hub() {
           gap: 20,
           maxWidth: 1440,
           margin: '0 auto',
-          padding: '40px 40px 60px',
+          padding: '40px 80px 60px',
         }}
       >
         {items.map(({ to, title, desc, accent, headerBg, headerColor, tag, icon }) => (
