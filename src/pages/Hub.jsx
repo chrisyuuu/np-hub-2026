@@ -94,7 +94,7 @@ const items = [
 
 export default function Hub() {
   return (
-    <>
+    <div style={{ display: 'flex', flexDirection: 'column', flex: 1 }}>
       {/* Hero */}
       <div
         style={{
@@ -313,6 +313,6 @@ export default function Hub() {
       >
         Confidential &nbsp;·&nbsp; Amplitude Inc. &nbsp;·&nbsp; March 2026
       </footer>
-    </>
+    </div>
   )
 }

@@ -17,13 +17,16 @@
       --amp-dark-2:  #1E1B2E;
     }
 
-    html { overflow: hidden; }
+    html { overflow: hidden; height: 100%; }
 
     body {
       font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
       background: #F4F3FC;
       color: #111827;
       line-height: 1.6;
+      display: flex;
+      flex-direction: column;
+      min-height: 100%;
     }
 
     .sticky-nav { display: none; }
@@ -932,7 +935,7 @@
 </div>
 
 
-<footer>© 2025 Amplitude Inc. &nbsp;·&nbsp; Confidential &nbsp;·&nbsp; All Rights Reserved</footer>
+<footer style="margin-top: auto;">© 2025 Amplitude Inc. &nbsp;·&nbsp; Confidential &nbsp;·&nbsp; All Rights Reserved</footer>
 
 <script>
   (function() {
