@@ -1,0 +1,788 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>New Products — Weekly Overview — Week of Apr 20, 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+<style>
+:root {
+  --amp-blue: #1F2144;
+  --amp-purple: #5B45BB;
+  --amp-teal: #00A89D;
+  --amp-orange: #F37B20;
+  --amp-red: #E5484D;
+  --amp-green: #30A46C;
+  --text: #1a1a2e;
+  --text-secondary: #4a4a6a;
+  --bg: #ffffff;
+  --bg-section: #f8f8fc;
+  --border: #e4e4ed;
+  --accent-bg: #f0edf9;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  color: var(--text);
+  background: var(--bg);
+  line-height: 1.6;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 36px 32px 80px;
+}
+
+/* ---------- Header ---------- */
+.header { margin-bottom: 28px; }
+.header .eyebrow {
+  display: inline-block; padding: 4px 10px; border-radius: 6px;
+  background: var(--accent-bg); color: var(--amp-purple);
+  font-size: 11px; font-weight: 700; letter-spacing: 0.5px; text-transform: uppercase;
+}
+.header h1 {
+  font-size: 30px; font-weight: 800; color: var(--amp-blue);
+  margin: 10px 0 6px; letter-spacing: -0.5px;
+}
+.header .meta {
+  font-size: 13px; color: var(--text-secondary);
+  display: flex; gap: 18px; flex-wrap: wrap; margin-bottom: 12px;
+}
+.header .meta span strong { color: var(--text); font-weight: 600; }
+.mcp-badge {
+  display: inline-flex; align-items: center; gap: 6px;
+  background: var(--bg-section); border: 1px solid var(--border);
+  border-radius: 20px; padding: 5px 12px;
+  font-size: 11px; font-weight: 600; color: var(--text-secondary);
+}
+.mcp-badge .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--amp-teal); }
+
+/* ---------- Section ---------- */
+.section { margin-bottom: 36px; }
+.section-title {
+  font-size: 16px; font-weight: 700; color: var(--amp-blue);
+  padding-bottom: 8px; border-bottom: 2px solid var(--amp-purple);
+  margin-bottom: 16px; display: flex; align-items: center; gap: 8px;
+}
+.section-title .icon { font-size: 18px; }
+.section-title .aside {
+  margin-left: auto; font-size: 11px; font-weight: 500;
+  color: var(--text-secondary); text-transform: none; letter-spacing: 0;
+}
+.section-title .aside a { color: var(--amp-purple); text-decoration: none; }
+.section-title .aside a:hover { text-decoration: underline; }
+
+.sub-title {
+  font-size: 13px; font-weight: 700; color: var(--amp-blue);
+  margin: 18px 0 10px; display: flex; align-items: baseline; gap: 8px;
+  text-transform: uppercase; letter-spacing: 0.4px;
+}
+.sub-title .sub-badge {
+  display: inline-block; padding: 2px 7px; border-radius: 4px;
+  background: var(--accent-bg); color: var(--amp-purple);
+  font-size: 10px; font-weight: 700; letter-spacing: 0.3px;
+}
+.sub-title .sub-aside {
+  margin-left: auto; font-size: 10px; font-weight: 500;
+  color: var(--text-secondary); text-transform: none; letter-spacing: 0;
+}
+.sub-title .sub-aside a { color: var(--amp-purple); text-decoration: none; }
+.sub-title .sub-aside a:hover { text-decoration: underline; }
+
+/* ---------- Product Block ---------- */
+.product-block {
+  background: var(--bg-section); border: 1px solid var(--border);
+  border-radius: 12px; padding: 20px 22px; margin-bottom: 18px;
+  border-left: 4px solid var(--amp-purple);
+}
+.product-block.sr { border-left-color: var(--amp-teal); }
+.product-block.fx { border-left-color: var(--amp-purple); }
+.product-block.gs { border-left-color: var(--amp-orange); }
+.product-block.cdp { border-left-color: var(--amp-blue); }
+.product-block.ai { border-left-color: var(--amp-green); }
+
+.product-head {
+  display: flex; align-items: baseline; flex-wrap: wrap;
+  gap: 10px 16px; margin-bottom: 14px;
+}
+.product-head h2 {
+  font-size: 18px; font-weight: 700; color: var(--amp-blue);
+  margin: 0; letter-spacing: -0.2px;
+}
+.product-head .pm-chip {
+  display: inline-flex; align-items: center; gap: 5px;
+  background: white; border: 1px solid var(--border);
+  border-radius: 12px; padding: 2px 10px;
+  font-size: 11px; font-weight: 600; color: var(--text-secondary);
+}
+.product-head .dash-link {
+  margin-left: auto; font-size: 11px; font-weight: 600;
+  color: var(--amp-purple); text-decoration: none;
+}
+.product-head .dash-link:hover { text-decoration: underline; }
+
+/* KPI Strip */
+.kpi-strip {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 10px; margin-bottom: 14px;
+}
+.kpi-card {
+  background: white; border: 1px solid var(--border); border-radius: 10px;
+  padding: 12px 14px; text-align: left;
+}
+.kpi-card .kpi-label {
+  font-size: 10px; font-weight: 700; text-transform: uppercase;
+  letter-spacing: 0.5px; color: var(--text-secondary); margin-bottom: 4px;
+}
+.kpi-card .kpi-value {
+  font-size: 22px; font-weight: 800; color: var(--amp-blue); line-height: 1.1;
+}
+.kpi-card .kpi-delta {
+  font-size: 11px; font-weight: 600; margin-top: 3px;
+}
+.kpi-card .kpi-delta.up { color: var(--amp-green); }
+.kpi-card .kpi-delta.down { color: var(--amp-red); }
+.kpi-card .kpi-delta.flat { color: var(--text-secondary); }
+.kpi-card .kpi-source {
+  font-size: 10px; color: #999; margin-top: 4px;
+}
+.kpi-card .kpi-source a { color: var(--amp-purple); text-decoration: none; }
+.kpi-card .kpi-source a:hover { text-decoration: underline; }
+
+/* Takeaways */
+.takeaways {
+  font-size: 12px; color: var(--text);
+  line-height: 1.65;
+  margin: 0; padding-left: 18px;
+}
+.takeaways li { margin-bottom: 4px; }
+.val-up { color: var(--amp-green); font-weight: 600; }
+.val-down { color: var(--amp-red); font-weight: 600; }
+.val-flat { color: var(--amp-orange); font-weight: 600; }
+
+.note {
+  font-size: 11px; color: var(--text-secondary);
+  margin-top: 10px; padding: 6px 10px;
+  background: white; border: 1px solid var(--border); border-radius: 6px;
+  border-left: 3px solid var(--amp-orange);
+}
+
+.empty-block {
+  background: white; border: 1px dashed var(--border);
+  border-radius: 8px; padding: 16px;
+  font-size: 12px; color: var(--text-secondary); text-align: center;
+}
+
+/* ---------- Cross-product wrapper ---------- */
+.cross-wrapper {
+  background: var(--bg-section); border: 1px solid var(--border);
+  border-radius: 12px; padding: 18px 22px 22px;
+  border-left: 4px solid var(--amp-purple); margin-bottom: 18px;
+}
+
+.cross-table {
+  width: 100%; border-collapse: collapse;
+  font-size: 12px; background: white;
+  border: 1px solid var(--border); border-radius: 10px; overflow: hidden;
+}
+.cross-table thead th {
+  background: var(--amp-purple); color: white;
+  padding: 8px 12px; text-align: left;
+  font-weight: 600; font-size: 11px;
+  text-transform: uppercase; letter-spacing: 0.5px;
+}
+.cross-table tbody td {
+  padding: 8px 12px; border-bottom: 1px solid var(--border);
+}
+.cross-table tbody tr:nth-child(even) { background: var(--bg-section); }
+.cross-table tbody tr:last-child td { border-bottom: none; }
+.cross-table td.num { text-align: right; font-variant-numeric: tabular-nums; font-weight: 600; }
+.cross-table td.product {
+  font-weight: 600; color: var(--amp-blue);
+}
+.cross-table tbody tr.overall-row td {
+  background: #f0edf9;
+  font-weight: 700;
+  color: var(--amp-blue);
+  border-bottom: 2px solid var(--amp-purple);
+}
+
+.bar-cell {
+  position: relative; padding: 6px 12px;
+  font-variant-numeric: tabular-nums;
+}
+.bar-fill {
+  position: absolute; left: 0; top: 0; bottom: 0;
+  background: linear-gradient(90deg, rgba(91,69,187,0.18), rgba(91,69,187,0.08));
+  z-index: 0;
+}
+.bar-label {
+  position: relative; z-index: 1; font-weight: 600; color: var(--amp-blue);
+}
+
+.pct-pill {
+  display: inline-block; padding: 2px 8px; border-radius: 12px;
+  font-size: 10px; font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+.pct-pill.high { background: #dcfce7; color: #166534; }
+.pct-pill.mid  { background: #fef3c7; color: #92400e; }
+.pct-pill.low  { background: #fee2e2; color: #991b1b; }
+
+/* Overall rate strip — for Enterprise WAU aggregate */
+.overall-strip {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 10px;
+  margin-bottom: 14px;
+}
+.overall-card {
+  background: white; border: 1px solid var(--border); border-radius: 10px;
+  padding: 12px 14px; border-left: 3px solid var(--amp-purple);
+}
+.overall-card.new-products { border-left-color: var(--amp-blue); background: linear-gradient(180deg, #f0edf9 0%, #ffffff 100%); }
+.overall-card.sr { border-left-color: var(--amp-teal); }
+.overall-card.fx { border-left-color: var(--amp-purple); }
+.overall-card.gs { border-left-color: var(--amp-orange); }
+.overall-card.web { border-left-color: #8b5cf6; }
+.overall-card.ai { border-left-color: var(--amp-green); }
+.overall-card .ov-label {
+  font-size: 10px; font-weight: 700; text-transform: uppercase;
+  letter-spacing: 0.4px; color: var(--text-secondary); margin-bottom: 4px;
+}
+.overall-card .ov-value {
+  font-size: 20px; font-weight: 800; color: var(--amp-blue); line-height: 1.1;
+  font-variant-numeric: tabular-nums;
+}
+.overall-card .ov-sub {
+  font-size: 10px; color: var(--text-secondary); margin-top: 3px;
+}
+
+.callout {
+  background: white; border: 1px solid var(--border); border-left: 3px solid var(--amp-purple);
+  border-radius: 8px; padding: 10px 14px; margin-bottom: 14px;
+  font-size: 12px; color: var(--text); line-height: 1.55;
+}
+.callout strong { color: var(--amp-blue); }
+
+/* ---------- Footer ---------- */
+.footer {
+  margin-top: 44px; padding-top: 16px;
+  border-top: 1px solid var(--border);
+  font-size: 11px; color: #999; text-align: center;
+}
+.footer a { color: var(--amp-purple); text-decoration: none; }
+
+@media (max-width: 700px) {
+  body { padding: 24px 16px 60px; }
+  .kpi-strip { grid-template-columns: 1fr 1fr; }
+  .overall-strip { grid-template-columns: 1fr 1fr; }
+  .header h1 { font-size: 24px; }
+  .cross-table { font-size: 11px; }
+  .cross-table thead th, .cross-table tbody td { padding: 6px 8px; }
+}
+</style>
+</head>
+<body>
+
+<!-- ============== HEADER ============== -->
+<header class="header">
+  <span class="eyebrow">Tab · New Products</span>
+  <h1>New Products — Weekly Overview</h1>
+  <div class="meta">
+    <span><strong>Week of</strong> Apr 20, 2026</span>
+    <span><strong>Quarter</strong> Q2 FY26 (Day 20 of 91)</span>
+    <span><strong>Coverage</strong> Session Replay · Feature Experiment · Web Experiment · Guides &amp; Surveys · Activation / CDP · AI Assistant · AI Feedback</span>
+    <span><strong>Owner</strong> Chris Yu</span>
+  </div>
+  <div class="mcp-badge"><span class="dot"></span>Powered by Amplitude MCP · 5 product dashboards + 3 cross-product dashboards</div>
+</header>
+
+<!-- ============== SECTION 1: Cross-Product Charts ============== -->
+<section class="section">
+  <div class="section-title">
+    <span class="icon">🌐</span>
+    <span>Cross-Product Charts</span>
+    <span class="aside">3 dashboards aggregating activity across all 5 New Products</span>
+  </div>
+
+  <!-- === 1. Enterprise WAU === -->
+  <div class="cross-wrapper">
+    <div class="sub-title">
+      <span class="sub-badge">1</span>
+      <span>Enterprise WAU — New Product Adoption Across Top-Enterprise Cohort</span>
+      <span class="sub-aside"><a href="https://app.amplitude.com/analytics/amplitude/chart/rwafsxg7" target="_blank">Chart rwafsxg7 →</a></span>
+    </div>
+
+    <div class="callout">
+      <strong>Headline:</strong> Across the <strong>86 top-enterprise organizations</strong>, <strong>70% (60 of 86)</strong> have at least one active user touching a New Product (down 2 orgs WoW). On a simple-average basis, <strong>13.25%</strong> of each enterprise's active users touches a New Product (−0.15pp WoW) — Feature Experiment and Session Replay still lead the portfolio; Realtor.com and Rocket Central have now jumped ahead of FanDuel at the top.
+    </div>
+
+    <div class="overall-strip">
+      <div class="overall-card new-products">
+        <div class="ov-label">Any New Product</div>
+        <div class="ov-value">13.25%</div>
+        <div class="ov-sub">70% of 86 orgs adopted (60) · −0.15pp WoW</div>
+      </div>
+      <div class="overall-card sr">
+        <div class="ov-label">Session Replay</div>
+        <div class="ov-value">6.14%</div>
+        <div class="ov-sub">59% of orgs (51) · −0.09pp WoW</div>
+      </div>
+      <div class="overall-card fx">
+        <div class="ov-label">Feature Experiment</div>
+        <div class="ov-value">7.94%</div>
+        <div class="ov-sub">47% of orgs (40) · flat WoW</div>
+      </div>
+      <div class="overall-card web">
+        <div class="ov-label">Web Experiment</div>
+        <div class="ov-value">1.92%</div>
+        <div class="ov-sub">13% of orgs (11) · flat WoW</div>
+      </div>
+      <div class="overall-card gs">
+        <div class="ov-label">Guides &amp; Surveys</div>
+        <div class="ov-value">0.12%</div>
+        <div class="ov-sub">14% of orgs (12) · flat WoW</div>
+      </div>
+      <div class="overall-card ai">
+        <div class="ov-label">AI Feedback</div>
+        <div class="ov-value">0.61%</div>
+        <div class="ov-sub">40% of orgs (34) · +0.01pp WoW</div>
+      </div>
+    </div>
+
+    <div class="sub-title" style="margin-top: 20px;">
+      <span>Top 10 Enterprises by New Product Usage</span>
+      <span class="sub-aside">% of each org's weekly active users touching the product (24-wk avg)</span>
+    </div>
+    <table class="cross-table">
+      <thead>
+        <tr>
+          <th>Enterprise</th>
+          <th class="num">New Products %</th>
+          <th class="num">Session Replay</th>
+          <th class="num">Feature Exp</th>
+          <th class="num">Web Exp</th>
+          <th class="num">G&amp;S</th>
+          <th class="num">AI Feedback</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="overall-row"><td class="product">Overall (86 orgs, simple avg)</td><td class="num">13.25%</td><td class="num">6.14%</td><td class="num">7.94%</td><td class="num">1.92%</td><td class="num">0.12%</td><td class="num">0.61%</td></tr>
+        <tr><td class="product">Realtor.com</td><td class="num">82.0%</td><td class="num">14.3%</td><td class="num">79.2%</td><td class="num">0.0%</td><td class="num">1.3%</td><td class="num">2.6%</td></tr>
+        <tr><td class="product">Rocket Central</td><td class="num">69.7%</td><td class="num">69.7%</td><td class="num">1.1%</td><td class="num">0.0%</td><td class="num">0.2%</td><td class="num">0.5%</td></tr>
+        <tr><td class="product">FanDuel</td><td class="num">68.1%</td><td class="num">33.4%</td><td class="num">56.8%</td><td class="num">48.7%</td><td class="num">1.0%</td><td class="num">1.7%</td></tr>
+        <tr><td class="product">chegginc</td><td class="num">66.2%</td><td class="num">36.9%</td><td class="num">53.1%</td><td class="num">44.6%</td><td class="num">0.0%</td><td class="num">0.8%</td></tr>
+        <tr><td class="product">BeReal</td><td class="num">53.0%</td><td class="num">7.2%</td><td class="num">54.1%</td><td class="num">0.0%</td><td class="num">0.0%</td><td class="num">3.9%</td></tr>
+        <tr><td class="product">Square (Cross-Project)</td><td class="num">48.2%</td><td class="num">0.4%</td><td class="num">37.2%</td><td class="num">0.1%</td><td class="num">0.1%</td><td class="num">0.0%</td></tr>
+        <tr><td class="product">Restaurant Brands International</td><td class="num">46.4%</td><td class="num">34.5%</td><td class="num">31.4%</td><td class="num">0.0%</td><td class="num">0.0%</td><td class="num">0.5%</td></tr>
+        <tr><td class="product">Character.ai</td><td class="num">42.5%</td><td class="num">34.2%</td><td class="num">16.4%</td><td class="num">0.0%</td><td class="num">0.0%</td><td class="num">0.0%</td></tr>
+        <tr><td class="product">Rocket Mortgage</td><td class="num">40.0%</td><td class="num">40.0%</td><td class="num">0.0%</td><td class="num">0.0%</td><td class="num">0.0%</td><td class="num">0.0%</td></tr>
+        <tr><td class="product">Fox</td><td class="num">38.7%</td><td class="num">0.6%</td><td class="num">35.5%</td><td class="num">34.2%</td><td class="num">0.0%</td><td class="num">7.1%</td></tr>
+      </tbody>
+    </table>
+    <ul class="takeaways" style="margin-top: 12px;">
+      <li><span class="val-up">70% adoption across the top-enterprise cohort</span> — 60 of 86 orgs have at least one active user on a New Product (−2 WoW). Depth 13.25% (−0.15pp WoW). Breadth still the story, depth still the lever.</li>
+      <li><span class="val-up">Top-of-table reshuffle</span> — Realtor.com (82.0%) and Rocket Central (69.7%) have leapfrogged FanDuel (68.1%) this week. Realtor.com's surge is Feature Experiment–driven (79.2% FX); Rocket Central's is almost entirely Session Replay (69.7% SR).</li>
+      <li><span class="val-up">FanDuel remains the multi-product anchor</span> — the only top-10 account with meaningful adoption across Session Replay (33.4%), Feature Experiment (56.8%), AND Web Experiment (48.7%). Still the reference-customer template we should be chasing.</li>
+      <li>Fox's AI Feedback (<span class="val-up">7.1%</span>) is now the highest enterprise AI Feedback rate in the cohort — displaces eBay from last week. Worth a Spencer + AE sync on what they're doing differently.</li>
+    </ul>
+  </div>
+
+  <!-- === 2. Blade Activation === -->
+  <div class="cross-wrapper">
+    <div class="sub-title">
+      <span class="sub-badge">2</span>
+      <span>Blade Activation — Provisioning → Setup → Activation Funnels</span>
+      <span class="sub-aside"><a href="https://app.amplitude.com/analytics/amplitude/dashboard/nvf4l0s2" target="_blank">Dashboard nvf4l0s2 →</a></span>
+    </div>
+    <table class="cross-table">
+      <thead>
+        <tr>
+          <th>Product</th>
+          <th class="num">Orgs Provisioned</th>
+          <th class="num">Orgs Activated</th>
+          <th>Activation Rate (L12M, G+E)</th>
+          <th class="num">Rating</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="product">Session Replay</td>
+          <td class="num">526</td>
+          <td class="num">390</td>
+          <td class="bar-cell"><span class="bar-fill" style="width: 74.1%;"></span><span class="bar-label">74.1%</span></td>
+          <td class="num"><span class="pct-pill high">High</span></td>
+        </tr>
+        <tr>
+          <td class="product">Feature Experiment</td>
+          <td class="num">606</td>
+          <td class="num">343</td>
+          <td class="bar-cell"><span class="bar-fill" style="width: 56.6%;"></span><span class="bar-label">56.6%</span></td>
+          <td class="num"><span class="pct-pill high">High</span></td>
+        </tr>
+        <tr>
+          <td class="product">Activation (CDP)</td>
+          <td class="num">369</td>
+          <td class="num">198</td>
+          <td class="bar-cell"><span class="bar-fill" style="width: 53.7%;"></span><span class="bar-label">53.7%</span></td>
+          <td class="num"><span class="pct-pill mid">Mid</span></td>
+        </tr>
+        <tr>
+          <td class="product">Web Experiment</td>
+          <td class="num">194</td>
+          <td class="num">77</td>
+          <td class="bar-cell"><span class="bar-fill" style="width: 39.7%;"></span><span class="bar-label">39.7%</span></td>
+          <td class="num"><span class="pct-pill mid">Mid</span></td>
+        </tr>
+        <tr>
+          <td class="product">Guides &amp; Surveys</td>
+          <td class="num">369</td>
+          <td class="num">73</td>
+          <td class="bar-cell"><span class="bar-fill" style="width: 19.8%;"></span><span class="bar-label">19.8%</span></td>
+          <td class="num"><span class="pct-pill low">Low</span></td>
+        </tr>
+      </tbody>
+    </table>
+    <ul class="takeaways" style="margin-top: 12px;">
+      <li><span class="val-up">Session Replay leads the portfolio</span> at <span class="val-up">74.1% activation</span> (390 of 526 provisioned orgs) — by a wide margin the most reliable blade to provision-to-value.</li>
+      <li>Feature Experiment (<span class="val-up">56.6%</span>) and Activation/CDP (<span class="val-up">53.7%</span>) sit in a healthy middle band; they share the pattern that provisioning → setup is the main step, not setup → activation.</li>
+      <li>G&amp;S activation is the <span class="val-down">weakest at 19.8%</span> — 296 of 369 provisioned orgs never reach a published guide/survey. Pairs with the dashboard caveat "Jenn &amp; Snehith to verify enterprise provisioning counts"; worth a Lucas deep-dive on the script-download → publish step.</li>
+      <li>Web Experiment's 39.7% likely reflects the smaller-and-newer cohort (194 orgs vs. 606 for FE) rather than a structural problem — watch for convergence as the install base grows.</li>
+    </ul>
+  </div>
+
+  <!-- === 3. UI vs MCP Adoption === -->
+  <div class="cross-wrapper">
+    <div class="sub-title">
+      <span class="sub-badge">3</span>
+      <span>UI vs MCP Adoption — Weekly Uniques (Week of Mar 30, 2026)</span>
+      <span class="sub-aside"><a href="https://app.amplitude.com/analytics/amplitude/dashboard/56nfxynl" target="_blank">Dashboard 56nfxynl →</a></span>
+    </div>
+    <table class="cross-table">
+      <thead>
+        <tr>
+          <th>Product</th>
+          <th class="num">UI Uniques</th>
+          <th class="num">MCP Uniques</th>
+          <th>MCP Share (of UI+MCP)</th>
+          <th class="num">MCP / UI</th>
+          <th class="num">13-wk MCP Growth</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="product">Session Replay</td>
+          <td class="num">3,865</td>
+          <td class="num">500</td>
+          <td class="bar-cell"><span class="bar-fill" style="width: 11.5%;"></span><span class="bar-label">11.5%</span></td>
+          <td class="num">0.13×</td>
+          <td class="num"><span class="val-up">6.9×</span></td>
+        </tr>
+        <tr>
+          <td class="product">Feature Experiment</td>
+          <td class="num">8,576</td>
+          <td class="num">1,274</td>
+          <td class="bar-cell"><span class="bar-fill" style="width: 12.9%;"></span><span class="bar-label">12.9%</span></td>
+          <td class="num">0.15×</td>
+          <td class="num"><span class="val-up">12.6×</span></td>
+        </tr>
+        <tr>
+          <td class="product">Feature Flags</td>
+          <td class="num">3,593</td>
+          <td class="num">1,274</td>
+          <td class="bar-cell"><span class="bar-fill" style="width: 26.2%;"></span><span class="bar-label">26.2%</span></td>
+          <td class="num">0.35×</td>
+          <td class="num"><span class="val-up">12.6×</span></td>
+        </tr>
+        <tr>
+          <td class="product">Guides &amp; Surveys</td>
+          <td class="num">881</td>
+          <td class="num">0</td>
+          <td class="bar-cell"><span class="bar-fill" style="width: 0%;"></span><span class="bar-label">0.0%</span></td>
+          <td class="num">—</td>
+          <td class="num"><span class="val-flat">Flat</span></td>
+        </tr>
+        <tr>
+          <td class="product">Activation</td>
+          <td class="num">2,305</td>
+          <td class="num">1,051</td>
+          <td class="bar-cell"><span class="bar-fill" style="width: 31.3%;"></span><span class="bar-label">31.3%</span></td>
+          <td class="num">0.46×</td>
+          <td class="num"><span class="val-up">14.6×</span></td>
+        </tr>
+        <tr>
+          <td class="product">AI Feedback</td>
+          <td class="num">196</td>
+          <td class="num">369</td>
+          <td class="bar-cell"><span class="bar-fill" style="width: 65.3%;"></span><span class="bar-label">65.3%</span></td>
+          <td class="num"><span class="val-up">1.88×</span></td>
+          <td class="num"><span class="val-up">6.0×</span></td>
+        </tr>
+      </tbody>
+    </table>
+    <ul class="takeaways" style="margin-top: 12px;">
+      <li><span class="val-up">AI Feedback is the only product where MCP exceeds UI</span> (1.88× ratio, 65.3% share) — the canary for agent-first adoption; crossover happened week of Feb 23.</li>
+      <li><span class="val-up">Activation leads UI-based products</span> at <span class="val-up">31.3% MCP share</span> and <span class="val-up">14.6× MCP growth</span> over 13 weeks — the clearest signal of genuine agent usage outside the AI Feedback canary.</li>
+      <li>Feature Flags is pulling ahead of Feature Experiment on MCP share (26.2% vs 12.9%) despite the same MCP event — confirms that flag management (not experiment analysis) is the dominant agent job-to-be-done inside Experiment.</li>
+      <li><span class="val-down">G&amp;S has zero MCP uniques</span> across the entire 14-week window — a real gap, not a measurement artifact. MCP surface for Guides &amp; Surveys needs Spencer + Lucas to prioritize.</li>
+      <li>Session Replay MCP grew <span class="val-up">6.9×</span> (72 → 500 weekly uniques) but still the smallest MCP footprint of the non-zero products — room to grow given SR's portfolio-leading UI base.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ============== SECTION 2: Per-Product KPI Strip ============== -->
+<section class="section">
+  <div class="section-title">
+    <span class="icon">📊</span>
+    <span>Per-Product KPI Strip</span>
+    <span class="aside">Per-product dashboards carried forward from <strong>Apr 17, 2026</strong> run; Enterprise WAU (rwafsxg7) refreshed live on Apr 20</span>
+  </div>
+
+  <!-- 1. Session Replay -->
+  <div class="product-block sr">
+    <div class="product-head">
+      <h2>1. Session Replay &amp; Zoning</h2>
+      <span class="pm-chip">PM · Chad Swenson</span>
+      <a class="dash-link" href="https://app.amplitude.com/analytics/amplitude/dashboard/7aoibt4l" target="_blank">Open dashboard →</a>
+    </div>
+    <div class="kpi-strip">
+      <div class="kpi-card">
+        <div class="kpi-label">Top-56 Enterprise SR Usage</div>
+        <div class="kpi-value">44.5%</div>
+        <div class="kpi-delta flat">% of top-enterprise active users watching replays (24-wk avg)</div>
+        <div class="kpi-source"><a href="https://app.amplitude.com/analytics/amplitude/chart/ysq0jo60" target="_blank">Chart ysq0jo60 →</a></div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-label">All-User SR Activation</div>
+        <div class="kpi-value">75.7%</div>
+        <div class="kpi-delta up">All-users cohort using Session Replay (24-wk avg)</div>
+        <div class="kpi-source"><a href="https://app.amplitude.com/analytics/amplitude/chart/xaahwmqs" target="_blank">Chart xaahwmqs →</a></div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-label">W1 Replay Retention</div>
+        <div class="kpi-value">47.4%</div>
+        <div class="kpi-delta flat">Week-1 return rate, unbounded retention cohort n=75,265</div>
+        <div class="kpi-source"><a href="https://app.amplitude.com/analytics/amplitude/chart/jjdbxhr4" target="_blank">Chart jjdbxhr4 →</a></div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-label">Home → View Replay Funnel</div>
+        <div class="kpi-value">18.9%</div>
+        <div class="kpi-delta flat">Funnel conversion, Starter + all tiers composite</div>
+        <div class="kpi-source"><a href="https://app.amplitude.com/analytics/amplitude/chart/uvet16sk" target="_blank">Chart uvet16sk →</a></div>
+      </div>
+    </div>
+    <ul class="takeaways">
+      <li>Top-56 enterprise cohort adoption sits at <span class="val-up">44.5%</span> — Session Replay is the most broadly-adopted New Product across enterprise accounts.</li>
+      <li>All-user activation rate holds at <span class="val-up">75.7%</span>, indicating Session Replay remains the strongest entry point into the New Products portfolio.</li>
+      <li>W1 retention of <span class="val-flat">47.4%</span> with long-tail retention curve (~4.5% at W52) — healthy pattern but watch early-week drop-off for engagement plays.</li>
+    </ul>
+  </div>
+
+  <!-- 2. Feature Experiment -->
+  <div class="product-block fx">
+    <div class="product-head">
+      <h2>2. Feature Experiment</h2>
+      <span class="pm-chip">PM · Eric Metelka</span>
+      <a class="dash-link" href="https://app.amplitude.com/analytics/amplitude/dashboard/if46jpgc" target="_blank">Open dashboard →</a>
+    </div>
+    <div class="kpi-strip">
+      <div class="kpi-card">
+        <div class="kpi-label">Monthly Active Experimenting Orgs (Feature)</div>
+        <div class="kpi-value">402</div>
+        <div class="kpi-delta up">↑ 16.5% MoM (345 → 402)</div>
+        <div class="kpi-source"><a href="https://app.amplitude.com/analytics/amplitude/chart/pvwxou1i" target="_blank">Chart pvwxou1i →</a></div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-label">Monthly Active Experimenting Orgs (Web)</div>
+        <div class="kpi-value">244</div>
+        <div class="kpi-delta up">↑ 27.7% MoM (191 → 244)</div>
+        <div class="kpi-source"><a href="https://app.amplitude.com/analytics/amplitude/chart/pvwxou1i" target="_blank">Chart pvwxou1i →</a></div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-label">Enterprise Flag Attach Rate</div>
+        <div class="kpi-value">1.95%</div>
+        <div class="kpi-delta flat">Monthly; Growth 1.34%, Plus 0.47%, Starter 0.05%</div>
+        <div class="kpi-source"><a href="https://app.amplitude.com/analytics/amplitude/chart/nzlxhm8z" target="_blank">Chart nzlxhm8z →</a></div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-label">Enterprise Activation Funnel</div>
+        <div class="kpi-value">68.4%</div>
+        <div class="kpi-delta up">Create flag → analyze experiment (Enterprise v3)</div>
+        <div class="kpi-source"><a href="https://app.amplitude.com/analytics/amplitude/chart/ila13lec" target="_blank">Chart ila13lec →</a></div>
+      </div>
+    </div>
+    <ul class="takeaways">
+      <li>Feature Experiment orgs grew <span class="val-up">+57 MoM</span> (Feb → Mar), reaching <span class="val-up">402 active experimenting orgs</span> — the highest monthly count in the trailing 12 months.</li>
+      <li>Web Experiment continues to outpace on growth rate: <span class="val-up">+27.7% MoM</span> vs. Feature's +16.5%, though Feature still dominates in absolute count (1.65×).</li>
+      <li>Activation funnel is highly plan-stratified: <span class="val-up">Enterprise 68.4%</span> vs. <span class="val-down">Starter 9.2%</span> and <span class="val-down">Plus 12.0%</span> — drop-off is concentrated at experiment-start, not flag creation.</li>
+    </ul>
+  </div>
+
+  <!-- 3. Guides & Surveys -->
+  <div class="product-block gs">
+    <div class="product-head">
+      <h2>3. Guides &amp; Surveys</h2>
+      <span class="pm-chip">PM · Lucas Howard</span>
+      <a class="dash-link" href="https://app.amplitude.com/analytics/amplitude/dashboard/vxa3c3c4" target="_blank">Open dashboard →</a>
+    </div>
+    <div class="kpi-strip">
+      <div class="kpi-card">
+        <div class="kpi-label">Daily Active G&amp;S Users (Peak)</div>
+        <div class="kpi-value">72</div>
+        <div class="kpi-delta up">Peak DAU in window; recent Mon–Fri avg ~55</div>
+        <div class="kpi-source"><a href="https://app.amplitude.com/analytics/amplitude/chart/9alq87br" target="_blank">Chart 9alq87br →</a></div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-label">Total G&amp;S Edits (31d)</div>
+        <div class="kpi-value">4,849</div>
+        <div class="kpi-delta flat">Combined drafts + publishes, Jan 18 – Feb 17</div>
+        <div class="kpi-source"><a href="https://app.amplitude.com/analytics/amplitude/chart/8bvtpxrx" target="_blank">Chart 8bvtpxrx →</a></div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-label">Guide vs Survey Activity</div>
+        <div class="kpi-value">64% / 36%</div>
+        <div class="kpi-delta flat">Guides 3,109 edits vs Surveys 1,740</div>
+        <div class="kpi-source"><a href="https://app.amplitude.com/analytics/amplitude/chart/xruuorf0" target="_blank">Chart xruuorf0 →</a></div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-label">Orgs Using Localization</div>
+        <div class="kpi-value">—</div>
+        <div class="kpi-delta flat">i18n locale set; see chart itj6tfu5 for org list</div>
+        <div class="kpi-source"><a href="https://app.amplitude.com/analytics/amplitude/chart/itj6tfu5" target="_blank">Chart itj6tfu5 →</a></div>
+      </div>
+    </div>
+    <ul class="takeaways">
+      <li>DAU swings <span class="val-flat">4–72 users/day</span> with weekday peaks around 50–60 — small but steady user base; weekends drop sharply (usage tied to working hours).</li>
+      <li>Guides outpace Surveys <span class="val-up">~1.8×</span> in edit volume; no signs of Survey cannibalization, consistent with different jobs-to-be-done.</li>
+    </ul>
+    <div class="note">⚠ G&amp;S charts 9alq87br, 8bvtpxrx, xruuorf0 have a hard-coded date window ending Feb 17, 2026. Recommend Lucas update to rolling "Last 30 Days" before next briefing cycle.</div>
+  </div>
+
+  <!-- 4. Activation/Audiences/SDK -->
+  <div class="product-block cdp">
+    <div class="product-head">
+      <h2>4. Activation, Audiences &amp; SDK</h2>
+      <span class="pm-chip">PM · Madelyn (acting for Sean Kilcullen)</span>
+      <a class="dash-link" href="https://app.amplitude.com/analytics/amplitude/dashboard/jndpjk4" target="_blank">Open dashboard →</a>
+    </div>
+    <div class="kpi-strip">
+      <div class="kpi-card">
+        <div class="kpi-label">Activation (CDP) Orgs</div>
+        <div class="kpi-value">3,241</div>
+        <div class="kpi-delta up">↑ 0.7% WoW (3,219 → 3,241); YoY +40.9%</div>
+        <div class="kpi-source"><a href="https://app.amplitude.com/analytics/amplitude/chart/4rckpnpn" target="_blank">Chart 4rckpnpn →</a></div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-label">Event Streaming Orgs</div>
+        <div class="kpi-value">2,298</div>
+        <div class="kpi-delta up">↑ 0.7% WoW (2,282 → 2,298)</div>
+        <div class="kpi-source"><a href="https://app.amplitude.com/analytics/amplitude/chart/4dwbk3ch" target="_blank">Chart 4dwbk3ch →</a></div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-label">Orgs Creating Cohorts (Mar)</div>
+        <div class="kpi-value">2,530</div>
+        <div class="kpi-delta up">↑ 24.9% MoM (2,026 → 2,530)</div>
+        <div class="kpi-source"><a href="https://app.amplitude.com/analytics/amplitude/chart/vpttmkrc" target="_blank">Chart vpttmkrc →</a></div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-label">% Growth/Enterprise Orgs Using CDP</div>
+        <div class="kpi-value">—</div>
+        <div class="kpi-delta flat">See chart vyxcrnpl for trend</div>
+        <div class="kpi-source"><a href="https://app.amplitude.com/analytics/amplitude/chart/vyxcrnpl" target="_blank">Chart vyxcrnpl →</a></div>
+      </div>
+    </div>
+    <ul class="takeaways">
+      <li>Activation (CDP) orgs crossed <span class="val-up">3,200</span> for the first time — up <span class="val-up">+40.9% YoY</span> from 2,301 in Apr 2025. Steady, healthy growth line.</li>
+      <li>Cohort creation jumped <span class="val-up">+24.9% MoM</span> in March (2,026 → 2,530), a notable acceleration off a flat Nov–Feb baseline — worth investigating whether this is launch-, campaign-, or release-driven.</li>
+      <li>Event streaming trajectory mirrors CDP orgs closely (2,298 vs 3,241), suggesting streaming is the dominant activation path and cohort-only use remains a minority of ~700 orgs.</li>
+      <li><span class="val-flat">Data anomaly flag:</span> chart 4dwbk3ch shows 50–51 orgs for weeks of Dec 8–Jan 12 — likely an instrumentation break, not a real drop. Coordinate with Madelyn + data team.</li>
+    </ul>
+  </div>
+
+  <!-- 5. AI Assistant (Houston) -->
+  <div class="product-block ai">
+    <div class="product-head">
+      <h2>5. AI Assistant (Houston)</h2>
+      <span class="pm-chip">PM · Spencer Whittaker</span>
+      <span class="pm-chip" style="background: var(--accent-bg); color: var(--amp-purple);">No product dashboard</span>
+    </div>
+    <div class="empty-block">
+      No product-specific Amplitude dashboard. Metrics tracked via Confluence, GitHub, and Google Drive — pulled separately from the briefing agent's non-Amplitude sources.
+    </div>
+  </div>
+</section>
+
+<!-- ============== SECTION 3: Sources ============== -->
+<section class="section">
+  <div class="section-title">
+    <span class="icon">🔗</span><span>Sources Scanned</span>
+  </div>
+  <table class="cross-table">
+    <thead>
+      <tr><th>Product / View</th><th>Dashboard</th><th>Charts Queried</th><th>Window</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="product">Cross · Enterprise WAU</td>
+        <td>—</td>
+        <td><a href="https://app.amplitude.com/analytics/amplitude/chart/rwafsxg7" target="_blank">rwafsxg7</a> (groupByLimit=100, 86 orgs)</td>
+        <td>Last 24 weeks</td>
+      </tr>
+      <tr>
+        <td class="product">Cross · Blade Activation</td>
+        <td><a href="https://app.amplitude.com/analytics/amplitude/dashboard/nvf4l0s2" target="_blank">nvf4l0s2</a></td>
+        <td>010rbjqz, hw0c0r06, vkmodvfj, orfyink8, jl87fbps</td>
+        <td>Last 12 months</td>
+      </tr>
+      <tr>
+        <td class="product">Cross · UI vs MCP Adoption</td>
+        <td><a href="https://app.amplitude.com/analytics/amplitude/dashboard/56nfxynl" target="_blank">56nfxynl</a></td>
+        <td>2i6jn1c4, qgoed560, 4rhvkk9g, jkc080n5, qsv7bj30, 97z6a6iu</td>
+        <td>Dec 29, 2025 – Mar 30, 2026</td>
+      </tr>
+      <tr>
+        <td class="product">Session Replay</td>
+        <td><a href="https://app.amplitude.com/analytics/amplitude/dashboard/7aoibt4l" target="_blank">7aoibt4l</a></td>
+        <td>ysq0jo60, xaahwmqs, jjdbxhr4, uvet16sk</td>
+        <td>Last 24 weeks</td>
+      </tr>
+      <tr>
+        <td class="product">Feature Experiment</td>
+        <td><a href="https://app.amplitude.com/analytics/amplitude/dashboard/if46jpgc" target="_blank">if46jpgc</a></td>
+        <td>nzlxhm8z, pvwxou1i, ila13lec</td>
+        <td>Last 12 months</td>
+      </tr>
+      <tr>
+        <td class="product">Guides &amp; Surveys</td>
+        <td><a href="https://app.amplitude.com/analytics/amplitude/dashboard/vxa3c3c4" target="_blank">vxa3c3c4</a></td>
+        <td>9alq87br, 8bvtpxrx, xruuorf0</td>
+        <td>Jan 18 – Feb 17, 2026 ⚠ stale</td>
+      </tr>
+      <tr>
+        <td class="product">Activation / Audiences / SDK</td>
+        <td><a href="https://app.amplitude.com/analytics/amplitude/dashboard/jndpjk4" target="_blank">jndpjk4</a></td>
+        <td>4rckpnpn, vpttmkrc, 4dwbk3ch</td>
+        <td>Last 52 weeks</td>
+      </tr>
+      <tr>
+        <td class="product">AI Assistant</td>
+        <td>—</td>
+        <td>No Amplitude dashboard (Confluence / GitHub / GDrive)</td>
+        <td>—</td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+
+<div class="footer">
+  Generated by Chris Yu's New Products Briefing Agent · Refreshed framing Apr 20, 2026 (Week of Apr 20, Q2 FY26 Day 20/91).
+  <br><strong>Data provenance:</strong> Enterprise WAU (chart rwafsxg7) refreshed live via Amplitude MCP on Apr 20, 2026 — aggregate rate 13.25% (−0.15pp WoW), 60 of 86 orgs adopted (−2 WoW), Realtor.com now top at 82.0%. Per-product KPI strips (Blade Activation funnels, UI vs MCP, individual product dashboards) carried forward from the Apr 17 run; underlying chart IDs and dashboard links are unchanged — open each chart directly for the latest values. Full per-dashboard re-query deferred this week due to agent context limits; flagged in the Executive Summary Risks section.
+  <br>Reference catalog: <code>amplitude-dashboards.md</code>.
+</div>
+
+</body>
+</html>

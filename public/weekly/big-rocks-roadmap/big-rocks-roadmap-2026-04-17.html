@@ -1,0 +1,764 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Big Rocks &amp; Roadmap — New Products — Week of Apr 13, 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+
+:root {
+  --amp-blue: #1F2144;
+  --amp-purple: #5B45BB;
+  --amp-teal: #00A89D;
+  --amp-orange: #F37B20;
+  --amp-red: #E5484D;
+  --amp-green: #30A46C;
+  --text: #1a1a2e;
+  --text-secondary: #4a4a6a;
+  --bg: #ffffff;
+  --bg-section: #f8f8fc;
+  --border: #e4e4ed;
+  --accent-bg: #f0edf9;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  color: var(--text);
+  background: var(--bg);
+  line-height: 1.55;
+  max-width: 1040px;
+  margin: 0 auto;
+  padding: 40px 32px 80px;
+}
+
+/* Header */
+.header { margin-bottom: 32px; padding-bottom: 20px; border-bottom: 3px solid var(--amp-purple); }
+.header h1 {
+  font-size: 26px; font-weight: 800; color: var(--amp-blue);
+  margin: 0 0 8px 0; letter-spacing: -0.3px;
+}
+.header .subtitle { font-size: 13px; color: var(--text-secondary); margin-bottom: 10px; }
+.header .subtitle strong { color: var(--amp-blue); }
+.mcp-badge {
+  display: inline-block; background: var(--accent-bg); color: var(--amp-purple);
+  padding: 4px 10px; border-radius: 20px; font-size: 11px; font-weight: 600;
+  margin-top: 6px;
+}
+.chip-row { margin-top: 10px; display: flex; flex-wrap: wrap; gap: 6px; }
+.countdown-chip {
+  display: inline-flex; align-items: center; gap: 5px;
+  padding: 4px 11px; border-radius: 20px;
+  font-size: 11px; font-weight: 600;
+}
+.countdown-chip.urgent { background: #fef2f2; color: var(--amp-red); border: 1px solid #fecaca; }
+.countdown-chip.warning { background: #fff7ed; color: #c2410c; border: 1px solid #fed7aa; }
+.countdown-chip.info { background: #f0f9ff; color: #0369a1; border: 1px solid #bae6fd; }
+
+/* Section */
+.section { margin-bottom: 36px; }
+.section-title {
+  font-size: 17px; font-weight: 700; color: var(--amp-blue);
+  padding-bottom: 8px; border-bottom: 2px solid var(--amp-purple);
+  margin-bottom: 16px;
+  display: flex; align-items: center; gap: 8px; justify-content: space-between;
+}
+.section-title-left { display: flex; align-items: center; gap: 8px; }
+.section-title .icon { font-size: 18px; }
+.section-title a { font-size: 12px; font-weight: 500; color: var(--amp-purple); text-decoration: none; }
+.section-title a:hover { text-decoration: underline; }
+
+.lead {
+  font-size: 13px; color: var(--text-secondary);
+  margin-bottom: 16px;
+}
+
+/* Product group */
+.product-group { margin-bottom: 24px; border: 1px solid var(--border); border-radius: 10px; overflow: hidden; }
+.product-group-header {
+  background: var(--bg-section); padding: 12px 16px;
+  display: flex; align-items: center; justify-content: space-between;
+  border-bottom: 1px solid var(--border);
+}
+.product-group-header .pg-title {
+  display: flex; align-items: center; gap: 10px;
+  font-size: 14px; font-weight: 700; color: var(--amp-blue);
+}
+.badge {
+  display: inline-block; padding: 3px 9px; border-radius: 5px;
+  font-size: 10px; font-weight: 800; letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+.badge.sr { background: var(--amp-purple); color: white; }
+.badge.exp { background: var(--amp-purple); color: white; }
+.badge.act { background: var(--amp-green); color: white; }
+.badge.aia { background: #2563eb; color: white; }
+.badge.gns { background: var(--amp-purple); color: white; }
+.pg-meta { font-size: 11px; color: var(--text-secondary); }
+
+/* Table */
+table { width: 100%; border-collapse: collapse; font-size: 12.5px; }
+thead th {
+  background: var(--amp-purple); color: white;
+  padding: 9px 12px; text-align: left;
+  font-weight: 600; font-size: 10.5px;
+  text-transform: uppercase; letter-spacing: 0.5px;
+}
+tbody td {
+  padding: 10px 12px; border-bottom: 1px solid var(--border);
+  vertical-align: top;
+}
+tbody tr:nth-child(even) { background: #fafafd; }
+tbody tr:last-child td { border-bottom: none; }
+.init-name { font-weight: 600; color: var(--amp-blue); }
+.init-name a { color: var(--amp-blue); text-decoration: none; }
+.init-name a:hover { text-decoration: underline; color: var(--amp-purple); }
+.upc { color: var(--amp-orange); font-size: 10px; font-weight: 700; margin-left: 6px; }
+
+/* Status pills */
+.status-tag {
+  display: inline-block; padding: 3px 8px; border-radius: 5px;
+  font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.3px;
+  white-space: nowrap;
+}
+.status-tag.at-risk { background: #fef9c3; color: #854d0e; }
+.status-tag.building { background: #ede9fe; color: #5b21b6; }
+.status-tag.in-progress { background: #ede9fe; color: #5b21b6; }
+.status-tag.blocked { background: #fee2e2; color: #991b1b; }
+.status-tag.on-track { background: #ccfbf1; color: #115e59; }
+.status-tag.tracking { background: #ccfbf1; color: #115e59; }
+.status-tag.planned { background: #dbeafe; color: #1e40af; }
+.status-tag.shipped { background: #dcfce7; color: #166534; }
+.status-tag.ga { background: #dcfce7; color: #166534; }
+.status-tag.alpha { background: #fef3c7; color: #92400e; }
+.status-tag.open-beta { background: #e0f2fe; color: #0369a1; }
+.status-tag.closed-beta { background: #e0f2fe; color: #0369a1; }
+
+/* Inline shipped sub-header (inside a product-group) */
+.shipped-header {
+  background: #f6f5fa;
+  padding: 10px 16px;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  font-size: 11px; font-weight: 800;
+  color: var(--amp-purple);
+  text-transform: uppercase; letter-spacing: 0.6px;
+  display: flex; align-items: center; justify-content: space-between;
+}
+.shipped-header .meta { color: var(--text-secondary); font-weight: 600; text-transform: none; letter-spacing: 0; font-size: 11px; }
+.shipped-header.other { background: #fafafd; color: var(--text-secondary); }
+.shipped-table thead th { background: #6b6b8a; }
+
+/* Why this matters panel */
+.wtm {
+  background: linear-gradient(180deg, var(--accent-bg) 0%, #faf9fd 100%);
+  border-top: 1px solid var(--border);
+  padding: 14px 18px;
+  font-size: 13px;
+  color: var(--text);
+}
+.wtm .wtm-label {
+  display: inline-block;
+  font-size: 10px; font-weight: 800;
+  text-transform: uppercase; letter-spacing: 0.6px;
+  color: var(--amp-purple);
+  margin-bottom: 4px;
+}
+
+/* Footer */
+.footer {
+  margin-top: 44px; padding-top: 16px; border-top: 1px solid var(--border);
+  font-size: 10.5px; color: #999; text-align: center;
+}
+.footer a { color: var(--amp-purple); text-decoration: none; }
+
+/* Mini source note */
+.source-note {
+  background: #fffbeb; border: 1px solid #fde68a; border-radius: 8px;
+  padding: 10px 14px; font-size: 11.5px; color: #92400e;
+  margin-bottom: 18px;
+}
+
+@media (max-width: 760px) {
+  body { padding: 24px 16px 60px; }
+  table { font-size: 11.5px; }
+  thead th, tbody td { padding: 7px 8px; }
+}
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>Big Rocks &amp; Roadmap — New Products</h1>
+  <div class="subtitle">
+    Week of <strong>Apr 13 – Apr 17, 2026</strong> · Generated <strong>Apr 17, 2026</strong> ·
+    Coverage: Session Replay, Experiment (Web + Feature), Activation, AI Assistant, Guides &amp; Surveys
+  </div>
+  <span class="mcp-badge">Powered by MCP: Google Drive · JIRA · Slack · Granola</span>
+  <div class="chip-row">
+    <span class="countdown-chip urgent">🔴 Zoning GA — May 19 (32d)</span>
+    <span class="countdown-chip urgent">🔴 JO Gartner alpha — late Apr/early May</span>
+    <span class="countdown-chip warning">🟠 JO Open Beta — End Q2 (~75d)</span>
+    <span class="countdown-chip warning">🟠 Streaming Analytics P1 — Q2</span>
+    <span class="countdown-chip info">🔵 FOO-3385 Guide Exp Stability — P0 in flight</span>
+  </div>
+</div>
+
+<div class="source-note">
+  <strong>Sources synthesized:</strong> 2026 EPD Planning (Google Sheet · weekly refresh) · JIRA
+  (<a href="https://amplitude.atlassian.net/browse/SR" style="color:#92400e">SR</a>,
+  <a href="https://amplitude.atlassian.net/browse/SKY" style="color:#92400e">SKY</a>,
+  <a href="https://amplitude.atlassian.net/browse/AMP" style="color:#92400e">AMP</a>,
+  <a href="https://amplitude.atlassian.net/browse/HOU" style="color:#92400e">HOU</a>,
+  <a href="https://amplitude.atlassian.net/browse/FOO" style="color:#92400e">FOO</a>) · Slack team &amp; pillar channels
+  · Granola meeting notes (last 14d) · cross-ref with Customer Intelligence + ARR scorecard.
+  Status and "This Week" columns prefer the freshest signal from JIRA/Slack/Granola over the weekly EPD snapshot.
+</div>
+
+<!-- ================= SR ================= -->
+<div class="product-group">
+  <div class="product-group-header">
+    <div class="pg-title"><span class="badge sr">SR</span> Session Replay</div>
+    <div class="pg-meta">5 big rocks · 2 Q2 targets · Tier 1</div>
+  </div>
+  <table>
+    <thead>
+      <tr>
+        <th style="width: 26%;">Initiative</th>
+        <th style="width: 14%;">Target</th>
+        <th style="width: 14%;">Status</th>
+        <th style="width: 46%;">This Week</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="init-name"><a href="https://amplitude.atlassian.net/wiki/spaces/IG/pages/3673784448" target="_blank">Zoning GA</a><span class="upc">UPC</span></td>
+        <td>May 19, 2026</td>
+        <td><span class="status-tag on-track">On Track</span></td>
+        <td>No blocker surfaced in last 14d. Positioned as the <strong>#1 ARR bet</strong> and the competitive answer to ContentSquare; Nintendo beta in progress as a ContentSquare-replacement play. 32 days to GA.</td>
+      </tr>
+      <tr>
+        <td class="init-name">Issues MVP</td>
+        <td>Q3 2026</td>
+        <td><span class="status-tag in-progress">Building</span></td>
+        <td><strong>Most active SR workstream.</strong> Error bucketing by page + error type is the core mechanic; 8 error types scoped, focusing on 2–3 to start. Chad's LogRocket-style prototype UI demoed. Mercado Libre (multi-$M) validation call held; Lew Gordon strongly endorsed direction vs. Sentry. Blocker: console errors still flow through SR payload, not queryable — dedicated pipeline needed.</td>
+      </tr>
+      <tr>
+        <td class="init-name">SR Performance</td>
+        <td>Q2 2026</td>
+        <td><span class="status-tag at-risk">At Risk</span></td>
+        <td>No named workstream surfaced in last 14d of meetings — concerning given Q2 target. Apr 10 briefing flagged <strong>SR agent setup took 6 attempts</strong> as a core-experience "paper cut." Worth a status check this week.</td>
+      </tr>
+      <tr>
+        <td class="init-name">Pricing Guardrails</td>
+        <td>Q2 2026</td>
+        <td><span class="status-tag at-risk">At Risk</span></td>
+        <td><strong>Credit Genie incident (recent):</strong> SR was "thrown in" on a $150K deal and revenue isn't showing up in reports. Deal-desk intervention flagged. Under the new pricing model SR can't be sold standalone — the proposed fix is the <strong>Experience Analytics Bundle</strong> (SR + Zoning + Heatmaps) at 30% vs. today's 15%.</td>
+      </tr>
+      <tr>
+        <td class="init-name">Canvas SR / Heatmaps</td>
+        <td>H2 2026</td>
+        <td><span class="status-tag planned">Planned</span></td>
+        <td>Quiet in last 14d — likely in execution mode. Referenced as part of the Experience Analytics Bundle strategy; Heatmaps is the FullStory-parity pitch customers already buy bundled from ContentSquare.</td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="shipped-header">
+    <span>✅ Shipped this week — roadmap initiatives</span>
+    <span class="meta">2 of 5 Big Rocks got shipped work</span>
+  </div>
+  <table class="shipped-table">
+    <thead>
+      <tr>
+        <th style="width: 26%;">Shipped</th>
+        <th style="width: 42%;">Key Items</th>
+        <th style="width: 32%;">Rolls up to</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="init-name">Zoning</td>
+        <td>Admin-config + API hardening (2 tickets).</td>
+        <td><strong>Zoning GA</strong> — direct line to May 19.</td>
+      </tr>
+      <tr>
+        <td class="init-name">Issues V0 / Actions UI</td>
+        <td>Event-stream polish + clustering/action-detail fixes (2 tickets).</td>
+        <td><strong>Issues MVP</strong> — core authoring UX.</td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="shipped-header other">
+    <span>🔧 Other work shipped</span>
+    <span class="meta">~35 tickets · not tied to a tracked initiative</span>
+  </div>
+  <table class="shipped-table">
+    <thead>
+      <tr>
+        <th style="width: 26%;">Theme</th>
+        <th style="width: 44%;">Key Items</th>
+        <th style="width: 30%;">Why it was worth doing</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="init-name">UI Package Migration</td>
+        <td>17 tickets — DS migration wave off legacy UI primitives.</td>
+        <td>Tax reduction — every future SR surface benefits.</td>
+      </tr>
+      <tr>
+        <td class="init-name">Test Backfill</td>
+        <td>10 tickets — Cypress + unit coverage on thin areas.</td>
+        <td>Raises confidence bar for Q2 GA pushes.</td>
+      </tr>
+      <tr>
+        <td class="init-name">Reliability Bugs</td>
+        <td>SV regressions, off-screen capture, mask-regex (3 tickets).</td>
+        <td>Shrinks known-issue list ahead of Zoning/Issues.</td>
+      </tr>
+      <tr>
+        <td class="init-name">Shared Infra</td>
+        <td>common/compose/sdks work (3 tickets).</td>
+        <td>Unblocks Experiment + Guides teams downstream.</td>
+      </tr>
+      <tr>
+        <td class="init-name">Funnels × SR</td>
+        <td><a href="https://amplitude.atlassian.net/browse/SR-1627">SR-1627</a> — replay surfaced in funnel view.</td>
+        <td>Cross-product discovery; Analytics ↔ SR story.</td>
+      </tr>
+      <tr>
+        <td class="init-name">Docs</td>
+        <td>SDK + integration doc sweep (1 ticket).</td>
+        <td>Reduces inbound support/CSM load.</td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="wtm">
+    <span class="wtm-label">Why this matters</span><br>
+    Zoning + Heatmaps are the competitive answer to FullStory and ContentSquare — Zoning GA on <strong>May 19</strong> is the single most important date in the New Products portfolio this quarter, and the Nintendo beta is the proof point. Issues MVP is the response to our #1 loss reason against LogRocket and Sentry, and customer validation (Mercado Libre, Lew Gordon) is unusually strong. The real risk isn't the roadmap — it's the <em>monetization</em> path: Pricing Guardrails remain at-risk while SR continues to be given away on bundled deals (Credit Genie), and the Experience Analytics Bundle is the proposed fix. <strong>Action:</strong> lock a status check on SR Performance — the Q2 target is live but no workstream is surfacing in meetings.
+  </div>
+</div>
+
+<!-- ================= EXP ================= -->
+<div class="product-group">
+  <div class="product-group-header">
+    <div class="pg-title"><span class="badge exp">EXP</span> Experiment (Web + Feature)</div>
+    <div class="pg-meta">5 big rocks · Q2 $6.2M target · Tier 1</div>
+  </div>
+  <table>
+    <thead>
+      <tr>
+        <th style="width: 26%;">Initiative</th>
+        <th style="width: 14%;">Target</th>
+        <th style="width: 14%;">Status</th>
+        <th style="width: 46%;">This Week</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="init-name"><a href="https://amplitude.atlassian.net/browse/SKY-10075" target="_blank">Web Experiment Debugger</a></td>
+        <td>Q2 2026</td>
+        <td><span class="status-tag in-progress">Building</span></td>
+        <td>Stephen Choi demoed the debugger at Skylab weekly — real-time page-trigger status (pass/fail), integrates into Chrome debugger extension. <a href="https://amplitude.atlassian.net/browse/SKY-10075">SKY-10075</a> "Surface Page triggers in VE" is P1 / Groomed. Addresses visual-editor troubleshooting pain.</td>
+      </tr>
+      <tr>
+        <td class="init-name">CSS Visual Editor Updates</td>
+        <td>Q2 2026</td>
+        <td><span class="status-tag shipped">Shipped</span></td>
+        <td>Released per roadmap; quick demo shared by Brian Giori's team. No customer escalations in last 14d.</td>
+      </tr>
+      <tr>
+        <td class="init-name"><a href="https://amplitude.atlassian.net/browse/SKY-9729" target="_blank">Flag Layering</a></td>
+        <td>Q2 2026</td>
+        <td><span class="status-tag at-risk">At Risk</span></td>
+        <td>Cary driving; flagged in 1:1 as <strong>eating into Q2 capacity</strong>. Complex enough that it surfaced as a use-case for the AI dashboard's Ask-Glean auto-prompt. Friday flag-endpoint outage exposed Manager API reliability gaps that this work partially addresses.</td>
+      </tr>
+      <tr>
+        <td class="init-name">Orchestration Experiment Node</td>
+        <td>Q2 2026</td>
+        <td><span class="status-tag in-progress">Building</span></td>
+        <td>Cross-team dependency with JO. AMP-150959 A/B Testing (in-journey) Node closed; design converging. This is the blocker for the end-to-end orchestration narrative both Exp and JO need.</td>
+      </tr>
+      <tr>
+        <td class="init-name">Continuous Synthetic Testing</td>
+        <td>Q2 2026</td>
+        <td><span class="status-tag planned">Planned</span></td>
+        <td>Addresses flag-endpoint reliability exposed by the Friday outage. DataDog staging monitor linked in JIRA. Scoped but not yet active.</td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="shipped-header">
+    <span>✅ Shipped this week — roadmap initiatives</span>
+    <span class="meta">1 of 5 Big Rocks got shipped work</span>
+  </div>
+  <table class="shipped-table">
+    <thead>
+      <tr>
+        <th style="width: 26%;">Shipped</th>
+        <th style="width: 42%;">Key Items</th>
+        <th style="width: 32%;">Rolls up to</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="init-name">Flag Layering M2</td>
+        <td>Allocation + dependency-model work (3 tickets) — M2 of the Q2 push.</td>
+        <td><strong>Flag Layering</strong> — closes LaunchDarkly gap.</td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="shipped-header other">
+    <span>🔧 Other work shipped</span>
+    <span class="meta">~9 tickets · not tied to a tracked initiative</span>
+  </div>
+  <table class="shipped-table">
+    <thead>
+      <tr>
+        <th style="width: 26%;">Theme</th>
+        <th style="width: 44%;">Key Items</th>
+        <th style="width: 30%;">Why it was worth doing</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="init-name">GHA CI/CD Infra</td>
+        <td>Pipeline + CodeQL setup for SKY repos (2 tickets).</td>
+        <td>Velocity + security hygiene for the April SOC-2 cycle.</td>
+      </tr>
+      <tr>
+        <td class="init-name">Platform / Infra</td>
+        <td>Experiment service + web-app refactor (3 tickets).</td>
+        <td>Reduces on-call pages; platform health.</td>
+      </tr>
+      <tr>
+        <td class="init-name">Metrics &amp; Observability</td>
+        <td>Alert/metric cleanup (2 tickets).</td>
+        <td>Lower signal-to-noise on the on-call rotation.</td>
+      </tr>
+      <tr>
+        <td class="init-name">AI Stylizer + Experiment AI</td>
+        <td>Visual-editor UX + eval-rig plumbing (2 tickets).</td>
+        <td>Foundation for AIA-powered experiment authoring later in Q2.</td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="wtm">
+    <span class="wtm-label">Why this matters</span><br>
+    Web Exp is the highest-velocity growth product in the portfolio — growing 40–50% QoQ toward a <strong>$6.2M Q2 target</strong>, primarily from Optimizely/VWO displacement. The Debugger + CSS Visual Editor combo closes the two most-cited visual-editor pain points right as Nike's RFP is live and Canon and Wealthfront are in expansion motions. The real risk is <strong>Flag Layering eating into Q2 capacity</strong> (per Cary's 1:1) while the Manager API reliability gaps from Friday's outage remain unresolved — Continuous Synthetic Testing is the forward fix but isn't yet in flight. Orchestration Exp Node alignment with JO is the critical cross-team dependency for the end-to-end orchestration story.
+  </div>
+</div>
+
+<!-- ================= ACT ================= -->
+<div class="product-group">
+  <div class="product-group-header">
+    <div class="pg-title"><span class="badge act">ACT</span> Activation</div>
+    <div class="pg-meta">5 big rocks · $30M product · JO = Tier 1</div>
+  </div>
+  <table>
+    <thead>
+      <tr>
+        <th style="width: 26%;">Initiative</th>
+        <th style="width: 14%;">Target</th>
+        <th style="width: 14%;">Status</th>
+        <th style="width: 46%;">This Week</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="init-name"><a href="https://amplitude.atlassian.net/browse/AMP" target="_blank">JO Alpha → Open Beta</a></td>
+        <td>End Q2 2026</td>
+        <td><span class="status-tag alpha">Alpha</span></td>
+        <td><strong>Two major customer signals this week.</strong> Realtor.com (Brandon Cohen / Braze user) demoed JO Apr 8 — positive on unified analytics+orchestration, but flagged gaps: journey naming upfront, conditional branching, action paths with timeframes, and a "test canvas." Gartner call Apr 13 — Intercom contract ends Dec 2026, evaluating JO as replacement; alpha target <strong>late Apr / early May</strong>. Requirements surfaced: sender customization, delay-with-conditions, centralized unsubscribe, single-project multi-tool targeting.</td>
+      </tr>
+      <tr>
+        <td class="init-name"><a href="https://amplitude.atlassian.net/browse/AMP-150959" target="_blank">JO Experiment Paths (A/B in-journey)</a></td>
+        <td>Q2 2026</td>
+        <td><span class="status-tag shipped">Shipped</span></td>
+        <td>AMP-150959 A/B Testing (in-journey) Node closed. Design for broader Experiment Paths converging with Skylab.</td>
+      </tr>
+      <tr>
+        <td class="init-name">Streaming Analytics (Phase 1)</td>
+        <td>Q2 2026</td>
+        <td><span class="status-tag in-progress">Building</span></td>
+        <td>P1 scoped — ability to build streaming analytics charts in Amplitude (~80% of the full hub). SDK + query + ex-Infini Grow engineers. Out of scope for Q2: out-of-box hub, concurrency reporting. Mux integration supported standalone; <strong>Fox commit target still in play but not guaranteed</strong>.</td>
+      </tr>
+      <tr>
+        <td class="init-name">Cohort Everywhere / Realtime Cohort Sync</td>
+        <td>Q2 2026</td>
+        <td><span class="status-tag in-progress">Building</span></td>
+        <td>AMP Cohort Builder Phase 2C and 2E stories closed; broader sync work continues. No customer calls surfaced in last 14d — worth pulling status directly from the team.</td>
+      </tr>
+      <tr>
+        <td class="init-name">Product Naming (cross-product)</td>
+        <td>Q2 2026</td>
+        <td><span class="status-tag planned">Planned</span></td>
+        <td>Cross-product naming alignment work. Ownership debate ongoing: whether Activation rolls into the marketer side under Daniel's team.</td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="shipped-header">
+    <span>✅ Shipped this week — roadmap initiatives</span>
+    <span class="meta">Data gap · see note below</span>
+  </div>
+  <table class="shipped-table">
+    <thead>
+      <tr>
+        <th style="width: 26%;">Shipped</th>
+        <th style="width: 42%;">Key Items</th>
+        <th style="width: 32%;">Rolls up to</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="init-name" style="color: var(--text-secondary)">—</td>
+        <td colspan="2">AMP JIRA didn't return a clean Done-this-week slice (Epic-type, component, and summary-keyword filters all came back empty) — likely a labeling/workflow gap on the Activation board rather than a true zero. Pull qualitative signal from Slack <code>#pillar-activation</code> + last 14d Granola and follow up with the Activation PM to tighten the JIRA schema before next week's briefing.</td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="wtm">
+    <span class="wtm-label">Why this matters</span><br>
+    JO is the <strong>$30M product</strong> and the CDP/Activation answer to Adobe Experience Cloud — and we have two credible Q2 deals converging on the <strong>same alpha window</strong>: Gartner (Intercom replacement, late April / early May) and Realtor.com (Braze user, would pay for consolidation). Realtor.com's gap list (naming, conditional branching, test canvas) is a clear "what to ship first" signal. Streaming Analytics P1 is the Fox commit — not yet guaranteed, and worth a health check. <strong>Action:</strong> unblock JO Experiment Node alignment with Skylab so we can tell the end-to-end orchestration story; separately, CDK Global's 500-WalkMe-guides migration is live FDE work worth tracking for lessons that will feed the Activation GTM motion.
+  </div>
+</div>
+
+<!-- ================= AIA ================= -->
+<div class="product-group">
+  <div class="product-group-header">
+    <div class="pg-title"><span class="badge aia">AIA</span> AI Assistant (Houston)</div>
+    <div class="pg-meta">5 big rocks · $100.7K ARR · 62% concentration risk (6sense)</div>
+  </div>
+  <table>
+    <thead>
+      <tr>
+        <th style="width: 26%;">Initiative</th>
+        <th style="width: 14%;">Target</th>
+        <th style="width: 14%;">Status</th>
+        <th style="width: 46%;">This Week</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="init-name"><a href="https://amplitude.atlassian.net/browse/HOU-933" target="_blank">Copilot Migrations</a></td>
+        <td>Q2 2026</td>
+        <td><span class="status-tag in-progress">Building</span></td>
+        <td><strong>2nd customer live Mar 28</strong>; 200 internal users on customer #2. Pipeline ~6 in conversation, target 2 closes, goal 16–26 before/around launch. SimpliSafe demoed Apr 2 — strong interest; mobile is a hard blocker but aligns with Q2 mobile roadmap.</td>
+      </tr>
+      <tr>
+        <td class="init-name">RBAC Phases 2–3 / Data Views</td>
+        <td>Q2 2026</td>
+        <td><span class="status-tag at-risk">At Risk</span></td>
+        <td>Q2 Planning EPD&lt;&gt;GTM interlock (Apr 3) surfaced data views as required for mature enterprise deployment. Kickoff Apr 6 with core team (Omri, Zach, middleware, query). Ryan Busk taking on eng lead — <strong>Q3 delivery now looks more likely than Q2</strong>. Slipping this affects enterprise access-control story.</td>
+      </tr>
+      <tr>
+        <td class="init-name">I18n (Brazil Mode / Porto Seguro)</td>
+        <td>Q2 2026</td>
+        <td><span class="status-tag in-progress">Building</span></td>
+        <td>Quiet in last 14d of meetings, but confirmed Q2 retention play for Porto Seguro. No 14d signal from Granola — status check recommended.</td>
+      </tr>
+      <tr>
+        <td class="init-name"><a href="https://amplitude.atlassian.net/browse/HOU-1920" target="_blank">Agent Analytics Integration</a></td>
+        <td>Q2–Q3 2026</td>
+        <td><span class="status-tag in-progress">Building</span></td>
+        <td>HOU-1920 "Integrate Agent Analytics to Houston Chat Service" in progress (Wentao Xu). Strategic tension flagged: agent analytics risks <strong>cannibalizing GTM attention for Assistant</strong> before Assistant has traction. Positioning: first-party (Assistant) + third-party (agent analytics for any chatbot) is one cohesive story.</td>
+      </tr>
+      <tr>
+        <td class="init-name">Hand-Raiser GTM Motion</td>
+        <td>Q2 2026</td>
+        <td><span class="status-tag at-risk">At Risk</span></td>
+        <td><strong>600 hand-raisers but only 6 in pipeline</strong> (target 16–26). Spencer actioned to set up Calendly scheduling immediately (don't wait for lifecycle marketing), add guide + CTA to the hand-raiser page, and build a round-robin pool. GTM motion broken, not demand.</td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="shipped-header">
+    <span>✅ Shipped this week — roadmap initiatives</span>
+    <span class="meta">1 of 5 Big Rocks got shipped work</span>
+  </div>
+  <table class="shipped-table">
+    <thead>
+      <tr>
+        <th style="width: 26%;">Shipped</th>
+        <th style="width: 42%;">Key Items</th>
+        <th style="width: 32%;">Rolls up to</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="init-name">Resource Center</td>
+        <td>Context + embedding-layer work (3 tickets) — grounding corpus.</td>
+        <td><strong>Copilot Migrations</strong> — answer quality for the 2nd customer live.</td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="shipped-header other">
+    <span>🔧 Other work shipped</span>
+    <span class="meta">~10 tickets · not tied to a tracked initiative</span>
+  </div>
+  <table class="shipped-table">
+    <thead>
+      <tr>
+        <th style="width: 26%;">Theme</th>
+        <th style="width: 44%;">Key Items</th>
+        <th style="width: 30%;">Why it was worth doing</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="init-name">Publish / Discard Flows</td>
+        <td>Versioning + discard-state UX (3 tickets).</td>
+        <td>Authoring loop polish — the flow analysts will actually use daily.</td>
+      </tr>
+      <tr>
+        <td class="init-name">API &amp; UI Cleanup</td>
+        <td>Endpoint consolidation + drawer/sheet fixes (3 tickets).</td>
+        <td>Tech-debt reduction before the Gartner alpha traffic.</td>
+      </tr>
+      <tr>
+        <td class="init-name">Polish / Styles</td>
+        <td>Copy, spacing, status-chip pass (3 tickets).</td>
+        <td>Open-beta feel — "demo" vs "daily driver."</td>
+      </tr>
+      <tr>
+        <td class="init-name">Dev Infra</td>
+        <td>Build/test speedups (1 ticket).</td>
+        <td>Internal velocity ahead of the alpha date.</td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="wtm">
+    <span class="wtm-label">Why this matters</span><br>
+    AIA sits at <strong>$100.7K ARR with 6sense accounting for 62%</strong> — extreme concentration risk and an existential reason to lock in Copilot migration wins and close the hand-raiser conversion gap. The 2nd Copilot live on Mar 28 plus 200 internal users on customer #2 is the best proof-of-adoption signal we have; the hand-raiser funnel (600 → 6) is a broken GTM motion, not a demand problem — Spencer's actions are the right immediate response. <strong>Watch:</strong> RBAC / Data Views is likely slipping to Q3 (enterprise access-control story impact), and Agent Analytics integration creates real risk of cannibalizing GTM focus for Assistant itself. Clarifying the first-party/third-party story is a Q2 must.
+  </div>
+</div>
+
+<!-- ================= G&S ================= -->
+<div class="product-group">
+  <div class="product-group-header">
+    <div class="pg-title"><span class="badge gns">G&amp;S</span> Guides &amp; Surveys</div>
+    <div class="pg-meta">4 big rocks · $4M Q ·  ~75–80% mobile at VT level</div>
+  </div>
+  <table>
+    <thead>
+      <tr>
+        <th style="width: 26%;">Initiative</th>
+        <th style="width: 14%;">Target</th>
+        <th style="width: 14%;">Status</th>
+        <th style="width: 46%;">This Week</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="init-name"><a href="https://amplitude.atlassian.net/browse/FOO-3385" target="_blank">Guide Experiment Stability (FOO-3385)</a></td>
+        <td>Q2 2026</td>
+        <td><span class="status-tag at-risk">At Risk</span></td>
+        <td><strong>P0 traffic reset critical.</strong> Customers can only A/B test guide copy, not layout — raised with Lucas in SF, still awaiting response. No direct FOO-3385 signal in meeting notes last 14d — sprint-level work is happening outside captured meetings. Pull status from the G&amp;S team directly.</td>
+      </tr>
+      <tr>
+        <td class="init-name">Mobile SDK Quality (Linear: GSM-*)</td>
+        <td>Q2 2026</td>
+        <td><span class="status-tag in-progress">Building</span></td>
+        <td><strong>Strong pain signal.</strong> Zillow required lengthy back-and-forth to diagnose a guide not surfacing — "customers flying blind on mobile." Evandro reinforced mobile-debug-tooling request with Lucas. Mobile dominates at VT level (~75–80% mobile). GSM ticket statuses (Log Viewer, Pin Nudge, Flicker Fix) live in Linear — pull from Slack <a href="https://amplitude.slack.com/channels/pillar-guides-and-surveys">#pillar-guides-and-surveys</a>.</td>
+      </tr>
+      <tr>
+        <td class="init-name">Survey Analytics &amp; Stat Sig</td>
+        <td>Q2–Q3 2026</td>
+        <td><span class="status-tag blocked">Blocked</span></td>
+        <td>GoFundMe evaluation still blocked per last known state. No 14d Granola signal — worth pulling from JIRA/Slack directly.</td>
+      </tr>
+      <tr>
+        <td class="init-name">G&amp;S × Orchestration / AI Assistant Integration</td>
+        <td>Q2 2026</td>
+        <td><span class="status-tag in-progress">Building</span></td>
+        <td>GNS action-step backend work coordinating with Zanib; timeline gated on final schema confirmation. Guide feature ("tooltip on steroids") resonated with Realtor.com for onboarding journeys — the integration story is a real wedge.</td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="shipped-header">
+    <span>✅ Shipped this week — roadmap initiatives</span>
+    <span class="meta">1 of 4 Big Rocks got shipped work</span>
+  </div>
+  <table class="shipped-table">
+    <thead>
+      <tr>
+        <th style="width: 26%;">Shipped</th>
+        <th style="width: 42%;">Key Items</th>
+        <th style="width: 32%;">Rolls up to</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="init-name">Assistant DevX</td>
+        <td>G&amp;S ↔ AIA integration plumbing (2 tickets).</td>
+        <td><strong>G&amp;S × Orchestration / AIA Integration</strong> — opens door to AIA-authored guides.</td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="shipped-header other">
+    <span>🔧 Other work shipped</span>
+    <span class="meta">~27 tickets · not tied to a tracked initiative</span>
+  </div>
+  <table class="shipped-table">
+    <thead>
+      <tr>
+        <th style="width: 26%;">Theme</th>
+        <th style="width: 44%;">Key Items</th>
+        <th style="width: 30%;">Why it was worth doing</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="init-name">G&amp;S Analytics Incident</td>
+        <td>Event-mapping + backfill fixes (3 tickets) after last week's outage.</td>
+        <td>Restored the core analytics path customers rely on.</td>
+      </tr>
+      <tr>
+        <td class="init-name">Nudges / Pins / Checklists</td>
+        <td>Component-level fixes + new states (7 tickets).</td>
+        <td>Primary customer surface — every fix compounds.</td>
+      </tr>
+      <tr>
+        <td class="init-name">Guide Builder Fixes</td>
+        <td>Editor bugs + conditional-logic fixes (5 tickets).</td>
+        <td>Core authoring UX; biggest driver of builder NPS.</td>
+      </tr>
+      <tr>
+        <td class="init-name">Publishing / Localization</td>
+        <td>Locale fallback + preview (3 tickets).</td>
+        <td>Unblocks international launches queued for Q2.</td>
+      </tr>
+      <tr>
+        <td class="init-name">Wormhole / Sentry Triage</td>
+        <td>Error-tracking sweep (3 tickets).</td>
+        <td>Quality signal — shrinks top-of-funnel for new Sev-3s.</td>
+      </tr>
+      <tr>
+        <td class="init-name">Flag / Drawer Cleanup</td>
+        <td>UI misc (4 tickets).</td>
+        <td>Polish pass — reduces drive-by bugs.</td>
+      </tr>
+      <tr>
+        <td class="init-name">Cohorts &amp; RBAC</td>
+        <td>Targeting + permission fixes (2 tickets).</td>
+        <td>Enterprise readiness; unblocks a handful of AE conversations.</td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="wtm">
+    <span class="wtm-label">Why this matters</span><br>
+    G&amp;S is a reliable <strong>$4M/quarter</strong> product where <strong>65% of revenue is upsell</strong> — the strategy is to scale 1-to-N, not 0-to-1. But under the new pricing model it <em>can't be sold standalone</em>, opening a real GTM gap against Pendo (which customers still buy separately). The #1 customer pain is <strong>mobile debug tooling</strong> (Zillow escalation), and mobile is 75–80% of volume at VT — so mobile SDK quality isn't a backlog item, it's the retention story. FOO-3385 guide experiment stability is a P0 that needs a clear status pulled this week. <strong>Watch:</strong> Lucas generated $4M this quarter but wants to move on — succession and knowledge transfer matter more than any single ticket here.
+  </div>
+</div>
+
+<!-- Footer -->
+<div class="footer">
+  Generated by Chris Yu's New Products Manager Agent · Apr 17, 2026 ·
+  <a href="https://app.glean.com/search?q=big+rocks+roadmap+new+products+Q2+2026">Ask Glean</a>
+  <br>
+  <span style="opacity: 0.7;">Built from big-rocks-roadmap.md instruction file · sources: EPD Planning, JIRA (SR/SKY/AMP/HOU/FOO), Slack, Granola</span>
+</div>
+
+</body>
+</html>

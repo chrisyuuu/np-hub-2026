@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>New Products — Weekly Reports — Latest</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+<style>
+:root {
+  --amp-blue: #1F2144;
+  --amp-purple: #5B45BB;
+  --amp-teal: #00A89D;
+  --amp-orange: #F37B20;
+  --amp-red: #E5484D;
+  --amp-green: #30A46C;
+  --text: #1a1a2e;
+  --text-secondary: #4a4a6a;
+  --bg: #ffffff;
+  --bg-section: #f8f8fc;
+  --border: #e4e4ed;
+  --accent-bg: #f0edf9;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { height: 100%; }
+body {
+  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  color: var(--text);
+  background: var(--bg);
+  line-height: 1.55;
+}
+a { color: var(--amp-purple); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* ============= Hero ============= */
+.hero {
+  background: linear-gradient(135deg, var(--amp-blue) 0%, #2b2d5c 55%, var(--amp-purple) 100%);
+  color: white;
+  padding: 44px 40px 36px;
+  border-bottom: 4px solid var(--amp-orange);
+}
+.hero-inner { max-width: 1200px; margin: 0 auto; }
+.hero .eyebrow {
+  display: inline-block;
+  padding: 4px 10px;
+  border-radius: 6px;
+  background: rgba(255,255,255,0.12);
+  color: #fff;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+.hero h1 {
+  font-size: 34px;
+  font-weight: 800;
+  letter-spacing: -0.6px;
+  margin-bottom: 8px;
+  color: white;
+}
+.hero p.lede {
+  font-size: 14px;
+  color: #d8d6ec;
+  max-width: 820px;
+  margin-bottom: 16px;
+}
+.hero .meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 22px;
+  font-size: 12.5px;
+  color: #c9c7e1;
+}
+.hero .meta strong { color: #fff; font-weight: 600; }
+.hero .mcp-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.18);
+  border-radius: 20px;
+  padding: 5px 12px;
+  font-size: 11px;
+  font-weight: 600;
+  color: #e7e5f4;
+  margin-top: 14px;
+}
+.hero .mcp-badge .dot {
+  width: 6px; height: 6px; border-radius: 50%;
+  background: var(--amp-teal);
+  box-shadow: 0 0 0 4px rgba(0,168,157,0.25);
+}
+
+/* ============= Section ============= */
+.section {
+  max-width: 1200px;
+  margin: 36px auto 0;
+  padding: 0 40px;
+}
+.section-title {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--amp-blue);
+  padding-bottom: 8px;
+  border-bottom: 2px solid var(--amp-purple);
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.section-title .icon { font-size: 18px; }
+.section-title .aside {
+  margin-left: auto;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--text-secondary);
+}
+
+/* ============= Primary CTA card (latest exec summary) ============= */
+.primary-card-wrap {
+  max-width: 1200px;
+  margin: -26px auto 0;
+  padding: 0 40px;
+  position: relative;
+  z-index: 2;
+}
+.primary-card {
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  box-shadow: 0 8px 24px rgba(31, 33, 68, 0.08);
+  padding: 24px 28px;
+  border-left: 6px solid var(--amp-orange);
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 22px;
+  align-items: center;
+}
+.primary-card .pc-eye {
+  font-size: 11px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  color: var(--amp-orange);
+  margin-bottom: 6px;
+}
+.primary-card h2 {
+  font-size: 22px;
+  font-weight: 800;
+  color: var(--amp-blue);
+  margin-bottom: 4px;
+  letter-spacing: -0.3px;
+}
+.primary-card p.sub {
+  font-size: 13px;
+  color: var(--text-secondary);
+  line-height: 1.55;
+}
+.primary-card p.sub strong { color: var(--amp-blue); font-weight: 700; }
+.primary-card .pc-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--amp-purple);
+  color: white;
+  font-weight: 700;
+  padding: 12px 22px;
+  border-radius: 10px;
+  font-size: 14px;
+  white-space: nowrap;
+  transition: all 0.15s ease;
+}
+.primary-card .pc-cta:hover { background: var(--amp-orange); text-decoration: none; }
+
+/* ============= Source-report cards ============= */
+.report-links {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 12px;
+}
+.report-link {
+  display: block;
+  background: var(--bg-section);
+  border: 1px solid var(--border);
+  border-left: 4px solid var(--amp-purple);
+  border-radius: 10px;
+  padding: 16px 18px;
+  text-decoration: none;
+  color: inherit;
+  transition: all 0.15s ease;
+}
+.report-link:hover {
+  background: #efecfa;
+  border-left-color: var(--amp-orange);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(31, 33, 68, 0.08);
+  text-decoration: none;
+}
+.report-link .rl-eye {
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--amp-purple);
+  margin-bottom: 4px;
+}
+.report-link .rl-title {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--amp-blue);
+  margin-bottom: 3px;
+}
+.report-link .rl-sub {
+  font-size: 11.5px;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+.report-link .rl-arrow {
+  float: right;
+  color: var(--amp-purple);
+  font-weight: 700;
+}
+.report-link.arr { border-left-color: var(--amp-green); }
+.report-link.arr .rl-eye { color: var(--amp-green); }
+.report-link.dash { border-left-color: var(--amp-teal); }
+.report-link.dash .rl-eye { color: var(--amp-teal); }
+.report-link.rocks { border-left-color: var(--amp-orange); }
+.report-link.rocks .rl-eye { color: #c2410c; }
+.report-link.ci { border-left-color: var(--amp-purple); }
+.report-link.ci .rl-eye { color: var(--amp-purple); }
+
+/* ============= History table ============= */
+.history-wrap {
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  overflow: hidden;
+}
+table.history {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 12.5px;
+}
+table.history thead th {
+  background: var(--amp-blue);
+  color: white;
+  padding: 10px 14px;
+  text-align: left;
+  font-weight: 600;
+  font-size: 10.5px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+table.history tbody td {
+  padding: 11px 14px;
+  border-bottom: 1px solid var(--border);
+  vertical-align: top;
+}
+table.history tbody tr:nth-child(even) { background: var(--bg-section); }
+table.history tbody tr:last-child td { border-bottom: none; }
+table.history tbody tr.latest td {
+  background: linear-gradient(180deg, #f0edf9 0%, #ffffff 100%);
+  font-weight: 600;
+}
+table.history td.week { font-weight: 700; color: var(--amp-blue); white-space: nowrap; }
+table.history td.note { color: var(--text-secondary); font-size: 11.5px; }
+.latest-tag {
+  display: inline-block;
+  background: var(--amp-orange);
+  color: white;
+  font-size: 9.5px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+  padding: 2px 8px;
+  border-radius: 4px;
+  margin-left: 6px;
+  vertical-align: middle;
+}
+
+/* ============= Footer ============= */
+.footer {
+  max-width: 1200px;
+  margin: 44px auto 0;
+  padding: 16px 40px 40px;
+  font-size: 11.5px;
+  color: #999;
+  text-align: center;
+  border-top: 1px solid var(--border);
+}
+.footer a { color: var(--amp-purple); text-decoration: none; }
+
+@media (max-width: 900px) {
+  .hero { padding: 32px 24px 30px; }
+  .hero h1 { font-size: 26px; }
+  .primary-card-wrap, .section, .footer { padding-left: 20px; padding-right: 20px; }
+  .primary-card { grid-template-columns: 1fr; }
+  .primary-card .pc-cta { justify-self: start; }
+}
+</style>
+</head>
+<body>
+
+<!-- ============= HERO ============= -->
+<header class="hero">
+  <div class="hero-inner">
+    <span class="eyebrow">New Products · Weekly Reports</span>
+    <h1>New Products — Latest Weekly Report</h1>
+    <p class="lede">
+      Landing page for Chris Yu's New Products briefing bundle. The latest executive summary is pinned below, followed by the four source reports (ARR Scorecard, Amplitude Dashboards, Big Rocks &amp; Roadmap, Customer Intelligence) and an archive of prior weeks.
+    </p>
+    <div class="meta">
+      <span><strong>Owner</strong> Chris Yu, Head of New Products</span>
+      <span><strong>Latest run</strong> Mon, Apr 20, 2026 · afternoon refresh</span>
+      <span><strong>Quarter</strong> Q2 FY26 (Day 20 of 91)</span>
+      <span><strong>Cadence</strong> Mondays · weekly</span>
+    </div>
+    <span class="mcp-badge"><span class="dot"></span>Sources: Snowflake · Amplitude MCP · JIRA · Slack · Granola · Google Drive · Salesforce</span>
+  </div>
+</header>
+
+<!-- ============= PRIMARY CTA: LATEST EXECUTIVE SUMMARY ============= -->
+<section class="primary-card-wrap">
+  <div class="primary-card">
+    <div>
+      <div class="pc-eye">★ Latest executive summary</div>
+      <h2>Week of Apr 20, 2026</h2>
+      <p class="sub">
+        <strong>NP ARR $99.74M · QTD +$503K · goal $110.1M.</strong>
+        Zoning GA in 29 days, JO alpha imminent, G&amp;S carrying 76% of net new, Activation / CDP flat at $0 QTD, AI Assistant hand-raiser funnel still 6 of 600.
+        Today's run includes fresh Apr 20 Snowflake, Amplitude WoW deltas, JIRA SR velocity (50+ issues Done), and Granola weekend spot-check (0 external calls Apr 18–20).
+      </p>
+    </div>
+    <a class="pc-cta" href="executive-summary-2026-04-20.html">Open latest summary →</a>
+  </div>
+</section>
+
+<!-- ============= SOURCE REPORTS (LATEST) ============= -->
+<section class="section">
+  <div class="section-title">
+    <span class="icon">📎</span>
+    <span>Source reports — latest</span>
+    <span class="aside">Each report has its own standalone layout</span>
+  </div>
+  <div class="report-links">
+    <a class="report-link arr" href="arr-scorecard/arr-scorecard.html">
+      <span class="rl-arrow">→</span>
+      <div class="rl-eye">📈 ARR</div>
+      <div class="rl-title">ARR Scorecard</div>
+      <div class="rl-sub">Snowflake actuals · $99.74M total · per-blade QTD, goals, trends · max snapshot Apr 20.</div>
+    </a>
+    <a class="report-link dash" href="amplitude-dash/new-products-overview.html">
+      <span class="rl-arrow">→</span>
+      <div class="rl-eye">📊 Dashboards</div>
+      <div class="rl-title">Amplitude Dashboards</div>
+      <div class="rl-sub">5 product + 3 cross-product views · Enterprise WAU · Blade Activation · UI vs MCP · fresh Apr 20 WoW deltas.</div>
+    </a>
+    <a class="report-link rocks" href="big-rocks-roadmap/big-rocks-roadmap-2026-04-20.html">
+      <span class="rl-arrow">→</span>
+      <div class="rl-eye">🪨 Roadmap</div>
+      <div class="rl-title">Big Rocks &amp; Roadmap</div>
+      <div class="rl-sub">Per-product initiative status · shipped-this-week · JIRA spot-check Apr 13–20 shows 50+ SR issues Done.</div>
+    </a>
+    <a class="report-link ci" href="customer-intelligence/customer-intelligence-briefing-2026-04-20.html">
+      <span class="rl-arrow">→</span>
+      <div class="rl-eye">🔍 Intel</div>
+      <div class="rl-title">Customer Intelligence</div>
+      <div class="rl-sub">Framing Apr 6–20 · pipeline · wins · calls · competitive signals · churn flags · weekend spot-check clean.</div>
+    </a>
+  </div>
+</section>
+
+<!-- ============= PRIOR WEEKS ============= -->
+<section class="section">
+  <div class="section-title">
+    <span class="icon">🗂️</span>
+    <span>Prior weeks</span>
+    <span class="aside">Executive summaries and dated source reports</span>
+  </div>
+  <div class="history-wrap">
+    <table class="history">
+      <thead>
+        <tr>
+          <th style="width: 18%;">Week</th>
+          <th style="width: 26%;">Executive summary</th>
+          <th style="width: 26%;">Big Rocks &amp; Roadmap</th>
+          <th style="width: 30%;">Customer Intelligence</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="latest">
+          <td class="week">Apr 20, 2026 <span class="latest-tag">Latest</span></td>
+          <td><a href="executive-summary-2026-04-20.html">executive-summary-2026-04-20.html</a></td>
+          <td><a href="big-rocks-roadmap/big-rocks-roadmap-2026-04-20.html">big-rocks-roadmap-2026-04-20.html</a></td>
+          <td><a href="customer-intelligence/customer-intelligence-briefing-2026-04-20.html">customer-intelligence-briefing-2026-04-20.html</a></td>
+        </tr>
+        <tr>
+          <td class="week">Apr 17, 2026</td>
+          <td class="note">Rolled into Apr 20 summary — not separately archived</td>
+          <td><a href="big-rocks-roadmap/big-rocks-roadmap-2026-04-17.html">big-rocks-roadmap-2026-04-17.html</a></td>
+          <td><a href="customer-intelligence/customer-intelligence-briefing-2026-04-17.html">customer-intelligence-briefing-2026-04-17.html</a></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <p style="font-size: 11.5px; color: var(--text-secondary); margin-top: 10px; line-height: 1.55;">
+    <strong style="color: var(--amp-blue);">Note on filenames:</strong> the ARR Scorecard and Amplitude Dashboards are updated in place each week (stable filenames at <code>arr-scorecard/arr-scorecard.html</code> and <code>amplitude-dash/new-products-overview.html</code>) — their underlying data sources are Snowflake and Amplitude live queries. Big Rocks, Customer Intelligence, and the Executive Summary are dated per run and archived week-over-week.
+  </p>
+</section>
+
+<!-- ============= FOOTER ============= -->
+<div class="footer">
+  Landing page · New Products Weekly Reports · Chris Yu, Head of New Products · <a href="executive-summary-2026-04-20.html">Latest summary</a>
+</div>
+
+</body>
+</html>

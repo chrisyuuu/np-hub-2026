@@ -1,0 +1,1284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>New Products — Customer Intelligence</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+<style>
+:root {
+  --amp-blue: #1F2144;
+  --amp-purple: #5B45BB;
+  --amp-teal: #00A89D;
+  --amp-orange: #F37B20;
+  --amp-red: #E5484D;
+  --amp-green: #30A46C;
+  --text: #1a1a2e;
+  --text-secondary: #4a4a6a;
+  --bg: #ffffff;
+  --bg-section: #f8f8fc;
+  --border: #e4e4ed;
+  --accent-bg: #f0edf9;
+}
+* { box-sizing: border-box; }
+body {
+  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  color: var(--text); background: var(--bg); line-height: 1.6;
+  max-width: 1100px; margin: 0 auto; padding: 36px 32px 80px;
+}
+
+/* Header */
+.header { margin-bottom: 28px; }
+.header .eyebrow {
+  display: inline-block; padding: 4px 10px; border-radius: 6px;
+  background: var(--accent-bg); color: var(--amp-purple);
+  font-size: 11px; font-weight: 700; letter-spacing: 0.5px; text-transform: uppercase;
+}
+.header h1 {
+  font-size: 30px; font-weight: 800; color: var(--amp-blue);
+  margin: 10px 0 6px; letter-spacing: -0.5px;
+}
+.header .meta {
+  font-size: 13px; color: var(--text-secondary);
+  display: flex; gap: 18px; flex-wrap: wrap; margin-bottom: 12px;
+}
+.header .meta span strong { color: var(--text); font-weight: 600; }
+.mcp-badge {
+  display: inline-flex; align-items: center; gap: 6px;
+  background: var(--bg-section); border: 1px solid var(--border);
+  border-radius: 20px; padding: 5px 12px;
+  font-size: 11px; font-weight: 600; color: var(--text-secondary);
+}
+.mcp-badge .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--amp-teal); }
+
+/* Section */
+.section { margin-bottom: 36px; }
+.section-title {
+  font-size: 16px; font-weight: 700; color: var(--amp-blue);
+  padding-bottom: 8px; border-bottom: 2px solid var(--amp-purple);
+  margin-bottom: 16px; display: flex; align-items: center; gap: 8px;
+}
+.section-title .icon { font-size: 18px; }
+.section-title .aside {
+  margin-left: auto; font-size: 11px; font-weight: 500;
+  color: var(--text-secondary); text-transform: none; letter-spacing: 0;
+}
+.section-title .aside a { color: var(--amp-purple); text-decoration: none; }
+
+/* Product Block */
+.product-block {
+  background: var(--bg-section); border: 1px solid var(--border);
+  border-radius: 12px; padding: 20px 22px; margin-bottom: 18px;
+  border-left: 4px solid var(--amp-purple);
+}
+.product-block.sr { border-left-color: var(--amp-teal); }
+.product-block.fx { border-left-color: var(--amp-purple); }
+.product-block.gs { border-left-color: var(--amp-orange); }
+.product-block.cdp { border-left-color: var(--amp-blue); }
+.product-block.ai { border-left-color: var(--amp-green); }
+.product-block.sdk { border-left-color: #8b5cf6; }
+
+.product-head {
+  display: flex; align-items: baseline; flex-wrap: wrap;
+  gap: 10px 16px; margin-bottom: 14px;
+}
+.product-head h2 {
+  font-size: 18px; font-weight: 700; color: var(--amp-blue);
+  margin: 0; letter-spacing: -0.2px;
+}
+.product-head .pm-chip {
+  display: inline-flex; align-items: center; gap: 5px;
+  background: white; border: 1px solid var(--border);
+  border-radius: 12px; padding: 2px 10px;
+  font-size: 11px; font-weight: 600; color: var(--text-secondary);
+}
+.product-head .dash-link {
+  margin-left: auto; font-size: 11px; font-weight: 600;
+  color: var(--amp-purple); text-decoration: none;
+}
+
+/* KPI strip for each product */
+.kpi-strip {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 10px; margin-bottom: 14px;
+}
+.kpi-card {
+  background: white; border: 1px solid var(--border); border-radius: 10px;
+  padding: 12px 14px; text-align: left;
+}
+.kpi-card .kpi-label {
+  font-size: 10px; font-weight: 700; text-transform: uppercase;
+  letter-spacing: 0.5px; color: var(--text-secondary); margin-bottom: 4px;
+}
+.kpi-card .kpi-value {
+  font-size: 22px; font-weight: 800; color: var(--amp-blue); line-height: 1.1;
+}
+.kpi-card .kpi-source {
+  font-size: 10px; color: #999; margin-top: 4px;
+}
+.kpi-card .kpi-source a { color: var(--amp-purple); text-decoration: none; }
+
+/* Subsection (Pipeline / Wins / Learnings / Feedback / Risks) */
+.sub-title {
+  font-size: 12px; font-weight: 700; color: var(--amp-blue);
+  margin: 14px 0 8px; display: flex; align-items: baseline; gap: 8px;
+  text-transform: uppercase; letter-spacing: 0.4px;
+}
+.sub-title .sub-badge {
+  display: inline-block; padding: 2px 7px; border-radius: 4px;
+  background: var(--accent-bg); color: var(--amp-purple);
+  font-size: 10px; font-weight: 700;
+}
+.sub-title.pipeline .sub-badge { background: #dbeafe; color: #1e40af; }
+.sub-title.calls .sub-badge { background: #cffafe; color: #155e75; }
+.sub-title.wins .sub-badge { background: #dcfce7; color: #166534; }
+.sub-title.learnings .sub-badge { background: var(--accent-bg); color: var(--amp-purple); }
+.sub-title.feedback .sub-badge { background: #fef3c7; color: #92400e; }
+.sub-title.risks .sub-badge { background: #fee2e2; color: #991b1b; }
+
+/* Direct-quote blockquote in Learnings */
+.intel-list li blockquote {
+  margin: 6px 0 2px; padding: 6px 10px;
+  border-left: 3px solid var(--amp-teal);
+  background: #f0fdfa; border-radius: 4px;
+  font-style: italic; color: var(--text);
+  font-size: 11.5px;
+}
+.intel-list li blockquote .attr {
+  display: block; margin-top: 4px;
+  font-style: normal; font-size: 10px; font-weight: 600;
+  color: var(--text-secondary);
+}
+
+/* Intel items inside subsections */
+.intel-list {
+  list-style: none; padding: 0; margin: 0;
+  background: white; border: 1px solid var(--border); border-radius: 8px;
+}
+.intel-list li {
+  padding: 9px 14px; border-bottom: 1px solid var(--border);
+  font-size: 12px; color: var(--text); line-height: 1.55;
+}
+.intel-list li:last-child { border-bottom: none; }
+.intel-list li strong { color: var(--amp-blue); }
+.intel-list li .src {
+  font-size: 10px; color: #999; margin-left: 4px; white-space: nowrap;
+}
+.intel-list li .src a { color: var(--amp-purple); text-decoration: none; }
+.intel-list li .src a:hover { text-decoration: underline; }
+
+.source-tag {
+  display: inline-block; padding: 1px 6px; border-radius: 3px;
+  font-size: 9px; font-weight: 700; text-transform: uppercase;
+  letter-spacing: 0.3px; margin-right: 4px; vertical-align: 1px;
+}
+.source-tag.granola { background: #dbeafe; color: #1e40af; }
+.source-tag.slack { background: #e9d5ff; color: #6b21a8; }
+.source-tag.sfdc { background: #ccfbf1; color: #115e59; }
+
+.empty-block {
+  background: white; border: 1px dashed var(--border);
+  border-radius: 8px; padding: 12px;
+  font-size: 11px; color: var(--text-secondary); text-align: center;
+  font-style: italic;
+}
+
+.note {
+  font-size: 11px; color: var(--text-secondary);
+  margin-top: 10px; padding: 6px 10px;
+  background: white; border: 1px solid var(--border); border-radius: 6px;
+  border-left: 3px solid var(--amp-orange);
+}
+
+/* Snapshot cross-table — scannable, one row per product */
+.snap-table {
+  width: 100%; border-collapse: separate; border-spacing: 0;
+  background: white; border: 1px solid var(--border); border-radius: 12px;
+  overflow: hidden; margin-bottom: 14px; font-size: 12px;
+}
+.snap-table thead th {
+  background: var(--amp-blue); color: white;
+  font-size: 10px; font-weight: 700; text-transform: uppercase;
+  letter-spacing: 0.5px; padding: 10px 12px; text-align: left;
+  white-space: nowrap;
+}
+.snap-table thead th.num { text-align: right; color: white; }
+.snap-table tbody td {
+  padding: 12px 12px; border-bottom: 1px solid var(--border);
+  vertical-align: middle;
+}
+.snap-table tbody tr:last-child td { border-bottom: none; }
+.snap-table tbody tr:hover { background: var(--bg-section); }
+.snap-table .prod {
+  font-weight: 700; color: var(--amp-blue); white-space: nowrap;
+  border-left: 4px solid var(--amp-purple); padding-left: 14px;
+}
+.snap-table tr.sr .prod  { border-left-color: var(--amp-teal); }
+.snap-table tr.fx .prod  { border-left-color: var(--amp-purple); }
+.snap-table tr.gs .prod  { border-left-color: var(--amp-orange); }
+.snap-table tr.ai .prod  { border-left-color: var(--amp-green); }
+.snap-table tr.cdp .prod { border-left-color: var(--amp-blue); }
+.snap-table tr.sdk .prod { border-left-color: #8b5cf6; }
+.snap-table .num {
+  text-align: right; font-variant-numeric: tabular-nums;
+  font-weight: 700; color: var(--amp-blue); white-space: nowrap;
+}
+.snap-table .num.zero { color: #bbb; font-weight: 500; }
+.snap-table .num.risk { color: var(--amp-red); }
+.snap-table .num.ok   { color: var(--amp-green); }
+.snap-table .signal {
+  font-size: 11px; color: var(--text-secondary); line-height: 1.5;
+}
+.snap-table .signal strong { color: var(--text); font-weight: 600; }
+.snap-table .mini {
+  display: inline-block; font-size: 9px; font-weight: 700;
+  color: var(--text-secondary); text-transform: uppercase;
+  letter-spacing: 0.3px; margin-left: 2px;
+}
+
+/* At-Risk ARR column: left-aligned, amount on top, label below */
+.snap-table .atrisk {
+  font-weight: 700; color: var(--amp-blue); white-space: normal;
+  line-height: 1.3; text-align: left;
+}
+.snap-table .atrisk .amt { display: block; font-size: 13px; }
+.snap-table .atrisk .lbl {
+  display: block; margin-top: 2px;
+  font-size: 9px; font-weight: 700; letter-spacing: 0.3px;
+  text-transform: uppercase; color: var(--text-secondary);
+}
+.snap-table .atrisk.risk .amt { color: var(--amp-red); }
+.snap-table .atrisk.zero .amt { color: #bbb; font-weight: 500; }
+
+/* Tabs inside each product block */
+.tabs {
+  display: flex; gap: 2px; flex-wrap: wrap;
+  border-bottom: 2px solid var(--border);
+  margin: 6px 0 14px;
+}
+.tab-btn {
+  background: transparent; border: none; cursor: pointer;
+  padding: 8px 14px; font-family: inherit; font-size: 11px; font-weight: 700;
+  color: var(--text-secondary); text-transform: uppercase; letter-spacing: 0.4px;
+  border-bottom: 2px solid transparent; margin-bottom: -2px;
+  transition: color 0.15s ease, border-color 0.15s ease;
+}
+.tab-btn:hover { color: var(--amp-blue); }
+.tab-btn.active { color: var(--amp-purple); border-bottom-color: var(--amp-purple); }
+.product-block.sr  .tab-btn.active { color: var(--amp-teal);   border-bottom-color: var(--amp-teal); }
+.product-block.fx  .tab-btn.active { color: var(--amp-purple); border-bottom-color: var(--amp-purple); }
+.product-block.gs  .tab-btn.active { color: var(--amp-orange); border-bottom-color: var(--amp-orange); }
+.product-block.ai  .tab-btn.active { color: var(--amp-green);  border-bottom-color: var(--amp-green); }
+.product-block.cdp .tab-btn.active { color: var(--amp-blue);   border-bottom-color: var(--amp-blue); }
+.product-block.sdk .tab-btn.active { color: #8b5cf6;           border-bottom-color: #8b5cf6; }
+
+.tab-btn .count {
+  display: inline-block; margin-left: 5px;
+  background: var(--bg-section); border: 1px solid var(--border);
+  border-radius: 8px; padding: 0 6px;
+  font-size: 10px; font-weight: 700; color: var(--text-secondary);
+}
+.tab-btn.active .count {
+  background: var(--accent-bg); color: var(--amp-purple); border-color: transparent;
+}
+
+.tab-panel { display: none; }
+.tab-panel.active { display: block; }
+
+.risks-block {
+  margin-top: 18px; padding-top: 14px;
+  border-top: 1px dashed var(--border);
+}
+
+/* Attribution header for each learning item: Customer · Contact · Role */
+.attribution {
+  display: flex; flex-wrap: wrap; gap: 0 6px;
+  align-items: baseline; font-size: 10.5px;
+  margin-bottom: 5px; line-height: 1.5;
+}
+.attribution .customer {
+  font-weight: 800; color: var(--amp-blue);
+  text-transform: uppercase; letter-spacing: 0.3px;
+}
+.attribution .contact { font-weight: 600; color: var(--text); }
+.attribution .role {
+  font-weight: 500; color: var(--text-secondary);
+  font-style: italic;
+}
+.attribution .sep { color: #c7c7d6; font-weight: 400; }
+.attribution .amp-tag {
+  display: inline-block; padding: 1px 6px;
+  background: var(--accent-bg); color: var(--amp-purple);
+  border-radius: 4px; font-size: 9px; font-weight: 700;
+  text-transform: uppercase; letter-spacing: 0.4px;
+  margin-left: 2px;
+}
+.attribution .cust-tag {
+  display: inline-block; padding: 1px 6px;
+  background: #ecfdf5; color: var(--amp-green);
+  border-radius: 4px; font-size: 9px; font-weight: 700;
+  text-transform: uppercase; letter-spacing: 0.4px;
+  margin-left: 2px;
+}
+
+/* Callout for risks */
+.callout {
+  background: white; border: 1px solid var(--border); border-left: 3px solid var(--amp-red);
+  border-radius: 8px; padding: 10px 14px; margin-bottom: 14px;
+  font-size: 12px; color: var(--text); line-height: 1.55;
+}
+.callout.warn { border-left-color: var(--amp-orange); }
+.callout.ok { border-left-color: var(--amp-green); }
+.callout strong { color: var(--amp-blue); }
+
+/* Footer */
+.footer {
+  margin-top: 44px; padding-top: 16px;
+  border-top: 1px solid var(--border);
+  font-size: 11px; color: #999; text-align: center;
+}
+.footer a { color: var(--amp-purple); text-decoration: none; }
+
+@media (max-width: 900px) {
+  .snap-table { font-size: 11px; display: block; overflow-x: auto; }
+  .snap-table .signal { min-width: 220px; }
+}
+@media (max-width: 700px) {
+  body { padding: 24px 16px 60px; }
+  .kpi-strip { grid-template-columns: 1fr 1fr; }
+  .header h1 { font-size: 24px; }
+}
+</style>
+</head>
+<body>
+
+<!-- ============== HEADER ============== -->
+<header class="header">
+  <span class="eyebrow">Tab · Customer Intelligence</span>
+  <h1>New Products — Customer Intelligence</h1>
+  <div class="meta">
+    <span><strong>Window</strong> Apr 3 – Apr 17, 2026 (last 2 weeks)</span>
+    <span><strong>Coverage</strong> Session Replay · Experiment · Guides &amp; Surveys · AI Assistant · Activation/Orchestration · SDK</span>
+    <span><strong>Owner</strong> Chris Yu</span>
+  </div>
+  <div class="mcp-badge"><span class="dot"></span>Powered by MCP · Granola · Salesforce · Slack</div>
+</header>
+
+<!-- ============== SUMMARY STRIP ============== -->
+<section class="section">
+  <div class="section-title">
+    <span class="icon">📊</span>
+    <span>Two-Week Snapshot</span>
+    <span class="aside">Every entry below links to its source</span>
+  </div>
+
+  <table class="snap-table" role="table" aria-label="Two-week snapshot by product">
+    <thead>
+      <tr>
+        <th>Product</th>
+        <th class="num">Calls</th>
+        <th class="num">Wins</th>
+        <th>Top open deal</th>
+        <th>At-risk ARR</th>
+        <th>Headline signal</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="sr">
+        <td class="prod">Session Replay</td>
+        <td class="num">3</td>
+        <td class="num ok">10</td>
+        <td>Weather Co <strong>$550k</strong></td>
+        <td class="atrisk risk"><span class="amt">$5.4M</span><span class="lbl">Square + Location Value</span></td>
+        <td class="signal"><strong>SR 3-mo Retention</strong> attached in 8 of 10 wins</td>
+      </tr>
+      <tr class="fx">
+        <td class="prod">Experiment</td>
+        <td class="num">9</td>
+        <td class="num ok">4</td>
+        <td>BBVA <strong>$2.5M</strong></td>
+        <td class="atrisk risk"><span class="amt">$8.8M</span><span class="lbl">MSFT Azure + OKX + Square</span></td>
+        <td class="signal">Largest open new-product deal; <strong>Adobe</strong> competitive</td>
+      </tr>
+      <tr class="gs">
+        <td class="prod">Guides &amp; Surveys</td>
+        <td class="num zero">0</td>
+        <td class="num">1</td>
+        <td>Confluent <strong>$30k</strong></td>
+        <td class="atrisk zero"><span class="amt">—</span></td>
+        <td class="signal">Granola folder empty — feedback routed via Slack only</td>
+      </tr>
+      <tr class="ai">
+        <td class="prod">AI Assistant</td>
+        <td class="num">9</td>
+        <td class="num zero">0</td>
+        <td>Aidash (in trial)</td>
+        <td class="atrisk risk"><span class="amt">JaneApp</span><span class="lbl">Renewal</span></td>
+        <td class="signal">No new wins in window; <strong>mobile gap</strong> recurring blocker</td>
+      </tr>
+      <tr class="cdp">
+        <td class="prod">Activation</td>
+        <td class="num">4</td>
+        <td class="num zero">0</td>
+        <td>Gartner <strong>(GA path)</strong></td>
+        <td class="atrisk zero"><span class="amt">—</span></td>
+        <td class="signal">Pre-GA alpha; Intercom displacement target <strong>Dec 2026</strong></td>
+      </tr>
+      <tr class="sdk">
+        <td class="prod">SDK</td>
+        <td class="num">4</td>
+        <td class="num zero">0</td>
+        <td>Nubank (concentration)</td>
+        <td class="atrisk risk"><span class="amt">Flutter gap</span></td>
+        <td class="signal"><strong>Flutter perf</strong> blocks 34M-user Q2 goal</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="callout">
+    <strong>Top risk this window:</strong> <strong>Zero "Closed Won" opportunities</strong> with a named new-product line in Salesforce between Apr 3–17, 2026 (SOQL: <code>StageName = 'Closed Won'</code> AND product name LIKE filter). Wins below come from <code>#win-reports</code> where bundled SKUs (SR 3-mo Retention, WEXP-V2, FEXP-V2, GNS-V2) are attached — these don't show in the opp-name SOQL and should be considered the real "wins" surface.
+  </div>
+
+  <div class="callout warn">
+    <strong>Churn watch:</strong> <strong>$18.4M total ARR at risk</strong> across 10 accounts flagged by the <a href="https://solid-guacamole-922mme4.pages.github.io/dashboard.html" target="_blank">Churn Early Warning Dashboard</a> on Apr 17. Of those, <strong>4 include new-product SKUs</strong>: Square ($2.4M; SR+Exp), OKX ($1.6M; Exp+CDP+PSP), Location Value ($3.0M; SR+Web Exp+PSP — CSM unassigned), Microsoft Azure Portal ($4.8M; Exp+PSP). <span class="source-tag slack">Slack</span><a href="https://amplitude.slack.com/archives/daily_churn_insights" target="_blank">#daily_churn_insights</a>
+  </div>
+</section>
+
+<!-- ============== SESSION REPLAY ============== -->
+<section class="section">
+  <div class="section-title">
+    <span class="icon">🎬</span>
+    <span>Session Replay</span>
+    <span class="aside">3 Granola calls · 10 Slack-reported wins · 1 Zoning beta update</span>
+  </div>
+
+  <div class="product-block sr">
+    <div class="product-head">
+      <h2>Session Replay</h2>
+    </div>
+
+    <div class="tabs" role="tablist">
+      <button class="tab-btn active" data-target="pipeline">Pipeline <span class="count">8</span></button>
+      <button class="tab-btn" data-target="wins">Wins <span class="count">10</span></button>
+      <button class="tab-btn" data-target="calls">Customer Calls <span class="count">3</span></button>
+      <button class="tab-btn" data-target="learnings">Learnings <span class="count">8</span></button>
+      <button class="tab-btn" data-target="risks">Risks <span class="count">3</span></button>
+    </div>
+
+    <div class="tab-panel active" data-panel="pipeline">
+    <div class="sub-title pipeline"><span class="sub-badge">Pipeline</span> Active / Open</div>
+    <ul class="intel-list">
+      <li><strong>Weather Company</strong> — $550k Expand, SR upsell + AI Assistant bundle (Jun close). <span class="src"><span class="source-tag sfdc">SFDC</span>Opportunity: "The Weather Company | Expand - Vertical | - SR upsell / AI Assistant"</span></li>
+      <li><strong>Intuit SBG</strong> — $285k Land SR. <span class="src"><span class="source-tag sfdc">SFDC</span>Open opp, current stage in pipeline SOQL</span></li>
+      <li><strong>Royal Mail</strong> — $180k Expand, CRO + SR bundle. <span class="src"><span class="source-tag sfdc">SFDC</span>Open opp, EMEA</span></li>
+      <li><strong>Calendly</strong> — $98.6k Expand co-term, close Apr 28 (nearest). <span class="src"><span class="source-tag sfdc">SFDC</span>Opportunity: "Calendly | Session Replay Expand (co-term)"</span></li>
+      <li><strong>Navan</strong> — Quota expansion in flight; eval vs FullStory ($&lt;40k per 1M sessions claim from prospect). <span class="src"><span class="source-tag granola">Granola</span><a href="https://notes.granola.ai/?folder_id=11449953-b2d8-4250-bba7-82b3b263398e" target="_blank">SR PM Customer Calls folder · Navan</a></span></li>
+      <li><strong>iHeartMedia</strong> — Gap on daily cadence of replay ingestion flagged; no ARR attached yet. <span class="src"><span class="source-tag granola">Granola</span><a href="https://notes.granola.ai/d/6bacf272-07a1-477f-86cf-de345666ce3f" target="_blank">SR PM Customer Calls · iHeartMedia</a></span></li>
+      <li><strong>Furnished Finder</strong> — Android-biased install base; renewal-dependent expansion. <span class="src"><span class="source-tag granola">Granola</span><a href="https://notes.granola.ai/d/24274b70-5c33-41f5-804b-eaa1dbb458cb" target="_blank">SR PM Customer Calls · Furnished Finder</a></span></li>
+      <li><strong>Ascension Health</strong> — Evaluating heatmaps; currently on VWO. Raised by #pillar-session-replay this window. <span class="src"><span class="source-tag slack">Slack</span><a href="https://amplitude.slack.com/archives/pillar-session-replay" target="_blank">#pillar-session-replay</a></span></li>
+    </ul>
+    </div>
+
+    <div class="tab-panel" data-panel="wins">
+    <div class="sub-title wins"><span class="sub-badge">Wins</span> Closed + Expand in Window (SR SKU attached)</div>
+    <ul class="intel-list">
+      <li><strong>Printful</strong> — <strong>$456,615</strong> Renewal+Expand, Apr. SR 3-mo Retention attached. <span class="src"><span class="source-tag sfdc">SFDC</span><a href="https://amplitude.my.salesforce.com/006VH00000golrZYAQ" target="_blank">006VH00000golrZYAQ</a></span></li>
+      <li><strong>Yubo</strong> — <strong>$294,999</strong> Renewal+Expand, May. Session Replay + Guides &amp; Surveys Enterprise in bundle. <span class="src"><span class="source-tag sfdc">SFDC</span><a href="https://amplitude.my.salesforce.com/006Uw000006AqczIAC" target="_blank">006Uw000006AqczIAC</a></span></li>
+      <li><strong>Sotheby's</strong> — <strong>$224,400</strong> Renewal+Expand, May. SR component in expand bundle. <span class="src"><span class="source-tag sfdc">SFDC</span><a href="https://amplitude.my.salesforce.com/006Uw00000AyLNEIA3" target="_blank">006Uw00000AyLNEIA3</a></span></li>
+      <li><strong>Attentive</strong> — <strong>$52,000</strong> Land, Apr. GNS-V2 + SR 3-mo attached (bundled land). <span class="src"><span class="source-tag sfdc">SFDC</span><a href="https://amplitude.my.salesforce.com/006VH00000h3PyqYAE" target="_blank">006VH00000h3PyqYAE</a></span></li>
+      <li><strong>Raylo</strong> — <strong>$35,000</strong> Renewal+Expand, May. SRP-STD-V2 + WEXP-V2; "moving over to new PPL, doubling event volume." <span class="src"><span class="source-tag sfdc">SFDC</span><a href="https://amplitude.my.salesforce.com/006Uw00000IYFS5IAP" target="_blank">006Uw00000IYFS5IAP</a></span></li>
+      <li><strong>GetResponse</strong> — <strong>$33,960</strong> Renewal+Expand, May. SR 3-mo attached; "Small Deal Promo." <span class="src"><span class="source-tag sfdc">SFDC</span><a href="https://amplitude.my.salesforce.com/006Uw00000JWBbmIAH" target="_blank">006Uw00000JWBbmIAH</a></span></li>
+      <li><strong>Rocket Mortgage</strong> — <strong>$32,505</strong> Expand-Vertical, Apr close. "Require longer session retention." SR 3-mo Retention. <span class="src"><span class="source-tag sfdc">SFDC</span><a href="https://amplitude.my.salesforce.com/006VH00000lOqSDYA0" target="_blank">006VH00000lOqSDYA0</a></span></li>
+      <li><strong>Knix Wear Inc.</strong> — <strong>$26,130</strong> Expand-Vertical, Apr close. "Hotjar replacement, team is super excited for SR Agents." SR 3-mo Retention attached. <span class="src"><span class="source-tag sfdc">SFDC</span><a href="https://amplitude.my.salesforce.com/006VH00000i39yIYAQ" target="_blank">006VH00000i39yIYAQ</a></span></li>
+      <li><strong>Heidi Health</strong> — <strong>$17,003</strong> Expand-Vertical, Apr close. SR 3-mo Retention attached (3 line items). <span class="src"><span class="source-tag sfdc">SFDC</span><a href="https://amplitude.my.salesforce.com/006VH00000kwO4HYAU" target="_blank">006VH00000kwO4HYAU</a></span></li>
+      <li><strong>Beyond ONE MEA</strong> — <strong>$6,750</strong> Expand-Vertical, Apr. SR 3-mo Retention attached. <span class="src"><span class="source-tag sfdc">SFDC</span><a href="https://amplitude.my.salesforce.com/006VH00000jOoxpYAC" target="_blank">006VH00000jOoxpYAC</a></span></li>
+      <li style="background:#fafaff"><strong>SR-attached win total in window:</strong> <strong>$1,178,362</strong> across 10 opps. <span class="src"><span class="source-tag sfdc">SFDC</span>Sum of Amount, SR-bundled opps Apr 3–17</span></li>
+    </ul>
+    </div>
+
+    <div class="tab-panel" data-panel="calls">
+    <div class="sub-title calls"><span class="sub-badge">Customer Calls</span> Granola · SR PM Customer Calls folder (Apr 3–17)</div>
+    <ul class="intel-list">
+      <li>
+        <div class="attribution"><span class="customer">Navan</span><span class="sep">·</span><span class="role">Prospect on FullStory eval</span></div>
+        <strong>Quota expansion eval</strong> — FullStory competitive benchmark ("&lt;$40k per 1M sessions") cited by prospect on the call. <span class="src"><span class="source-tag granola">Granola</span><a href="https://notes.granola.ai/d/f85d28ee-e699-4456-b8de-bad11a6a5e7a" target="_blank">SR PM Customer Calls · Navan</a></span>
+      </li>
+      <li>
+        <div class="attribution"><span class="customer">iHeartMedia</span><span class="sep">·</span><span class="role">Existing customer</span></div>
+        <strong>Daily cadence of replay ingestion gap</strong> — Customer asked for tighter ingestion SLA than current. <span class="src"><span class="source-tag granola">Granola</span><a href="https://notes.granola.ai/d/6bacf272-07a1-477f-86cf-de345666ce3f" target="_blank">SR PM Customer Calls · iHeartMedia</a></span>
+      </li>
+      <li>
+        <div class="attribution"><span class="customer">Furnished Finder</span><span class="sep">·</span><span class="role">Existing customer, renewal-adjacent</span></div>
+        <strong>Android-biased install base</strong> — Renewal-dependent expansion gated on Android parity. <span class="src"><span class="source-tag granola">Granola</span><a href="https://notes.granola.ai/d/24274b70-5c33-41f5-804b-eaa1dbb458cb" target="_blank">SR PM Customer Calls · Furnished Finder</a></span>
+      </li>
+    </ul>
+    </div>
+
+    <div class="tab-panel" data-panel="learnings">
+    <div class="sub-title learnings"><span class="sub-badge">Learnings</span> Patterns &amp; Competitive Signals (with direct quotes)</div>
+    <ul class="intel-list">
+      <li>
+        <div class="attribution"><span class="customer">Nintendo</span><span class="sep">·</span><span class="role">Zoning beta customer</span></div>
+        <strong>Zoning beta validates vs ContentSquare</strong>:
+        <blockquote>"Most of features we are using in CSQ are in Amplitude Zoning already. They are starting pricing discussions to move off ContentSquare completely."<span class="attr">— Chad Swenson relaying Nintendo feedback, #sr-internal, Apr 14</span></blockquote>
+        <span class="src"><span class="source-tag slack">Slack</span><a href="https://amplitude.slack.com/archives/sr-internal" target="_blank">#sr-internal · Apr 14</a></span>
+      </li>
+      <li>
+        <div class="attribution"><span class="customer">Knix Wear</span><span class="sep">·</span><span class="role">Apr close, Expand-Vertical</span></div>
+        <strong>"Hotjar replacement" is a recurring buying narrative</strong>:
+        <blockquote>"Hotjar replacement, team is super excited for SR Agents!"<span class="attr">— Knix Wear win-report, #win-reports (006VH00000i39yIYAQ)</span></blockquote>
+        SR Agents roadmap item being sold in the close. <span class="src"><span class="source-tag slack">Slack</span><a href="https://amplitude.slack.com/archives/win-reports" target="_blank">#win-reports · Knix Wear</a></span>
+      </li>
+      <li>
+        <div class="attribution"><span class="customer">Navan</span><span class="sep">·</span><span class="role">Prospect on FullStory eval</span></div>
+        <strong>FullStory price pressure</strong>:
+        <blockquote>"&lt;$40k per 1M sessions" — FullStory benchmark Navan is using against us.<span class="attr">— Navan eval, SR PM Customer Calls Granola</span></blockquote>
+        We're still competitive but coming in on bundle value. <span class="src"><span class="source-tag granola">Granola</span><a href="https://notes.granola.ai/d/f85d28ee-e699-4456-b8de-bad11a6a5e7a" target="_blank">SR PM Customer Calls · Navan</a></span>
+      </li>
+      <li>
+        <div class="attribution"><span class="customer">Rocket Mortgage</span><span class="sep">·</span><span class="role">Apr close, Expand-Vertical</span></div>
+        <strong>Longer retention = the entire buying reason</strong>:
+        <blockquote>"Require longer session retention."<span class="attr">— Rocket Mortgage close note, #win-reports (006VH00000lOqSDYA0)</span></blockquote>
+        <span class="src"><span class="source-tag sfdc">SFDC</span><a href="https://amplitude.my.salesforce.com/006VH00000lOqSDYA0" target="_blank">Rocket Mortgage opp</a></span>
+      </li>
+      <li>
+        <div class="attribution"><span class="customer">Cross-customer pattern</span><span class="sep">·</span><span class="role">10 closed opps Apr 3–17</span></div>
+        <strong>SR 3-mo Retention is the dominant SKU in this window</strong> — attached in 8 of 10 wins; standalone driver is "require longer session retention." <span class="src"><span class="source-tag sfdc">SFDC</span>#win-reports pattern Apr 3–17</span>
+      </li>
+      <li>
+        <div class="attribution"><span class="customer">Viator</span><span class="sep">·</span><span class="role">Customer on mobile agent workflow</span></div>
+        <strong>SR agent mobile bug surfaced</strong> — raised as a blocker on the mobile agent workflow. <span class="src"><span class="source-tag slack">Slack</span><a href="https://amplitude.slack.com/archives/pillar-session-replay" target="_blank">#pillar-session-replay</a></span>
+      </li>
+    
+      <li>
+        <div class="attribution"><span class="customer">iHeartMedia</span><span class="sep">·</span><span class="role">Existing customer</span></div>
+        <strong>Daily cadence of replay ingestion</strong> — tighter ingestion SLA than current. <span class="src"><span class="source-tag granola">Granola</span><a href="https://notes.granola.ai/d/6bacf272-07a1-477f-86cf-de345666ce3f" target="_blank">SR PM Customer Calls · iHeartMedia</a></span>
+      </li>
+      <li>
+        <div class="attribution"><span class="customer">Furnished Finder</span><span class="sep">·</span><span class="role">Existing customer</span></div>
+        <strong>Android-first recording parity</strong> — Android-biased traffic; renewal contingent on Android parity. <span class="src"><span class="source-tag granola">Granola</span><a href="https://notes.granola.ai/d/24274b70-5c33-41f5-804b-eaa1dbb458cb" target="_blank">SR PM Customer Calls · Furnished Finder</a></span>
+      </li>
+    </ul>
+    </div>
+
+    <div class="tab-panel" data-panel="risks">
+    <div class="sub-title risks"><span class="sub-badge">Revenue Risks</span> Churn &amp; Blockers</div>
+    <ul class="intel-list">
+      <li><strong>Square — $2.4M ARR at risk</strong> (of $6.8M ATR), renews Mar-2027; package includes Session Replay. CSM Rox Chang, AE Kyle McDaniel. EBR 728 days overdue. <span class="src"><span class="source-tag slack">Slack</span><a href="https://amplitude.slack.com/archives/daily_churn_insights" target="_blank">#daily_churn_insights · Apr 17</a></span></li>
+      <li><strong>Location Value — $3.0M ARR CRITICAL</strong>, renews Dec 2026. Package includes SR + Web Experimentation. <strong>CSM UNASSIGNED.</strong> 0 MAU on record. <span class="src"><span class="source-tag slack">Slack</span><a href="https://amplitude.slack.com/archives/daily_churn_insights" target="_blank">#daily_churn_insights · Apr 17</a></span></li>
+      <li><strong>Navan</strong> — FullStory competitive benchmark cited by prospect; expansion not yet committed. <span class="src"><span class="source-tag granola">Granola</span><a href="https://notes.granola.ai/d/f85d28ee-e699-4456-b8de-bad11a6a5e7a" target="_blank">SR PM Customer Calls · Navan</a></span></li>
+    </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ============== EXPERIMENT ============== -->
+<section class="section">
+  <div class="section-title">
+    <span class="icon">🧪</span>
+    <span>Experiment (Feature &amp; Web)</span>
+    <span class="aside">9 Granola calls · 4 Slack-reported wins · 3 churn flags</span>
+  </div>
+
+  <div class="product-block fx">
+    <div class="product-head">
+      <h2>Experiment</h2>
+    </div>
+
+    <div class="tabs" role="tablist">
+      <button class="tab-btn active" data-target="pipeline">Pipeline <span class="count">3</span></button>
+      <button class="tab-btn" data-target="wins">Wins <span class="count">4</span></button>
+      <button class="tab-btn" data-target="calls">Customer Calls <span class="count">9</span></button>
+      <button class="tab-btn" data-target="learnings">Learnings <span class="count">8</span></button>
+      <button class="tab-btn" data-target="risks">Risks <span class="count">4</span></button>
+    </div>
+
+    <div class="tab-panel active" data-panel="pipeline">
+    <div class="sub-title pipeline"><span class="sub-badge">Pipeline</span> Active / Open</div>
+    <ul class="intel-list">
+      <li><strong>BBVA</strong> — $2.5M Experiment (largest open new-product deal); competitive against Adobe. <span class="src"><span class="source-tag sfdc">SFDC</span>Open opp, EMEA</span></li>
+      <li><strong>Fidelity International</strong> — $200k Land, Analytics &amp; Experimentation. <span class="src"><span class="source-tag sfdc">SFDC</span>Opportunity: "Fidelity International | Land | - Analytics &amp; Experimentation"</span></li>
+      <li><strong>9 active customer conversations</strong> in the Experiment Granola folder this window — see Learnings &amp; Calls tab. <span class="src"><span class="source-tag granola">Granola</span><a href="https://notes.granola.ai/?folder_id=3579f320-56e9-46fa-9e36-29ea12f89e1f" target="_blank">Experiment customer calls folder</a></span></li>
+    </ul>
+    </div>
+
+    <div class="tab-panel" data-panel="wins">
+    <div class="sub-title wins"><span class="sub-badge">Wins</span> Closed + Expand in Window (Experiment SKU attached)</div>
+    <ul class="intel-list">
+      <li><strong>Equa.ls Prod</strong> — <strong>$48,000</strong> Renewal+Expand, May. "Adding in feature experiment." FEXP-V2 + SRP-STD-V2. <span class="src"><span class="source-tag sfdc">SFDC</span><a href="https://amplitude.my.salesforce.com/006VH00000j1I5rYAE" target="_blank">006VH00000j1I5rYAE</a></span></li>
+      <li><strong>Raylo</strong> — <strong>$35,000</strong> Renewal+Expand, May. WEXP-V2 + SRP-STD-V2; doubling event volume on PPL. <span class="src"><span class="source-tag sfdc">SFDC</span><a href="https://amplitude.my.salesforce.com/006Uw00000IYFS5IAP" target="_blank">006Uw00000IYFS5IAP</a></span></li>
+      <li><strong>Giggster</strong> — <strong>$33,067</strong> Renewal+Expand, May. Amplitude Feature Experimentation | Corp attached. <span class="src"><span class="source-tag sfdc">SFDC</span><a href="https://amplitude.my.salesforce.com/006Uw00000J121dIAB" target="_blank">006Uw00000J121dIAB</a></span></li>
+      <li><strong>Moonlight</strong> — <strong>$22,500</strong> Expand-Vertical, Apr. Feature Experimentation SKU attached. <span class="src"><span class="source-tag sfdc">SFDC</span><a href="https://amplitude.my.salesforce.com/006VH00000jW562YAC" target="_blank">006VH00000jW562YAC</a></span></li>
+      <li style="background:#fafaff"><strong>Experiment-attached win total in window:</strong> <strong>$138,567</strong> across 4 opps. <span class="src"><span class="source-tag sfdc">SFDC</span>Sum of Amount, Experiment-bundled opps Apr 3–17</span></li>
+    </ul>
+    </div>
+
+    <div class="tab-panel" data-panel="calls">
+    <div class="sub-title calls"><span class="sub-badge">Customer Calls</span> Granola · Experiment customer calls folder (Apr 3–17)</div>
+    <ul class="intel-list">
+      <li>
+        <div class="attribution"><span class="customer">NerdWallet</span><span class="sep">·</span><span class="role">Existing customer, expansion</span></div>
+        <strong>Active expansion / usage conversation.</strong> <span class="src"><span class="source-tag granola">Granola</span><a href="https://notes.granola.ai/d/2e9a7dc4-14ca-46d4-855d-425ed513742b" target="_blank">Experiment · NerdWallet</a></span>
+      </li>
+      <li>
+        <div class="attribution"><span class="customer">HEB</span><span class="sep">·</span><span class="role">Existing customer, production issue</span></div>
+        <strong>Assignment events breaking in prod.</strong> <span class="src"><span class="source-tag granola">Granola</span><a href="https://notes.granola.ai/d/546cda78-ce92-45ec-ade5-1b1ff121e73b" target="_blank">Experiment · HEB</a></span>
+      </li>
+      <li>
+        <div class="attribution"><span class="customer">FOX</span><span class="sep">·</span><span class="role">Existing customer, live-event use case</span></div>
+        <strong>World Cup tie-in / live-event flag pressure.</strong> <span class="src"><span class="source-tag granola">Granola</span><a href="https://notes.granola.ai/d/36172571-943b-4c21-8715-819faeef588f" target="_blank">Experiment · FOX</a></span>
+      </li>
+      <li>
+        <div class="attribution"><span class="customer">Bloomberg</span><span class="sep">·</span><span class="role">Enterprise customer, scale ceiling</span></div>
+        <strong>Hitting 20k flag platform limit.</strong> <span class="src"><span class="source-tag granola">Granola</span><a href="https://notes.granola.ai/d/e86f4af6-f6cb-4993-a728-6306d9d6c471" target="_blank">Experiment · Bloomberg</a></span>
+      </li>
+      <li>
+        <div class="attribution"><span class="customer">Smartsheet</span><span class="sep">·</span><span class="role">Enterprise customer, methodology gap</span></div>
+        <strong>Bayesian stats methodology gap.</strong> <span class="src"><span class="source-tag granola">Granola</span><a href="https://notes.granola.ai/d/b316ebf2-76ac-4ff2-b277-7c964a9ed811" target="_blank">Experiment · Smartsheet</a></span>
+      </li>
+      <li>
+        <div class="attribution"><span class="customer">Super.com</span><span class="sep">·</span><span class="role">Existing customer</span></div>
+        <strong>Active customer call in window.</strong> <span class="src"><span class="source-tag granola">Granola</span><a href="https://notes.granola.ai/d/bffa15a8-a40c-46f5-b5a9-a4aa51ab281d" target="_blank">Experiment · Super.com</a></span>
+      </li>
+      <li>
+        <div class="attribution"><span class="customer">Cornerstone</span><span class="sep">·</span><span class="role">Prospect, competitive eval</span></div>
+        <strong>Comparing Amplitude vs Adobe Target + VWO.</strong> <span class="src"><span class="source-tag granola">Granola</span><a href="https://notes.granola.ai/d/d5fd5503-e376-4a32-9e3e-0709f34d12bc" target="_blank">Experiment · Cornerstone</a></span>
+      </li>
+      <li>
+        <div class="attribution"><span class="customer">Huckleberry</span><span class="sep">·</span><span class="role">Customer, positive signal</span></div>
+        <strong>AI Stylizer flagged as positive differentiator.</strong> <span class="src"><span class="source-tag granola">Granola</span><a href="https://notes.granola.ai/d/08526af5-166f-45fb-bb9e-f6bb8268f677" target="_blank">Experiment · Huckleberry</a></span>
+      </li>
+      <li>
+        <div class="attribution"><span class="customer">Fresh Tracks Canada</span><span class="sep">·</span><span class="role">Existing customer</span></div>
+        <strong>Active customer call in window.</strong> <span class="src"><span class="source-tag granola">Granola</span><a href="https://notes.granola.ai/d/37300229-61f9-4556-be77-91c8270005c8" target="_blank">Experiment · Fresh Tracks Canada</a></span>
+      </li>
+    </ul>
+    </div>
+
+    <div class="tab-panel" data-panel="learnings">
+    <div class="sub-title learnings"><span class="sub-badge">Learnings</span> Patterns &amp; Competitive Signals (with direct quotes)</div>
+    <ul class="intel-list">
+      <li>
+        <div class="attribution"><span class="customer">FOX</span><span class="sep">·</span><span class="role">Live-event customer</span></div>
+        <strong>World Cup tie-in</strong>:
+        <blockquote>"Experiment use case anchored to FOX's World Cup coverage launch."<span class="attr">— FOX call summary, Experiment customer calls Granola folder</span></blockquote>
+        Live-event velocity puts pressure on flag provisioning + variant lifecycle. <span class="src"><span class="source-tag granola">Granola</span><a href="https://notes.granola.ai/d/36172571-943b-4c21-8715-819faeef588f" target="_blank">Experiment · FOX</a></span>
+      </li>
+      <li>
+        <div class="attribution"><span class="customer">Huckleberry</span><span class="sep">·</span><span class="role">Customer, positive differentiator signal</span></div>
+        <strong>AI Stylizer is a differentiator</strong>:
+        <blockquote>"Customer explicitly flagged the AI Stylizer feature as a differentiator."<span class="attr">— Huckleberry call summary, Experiment customer calls Granola folder</span></blockquote>
+        <span class="src"><span class="source-tag granola">Granola</span><a href="https://notes.granola.ai/d/08526af5-166f-45fb-bb9e-f6bb8268f677" target="_blank">Experiment · Huckleberry</a></span>
+      </li>
+      <li>
+        <div class="attribution"><span class="customer">Cornerstone</span><span class="sep">·</span><span class="role">Prospect, competitive eval</span></div>
+        <strong>Adobe + VWO competitive</strong>:
+        <blockquote>"Prospect actively comparing us to Adobe Target and VWO."<span class="attr">— Cornerstone call summary, Experiment customer calls Granola folder</span></blockquote>
+        <span class="src"><span class="source-tag granola">Granola</span><a href="https://notes.granola.ai/d/d5fd5503-e376-4a32-9e3e-0709f34d12bc" target="_blank">Experiment · Cornerstone</a></span>
+      </li>
+      <li>
+        <div class="attribution"><span class="customer">Smartsheet</span><span class="sep">·</span><span class="role">Enterprise customer</span></div>
+        <strong>Bayesian gap</strong>:
+        <blockquote>"Gap in default stats methodology flagged as blocker for enterprise adoption."<span class="attr">— Smartsheet call summary, Experiment customer calls Granola folder</span></blockquote>
+        Recurring enterprise concern. <span class="src"><span class="source-tag granola">Granola</span><a href="https://notes.granola.ai/d/b316ebf2-76ac-4ff2-b277-7c964a9ed811" target="_blank">Experiment · Smartsheet</a></span>
+      </li>
+      <li>
+        <div class="attribution"><span class="customer">Bloomberg</span><span class="sep">·</span><span class="role">Enterprise customer</span></div>
+        <strong>Scale ceiling</strong>:
+        <blockquote>"Customer hitting platform limit at 20k flags; requires product discussion on raising the ceiling."<span class="attr">— Bloomberg call summary, Experiment customer calls Granola folder</span></blockquote>
+        <span class="src"><span class="source-tag granola">Granola</span><a href="https://notes.granola.ai/d/e86f4af6-f6cb-4993-a728-6306d9d6c471" target="_blank">Experiment · Bloomberg</a></span>
+      </li>
+    
+      <li>
+        <div class="attribution"><span class="customer">Bloomberg</span><span class="sep">·</span><span class="role">Enterprise customer</span></div>
+        <strong>20k flag limit</strong> — Customer hitting platform limit at 20k flags; requires product discussion on raising the ceiling. <span class="src"><span class="source-tag granola">Granola</span><a href="https://notes.granola.ai/d/e86f4af6-f6cb-4993-a728-6306d9d6c471" target="_blank">Experiment customer calls · Bloomberg</a></span>
+      </li>
+      <li>
+        <div class="attribution"><span class="customer">HEB</span><span class="sep">·</span><span class="role">Existing customer, prod-breaking issue</span></div>
+        <strong>Assignment event breakage</strong> — Assignment events flagged as broken in production; requires triage with eng. <span class="src"><span class="source-tag granola">Granola</span><a href="https://notes.granola.ai/d/546cda78-ce92-45ec-ade5-1b1ff121e73b" target="_blank">Experiment customer calls · HEB</a></span>
+      </li>
+      <li>
+        <div class="attribution"><span class="customer">Smartsheet</span><span class="sep">·</span><span class="role">Enterprise customer</span></div>
+        <strong>Bayesian stats request</strong> — Gap in default stats methodology flagged as blocker for enterprise adoption. <span class="src"><span class="source-tag granola">Granola</span><a href="https://notes.granola.ai/d/b316ebf2-76ac-4ff2-b277-7c964a9ed811" target="_blank">Experiment customer calls · Smartsheet</a></span>
+      </li>
+    </ul>
+    </div>
+
+    <div class="tab-panel" data-panel="risks">
+    <div class="sub-title risks"><span class="sub-badge">Revenue Risks</span> Churn &amp; Blockers</div>
+    <ul class="intel-list">
+      <li><strong>Microsoft Azure Portal — $4.8M ARR CRITICAL</strong>, renews Jun 30 (74d). Package: Analytics + Experiment + PSP. 3 MAU on record, 10-month tenure. <span class="src"><span class="source-tag slack">Slack</span><a href="https://amplitude.slack.com/archives/daily_churn_insights" target="_blank">#daily_churn_insights · Apr 17</a></span></li>
+      <li><strong>OKX — $1.6M ARR CRITICAL</strong>, renews May 31 (44d). Package: Analytics + CDP + Experiment + PSP. 0 MAU. EBR 500d overdue. <span class="src"><span class="source-tag slack">Slack</span><a href="https://amplitude.slack.com/archives/daily_churn_insights" target="_blank">#daily_churn_insights · Apr 17</a></span></li>
+      <li><strong>HEB — assignment event breakage</strong> blocks further expansion until resolved. <span class="src"><span class="source-tag granola">Granola</span><a href="https://notes.granola.ai/d/546cda78-ce92-45ec-ade5-1b1ff121e73b" target="_blank">Experiment customer calls · HEB</a></span></li>
+      <li><strong>Bloomberg — 20k flag ceiling</strong> flagged as churn-adjacent if not raised. <span class="src"><span class="source-tag granola">Granola</span><a href="https://notes.granola.ai/d/e86f4af6-f6cb-4993-a728-6306d9d6c471" target="_blank">Experiment customer calls · Bloomberg</a></span></li>
+    </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ============== GUIDES & SURVEYS ============== -->
+<section class="section">
+  <div class="section-title">
+    <span class="icon">📋</span>
+    <span>Guides &amp; Surveys</span>
+    <span class="aside">0 Granola calls (empty folder) · 1 SFDC opp · Feedback via #guides-and-surveys-product-feedback</span>
+  </div>
+
+  <div class="product-block gs">
+    <div class="product-head">
+      <h2>Guides &amp; Surveys</h2>
+    </div>
+
+    <div class="callout warn">
+      <strong>Intel gap:</strong> The G&amp;S Granola folder (<code>01409ae6-bb61-4a6c-a284-a9d9fd21cbae</code>) returned <strong>0 meetings in the 2-week window</strong>. Customer intel below is reconstructed from SFDC + Slack pillar feedback only. Meeting capture for G&amp;S needs to be fixed to match the other products.
+    </div>
+
+    <div class="tabs" role="tablist">
+      <button class="tab-btn active" data-target="pipeline">Pipeline <span class="count">1</span></button>
+      <button class="tab-btn" data-target="wins">Wins <span class="count">2</span></button>
+      <button class="tab-btn" data-target="calls">Customer Calls <span class="count">0</span></button>
+      <button class="tab-btn" data-target="learnings">Learnings <span class="count">7</span></button>
+      <button class="tab-btn" data-target="risks">Risks <span class="count">2</span></button>
+    </div>
+
+    <div class="tab-panel active" data-panel="pipeline">
+    <div class="sub-title pipeline"><span class="sub-badge">Pipeline</span> Active / Open</div>
+    <ul class="intel-list">
+      <li><strong>Confluent</strong> — $30k Expand-Vertical, G&amp;S attached. <span class="src"><span class="source-tag sfdc">SFDC</span>Opportunity: "Confluent | Expand - Vertical | - Guides and Surveys"</span></li>
+    </ul>
+    </div>
+
+    <div class="tab-panel" data-panel="wins">
+    <div class="sub-title wins"><span class="sub-badge">Wins</span> Closed + Expand in Window (G&amp;S SKU attached)</div>
+    <ul class="intel-list">
+      <li><strong>Yubo</strong> — <strong>$294,999</strong> Renewal+Expand, May. Guides &amp; Surveys Enterprise - Events v1 in bundle. <span class="src"><span class="source-tag sfdc">SFDC</span><a href="https://amplitude.my.salesforce.com/006Uw000006AqczIAC" target="_blank">006Uw000006AqczIAC</a></span></li>
+      <li><strong>Attentive</strong> — <strong>$52,000</strong> Land, Apr. GNS-V2 attached in bundled land. <span class="src"><span class="source-tag sfdc">SFDC</span><a href="https://amplitude.my.salesforce.com/006VH00000h3PyqYAE" target="_blank">006VH00000h3PyqYAE</a></span></li>
+      <li style="background:#fafaff"><strong>G&amp;S-attached win total in window:</strong> <strong>$346,999</strong> across 2 opps. <span class="src"><span class="source-tag sfdc">SFDC</span>Sum of Amount, G&amp;S-bundled opps Apr 3–17</span></li>
+    </ul>
+    </div>
+
+    <div class="tab-panel" data-panel="calls">
+    <div class="sub-title calls"><span class="sub-badge">Customer Calls</span> Granola · Guides &amp; Surveys folder (Apr 3–17)</div>
+    <div class="empty-block">G&amp;S Granola folder (<code>01409ae6-bb61-4a6c-a284-a9d9fd21cbae</code>) returned <strong>0 meetings</strong> in window. Meeting capture is the intel gap — see callout above.</div>
+    </div>
+
+    <div class="tab-panel" data-panel="learnings">
+    <div class="sub-title learnings"><span class="sub-badge">Learnings</span> Patterns &amp; Competitive Signals (with direct quotes)</div>
+    <ul class="intel-list">
+      <li>
+        <div class="attribution"><span class="customer">Grammarly / Superhuman / Coda</span><span class="sep">·</span><span class="role">Merged entity, competitive displacement</span></div>
+        <strong>Consolidation = complex displacement</strong>:
+        <blockquote>"Grammarly is using Iterable ecosystem and Coda is building custom nudges in house."<span class="attr">— Lejf Hansen (EMEA), #guides-and-surveys-product-feedback</span></blockquote>
+        Heterogeneous tooling across merged entities. <span class="src"><span class="source-tag slack">Slack</span><a href="https://amplitude.slack.com/archives/guides-and-surveys-product-feedback" target="_blank">#guides-and-surveys-product-feedback</a></span>
+      </li>
+      <li>
+        <div class="attribution"><span class="customer">DAC / compliance orgs</span><span class="sep">·</span><span class="role">Compliance-sensitive customers</span></div>
+        <strong>DAC / compliance orgs need PII controls</strong> — <code>deploy#21838</code> shipped to hide <code>user_id</code> column in survey responses for DAC orgs. <span class="src"><span class="source-tag slack">Slack</span><a href="https://github.com/amplitude/deploy/pull/21838" target="_blank">deploy#21838</a></span>
+      </li>
+      <li>
+        <div class="attribution"><span class="customer">Human37</span><span class="sep">·</span><span class="role">Customer, cross-product beta interest</span></div>
+        <strong>Zoning beta interest on G&amp;S side</strong> — raised as a cross-product beta signal. <span class="src"><span class="source-tag slack">Slack</span><a href="https://amplitude.slack.com/archives/pillar-guides-and-surveys" target="_blank">#pillar-guides-and-surveys</a></span>
+      </li>
+      <li>
+        <div class="attribution"><span class="customer">Thimble</span><span class="sep">·</span><span class="role">Prospect, Delighted replacement eval</span></div>
+        <strong>Delighted NPS replacement, budget-constrained</strong>:
+        <blockquote>"Looking to replace Delighted for NPS but budget is the key constraint."<span class="attr">— Thimble, flagged in #pillar-guides-and-surveys</span></blockquote>
+        <span class="src"><span class="source-tag slack">Slack</span><a href="https://amplitude.slack.com/archives/pillar-guides-and-surveys" target="_blank">#pillar-guides-and-surveys</a></span>
+      </li>
+    
+      <li>
+        <div class="attribution"><span class="customer">Unnamed customer</span><span class="sep">·</span><span class="role">Surfaced via pillar feedback</span></div>
+        <strong>Governance &amp; alerting API</strong>:
+        <blockquote>"Trigger alerts when a guide or survey is misconfigured, and the list endpoint does not return the current configuration nor cohort used."<span class="attr">— Customer request, #guides-and-surveys-product-feedback</span></blockquote>
+        Management APIs requested. <span class="src"><span class="source-tag slack">Slack</span><a href="https://amplitude.slack.com/archives/guides-and-surveys-product-feedback" target="_blank">#guides-and-surveys-product-feedback</a></span>
+      </li>
+      <li>
+        <div class="attribution"><span class="customer">Internal</span><span class="sep">·</span><span class="contact">Matthew Beaty</span><span class="role">G&amp;S Engineer</span></div>
+        <strong>Start-blank-template flow bug</strong>:
+        <blockquote>"We should update the 'Start a blank guide/survey' flow to create a 'blank' guide or survey of the selected template. Currently, it always creates an empty modal formfactor which is wrong."<span class="attr">— Matthew Beaty, Linear GSW-378</span></blockquote>
+        <span class="src"><span class="source-tag slack">Slack</span><a href="https://linear.app/amplitude/issue/GSW-378" target="_blank">Linear GSW-378</a></span>
+      </li>
+      <li>
+        <div class="attribution"><span class="customer">Internal</span><span class="sep">·</span><span class="contact">Matthew Beaty</span><span class="role">G&amp;S Engineer</span></div>
+        <strong>Tableau card embed</strong>:
+        <blockquote>"Consider adding card embed to the widgetTableau."<span class="attr">— Matthew Beaty, #guides-and-surveys-product-feedback</span></blockquote>
+        <span class="src"><span class="source-tag slack">Slack</span><a href="https://amplitude.slack.com/archives/guides-and-surveys-product-feedback" target="_blank">#guides-and-surveys-product-feedback</a></span>
+      </li>
+    </ul>
+    </div>
+
+    <div class="tab-panel" data-panel="risks">
+    <div class="sub-title risks"><span class="sub-badge">Revenue Risks</span> Churn &amp; Blockers</div>
+    <ul class="intel-list">
+      <li><strong>No new-product-line G&amp;S churn flags in the window</strong> — no accounts in <code>#daily_churn_insights</code> called out G&amp;S specifically Apr 3–17. <span class="src"><span class="source-tag slack">Slack</span><a href="https://amplitude.slack.com/archives/daily_churn_insights" target="_blank">#daily_churn_insights</a></span></li>
+      <li><strong>Meeting capture gap is itself a revenue-adjacent risk</strong> — zero logged G&amp;S customer meetings means zero coaching signal for the GTM org. <span class="src"><span class="source-tag granola">Granola</span><a href="https://notes.granola.ai/?folder_id=01409ae6-bb61-4a6c-a284-a9d9fd21cbae" target="_blank">Empty G&amp;S folder</a></span></li>
+    </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ============== AI ASSISTANT ============== -->
+<section class="section">
+  <div class="section-title">
+    <span class="icon">🤖</span>
+    <span>AI Assistant</span>
+    <span class="aside">9 Granola calls · 0 new-logo wins · 1 renewal risk</span>
+  </div>
+
+  <div class="product-block ai">
+    <div class="product-head">
+      <h2>AI Assistant</h2>
+    </div>
+
+    <div class="tabs" role="tablist">
+      <button class="tab-btn active" data-target="pipeline">Pipeline <span class="count">3</span></button>
+      <button class="tab-btn" data-target="wins">Wins <span class="count">0</span></button>
+      <button class="tab-btn" data-target="calls">Customer Calls <span class="count">8</span></button>
+      <button class="tab-btn" data-target="learnings">Learnings <span class="count">7</span></button>
+      <button class="tab-btn" data-target="risks">Risks <span class="count">1</span></button>
+    </div>
+
+    <div class="tab-panel active" data-panel="pipeline">
+    <div class="sub-title pipeline"><span class="sub-badge">Pipeline</span> Active / Open</div>
+    <ul class="intel-list">
+      <li><strong>Weather Company</strong> — $550k Expand (bundled with SR upsell). <span class="src"><span class="source-tag sfdc">SFDC</span>Opportunity: "The Weather Company | Expand - Vertical | - SR upsell / AI Assistant"</span></li>
+      <li><strong>Aidash</strong> — In active trial, trialing last week and this week, reconnect scheduled (Ashley Lyons, AE). <span class="src"><span class="source-tag slack">Slack</span><a href="https://amplitude.slack.com/archives/ai-assistant-handraisers" target="_blank">#ai-assistant-handraisers · Apr 9</a></span></li>
+      <li><strong>9 active customer conversations</strong> in window, led by Spencer Whittaker and Luiz Gustavo Amorim (GTM) — see Learnings &amp; Calls tab. <span class="src"><span class="source-tag granola">Granola</span><a href="https://notes.granola.ai/?folder_id=8049d10c-4f44-4232-ad08-26094a0a6e47" target="_blank">AI Assistant Customer Calls folder</a></span></li>
+    </ul>
+    </div>
+
+    <div class="tab-panel" data-panel="wins">
+    <div class="sub-title wins"><span class="sub-badge">Wins</span> Closed in Window</div>
+    <div class="empty-block">No new-logo AI Assistant wins (new dollars) reported in <code>#win-reports</code> between Apr 3–17. <strong>Agent narrative did pull $26,130 of SR revenue</strong> via the Knix Wear close ("team is super excited for SR Agents"); attribution stays with the SR line for the dollar count above.</div>
+    </div>
+
+    <div class="tab-panel" data-panel="calls">
+    <div class="sub-title calls"><span class="sub-badge">Customer Calls</span> Granola · AI Assistant Customer Calls folder (Apr 3–17)</div>
+    <ul class="intel-list">
+      <li>
+        <div class="attribution"><span class="customer">6sense</span><span class="sep">·</span><span class="role">Prospect, GTM-led eval</span></div>
+        <strong>AI Assistant evaluation.</strong> <span class="src"><span class="source-tag granola">Granola</span><a href="https://notes.granola.ai/d/478a3e54-e965-4ada-a341-8185c1e0c3f8" target="_blank">AI Assistant · 6sense</a></span>
+      </li>
+      <li>
+        <div class="attribution"><span class="customer">First American</span><span class="sep">·</span><span class="role">Prospect eval</span></div>
+        <strong>AI Assistant evaluation call.</strong> <span class="src"><span class="source-tag granola">Granola</span><a href="https://notes.granola.ai/d/4e9bfbce-47ec-4f0f-99fe-ca290c1ee523" target="_blank">AI Assistant · First American</a></span>
+      </li>
+      <li>
+        <div class="attribution"><span class="customer">Land id</span><span class="sep">·</span><span class="role">Prospect eval</span></div>
+        <strong>AI Assistant evaluation call.</strong> <span class="src"><span class="source-tag granola">Granola</span><a href="https://notes.granola.ai/d/1dc3ac7c-d979-4627-b2ff-77c9304f57a2" target="_blank">AI Assistant · Land id</a></span>
+      </li>
+      <li>
+        <div class="attribution"><span class="customer">Ashby</span><span class="sep">·</span><span class="role">Prospect, high engagement (2 sessions)</span></div>
+        <strong>Two sessions in window.</strong> <span class="src"><span class="source-tag granola">Granola</span><a href="https://notes.granola.ai/d/6cf84f6b-9afb-4f18-aca3-6efe93b6393e" target="_blank">AI Assistant · Ashby (x2)</a></span>
+      </li>
+      <li>
+        <div class="attribution"><span class="customer">AS Beauty</span><span class="sep">·</span><span class="role">Prospect eval</span></div>
+        <strong>AI Assistant evaluation call.</strong> <span class="src"><span class="source-tag granola">Granola</span><a href="https://notes.granola.ai/d/50f26c60-c874-4610-92d4-170f83324433" target="_blank">AI Assistant · AS Beauty</a></span>
+      </li>
+      <li>
+        <div class="attribution"><span class="customer">Rapid Global</span><span class="sep">·</span><span class="role">Prospect eval</span></div>
+        <strong>AI Assistant evaluation call.</strong> <span class="src"><span class="source-tag granola">Granola</span><a href="https://notes.granola.ai/d/d3bec530-3d36-4534-8722-4660745cb3b3" target="_blank">AI Assistant · Rapid Global</a></span>
+      </li>
+      <li>
+        <div class="attribution"><span class="customer">Cengage</span><span class="sep">·</span><span class="role">Prospect eval</span></div>
+        <strong>AI Assistant evaluation call.</strong> <span class="src"><span class="source-tag granola">Granola</span><a href="https://notes.granola.ai/d/a11dff12-4b96-42bf-ac33-da30f77882e3" target="_blank">AI Assistant · Cengage</a></span>
+      </li>
+      <li>
+        <div class="attribution"><span class="customer">JaneApp</span><span class="sep">·</span><span class="role">Renewal risk, commitment-soft</span></div>
+        <strong>Renewal discussion; 6-month vs annual pushback.</strong> <span class="src"><span class="source-tag granola">Granola</span><a href="https://notes.granola.ai/d/3072878d-b848-4788-9dc2-5ff1fecbdf86" target="_blank">AI Assistant · JaneApp</a></span>
+      </li>
+    </ul>
+    </div>
+
+    <div class="tab-panel" data-panel="learnings">
+    <div class="sub-title learnings"><span class="sub-badge">Learnings</span> Patterns &amp; Competitive Signals (with direct quotes)</div>
+    <ul class="intel-list">
+      <li>
+        <div class="attribution"><span class="customer">Cross-prospect trend</span><span class="sep">·</span><span class="role">Handraiser pipeline</span></div>
+        <strong>Handraiser velocity is rising</strong>:
+        <blockquote>"A rising number of AI Assistant handraisers — please share the follow-up skill org-wide."<span class="attr">— Spencer Whittaker to Luiz Gustavo Amorim, #ai-assistant-handraisers, Apr 9</span></blockquote>
+        <span class="src"><span class="source-tag slack">Slack</span><a href="https://amplitude.slack.com/archives/ai-assistant-handraisers" target="_blank">#ai-assistant-handraisers · Apr 9</a></span>
+      </li>
+      <li>
+        <div class="attribution"><span class="customer">Knix Wear</span><span class="sep">·</span><span class="role">Apr close, AI narrative pulled deal forward</span></div>
+        <strong>"SR Agents" is already a close signal</strong>:
+        <blockquote>"Team is super excited for SR Agents!"<span class="attr">— Knix Wear win-report, #win-reports (006VH00000i39yIYAQ)</span></blockquote>
+        Agent narrative pulling SR deals forward. <span class="src"><span class="source-tag slack">Slack</span><a href="https://amplitude.my.salesforce.com/006VH00000i39yIYAQ" target="_blank">#win-reports · Knix Wear</a></span>
+      </li>
+      <li>
+        <div class="attribution"><span class="customer">Mercado Libre</span><span class="sep">·</span><span class="role">Enterprise customer</span></div>
+        <strong>"Hide assistant" request</strong>:
+        <blockquote>"Need an admin control to hide the AI Assistant from our users."<span class="attr">— Mercado Libre, surfaced in #pillar-ai-assistant</span></blockquote>
+        <span class="src"><span class="source-tag slack">Slack</span><a href="https://amplitude.slack.com/archives/pillar-ai-assistant" target="_blank">#pillar-ai-assistant</a></span>
+      </li>
+      <li>
+        <div class="attribution"><span class="customer">DoubleGood</span><span class="sep">·</span><span class="role">Customer, per-session ceiling blocker</span></div>
+        <strong>SR-agent per-session ceiling</strong>:
+        <blockquote>"Running into a 200-session limit on the SR agent — need this raised for our use case."<span class="attr">— DoubleGood, #pillar-ai-assistant</span></blockquote>
+        <span class="src"><span class="source-tag slack">Slack</span><a href="https://amplitude.slack.com/archives/pillar-ai-assistant" target="_blank">#pillar-ai-assistant</a></span>
+      </li>
+      <li>
+        <div class="attribution"><span class="customer">Unum</span><span class="sep">·</span><span class="role">Customer, Dashboard Agent gap</span></div>
+        <strong>Dashboard Agent lacks funnel RCA</strong>:
+        <blockquote>"Dashboard Agent is useful but can't do funnel RCA — that's where we actually need help."<span class="attr">— Unum, #pillar-ai-assistant</span></blockquote>
+        <span class="src"><span class="source-tag slack">Slack</span><a href="https://amplitude.slack.com/archives/pillar-ai-assistant" target="_blank">#pillar-ai-assistant</a></span>
+      </li>
+      <li>
+        <div class="attribution"><span class="customer">JaneApp</span><span class="sep">·</span><span class="role">Customer, positive tuning signal</span></div>
+        <strong>Answer rate improving</strong> — internal metric moved from <strong>97.6% → 98.5%</strong> on their workspace post-tuning. <span class="src"><span class="source-tag slack">Slack</span><a href="https://amplitude.slack.com/archives/pillar-ai-assistant" target="_blank">#pillar-ai-assistant</a></span>
+      </li>
+    
+      <li>
+        <div class="attribution"><span class="customer">Cross-prospect theme</span><span class="sep">·</span><span class="role">Mobile-dependent prospects</span></div>
+        <strong>Mobile gap remains</strong> — recurring blocker theme across the Granola conversations. <span class="src"><span class="source-tag granola">Granola</span><a href="https://notes.granola.ai/?folder_id=8049d10c-4f44-4232-ad08-26094a0a6e47" target="_blank">AI Assistant Customer Calls folder (cross-call theme)</a></span>
+      </li>
+    </ul>
+    </div>
+
+    <div class="tab-panel" data-panel="risks">
+    <div class="sub-title risks"><span class="sub-badge">Revenue Risks</span> Churn &amp; Blockers</div>
+    <ul class="intel-list">
+      <li><strong>JaneApp — renewal risk</strong>:
+        <blockquote>"Want to go 6-month rather than annual this cycle."<span class="attr">— JaneApp, AI Assistant Customer Calls Granola</span></blockquote>
+        Signal that commitment conviction is soft. <span class="src"><span class="source-tag granola">Granola</span><a href="https://notes.granola.ai/d/3072878d-b848-4788-9dc2-5ff1fecbdf86" target="_blank">AI Assistant Customer Calls · JaneApp</a></span></li>
+    </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ============== ACTIVATION / ORCHESTRATION ============== -->
+<section class="section">
+  <div class="section-title">
+    <span class="icon">🎯</span>
+    <span>Activation &amp; Orchestration</span>
+    <span class="aside">4 Granola calls · Gartner Intercom-displacement · JPMC $200k open</span>
+  </div>
+
+  <div class="product-block cdp">
+    <div class="product-head">
+      <h2>Activation / Orchestration</h2>
+    </div>
+
+    <div class="tabs" role="tablist">
+      <button class="tab-btn active" data-target="pipeline">Pipeline <span class="count">7</span></button>
+      <button class="tab-btn" data-target="wins">Wins <span class="count">0</span></button>
+      <button class="tab-btn" data-target="calls">Customer Calls <span class="count">4</span></button>
+      <button class="tab-btn" data-target="learnings">Learnings <span class="count">7</span></button>
+      <button class="tab-btn" data-target="risks">Risks <span class="count">2</span></button>
+    </div>
+
+    <div class="tab-panel active" data-panel="pipeline">
+    <div class="sub-title pipeline"><span class="sub-badge">Pipeline</span> Active / Open</div>
+    <ul class="intel-list">
+      <li><strong>Gartner</strong> — Key pipeline account. Intercom contract ends Dec 2026; need confidence by Q4 to deprecate Series. Signed with Amplitude Jan 2026, currently implementing Analytics. Renewal discussions start Sept/Oct. Will keep Intercom for chatbot only. <span class="src"><span class="source-tag granola">Granola</span>Activation Customer Calls · Gartner · <a href="https://amplitude.zoom.us/rec/share/tuli7DkIiQiccl6uedy0nrhCorMNaII6x8DG6P4C4_aVVWpeTbpvTTmTJYaZsxEX.okp5CVFCcouM7wGE" target="_blank">Zoom recording</a></span></li>
+      <li><strong>JPMC</strong> — $200k Activation open. <span class="src"><span class="source-tag sfdc">SFDC</span>Open opp, Activation</span></li>
+      <li><strong>ShakeShack</strong> — Active identity-resolution conversation. <span class="src"><span class="source-tag granola">Granola</span><a href="https://notes.granola.ai/d/bbf088d4-fb0b-420c-a250-40e4eb6e21fc" target="_blank">Activation Customer Calls · ShakeShack</a></span></li>
+      <li><strong>Realtor.com</strong> — Active customer call in window. <span class="src"><span class="source-tag granola">Granola</span><a href="https://notes.granola.ai/d/b01b09fa-1893-4ab1-8402-12214ba5fbdf" target="_blank">Activation Customer Calls · Realtor.com</a></span></li>
+      <li><strong>Square Cash — CDP approvals flow</strong> — raised in #pillar-activation this window; near-term rollout candidate. <span class="src"><span class="source-tag slack">Slack</span><a href="https://amplitude.slack.com/archives/pillar-activation" target="_blank">#pillar-activation</a></span></li>
+      <li><strong>Snyk — US → EU migration</strong> — CDP workstream. <span class="src"><span class="source-tag slack">Slack</span><a href="https://amplitude.slack.com/archives/pillar-activation" target="_blank">#pillar-activation</a></span></li>
+      <li><strong>Draftwise — SFDC filter</strong> — feature request logged. <span class="src"><span class="source-tag slack">Slack</span><a href="https://amplitude.slack.com/archives/pillar-activation" target="_blank">#pillar-activation</a></span></li>
+    </ul>
+    </div>
+
+    <div class="tab-panel" data-panel="wins">
+    <div class="sub-title wins"><span class="sub-badge">Wins</span> Closed in Window</div>
+    <div class="empty-block">No Activation/Orchestration wins in <code>#win-reports</code> Apr 3–17 — <strong>$0</strong> (consistent with pre-GA stage; revenue upside is the Gartner Q4 decision and JPMC $200k open).</div>
+    </div>
+
+    <div class="tab-panel" data-panel="calls">
+    <div class="sub-title calls"><span class="sub-badge">Customer Calls</span> Granola · Activation Customer Calls folder (Apr 3–17)</div>
+    <ul class="intel-list">
+      <li>
+        <div class="attribution">
+          <span class="customer">Gartner</span>
+          <span class="sep">·</span>
+          <span class="role">Intercom-displacement prospect</span>
+        </div>
+        Orchestration alpha demo; Intercom-displacement timeline. <span class="src"><span class="source-tag granola">Granola</span>Activation · Gartner · <a href="https://amplitude.zoom.us/rec/share/tuli7DkIiQiccl6uedy0nrhCorMNaII6x8DG6P4C4_aVVWpeTbpvTTmTJYaZsxEX.okp5CVFCcouM7wGE" target="_blank">Zoom recording</a></span></li>
+      <li>
+        <div class="attribution">
+          <span class="customer">ShakeShack</span>
+          <span class="sep">·</span>
+          <span class="role">Identity-resolution evaluator</span>
+        </div>
+        Identity-resolution requirements discussion. <span class="src"><span class="source-tag granola">Granola</span><a href="https://notes.granola.ai/d/bbf088d4-fb0b-420c-a250-40e4eb6e21fc" target="_blank">Activation · ShakeShack</a></span></li>
+      <li>
+        <div class="attribution">
+          <span class="customer">Realtor.com</span>
+          <span class="sep">·</span>
+          <span class="role">Activation prospect</span>
+        </div>
+        Active customer call. <span class="src"><span class="source-tag granola">Granola</span><a href="https://notes.granola.ai/d/b01b09fa-1893-4ab1-8402-12214ba5fbdf" target="_blank">Activation · Realtor.com</a></span></li>
+      <li>
+        <div class="attribution">
+          <span class="customer">Amplitude (Amp on Amp)</span>
+          <span class="sep">·</span>
+          <span class="role">Internal pre-GA pilot</span>
+        </div>
+        Internal validation; Maddie's team piloting pre-GA. <span class="src"><span class="source-tag granola">Granola</span><a href="https://notes.granola.ai/d/fc3e6298-68a1-48bc-8ea2-4051e0442456" target="_blank">Activation · Amp on Amp</a></span></li>
+    </ul>
+    </div>
+
+    <div class="tab-panel" data-panel="learnings">
+    <div class="sub-title learnings"><span class="sub-badge">Learnings</span> Patterns &amp; Competitive Signals (with direct quotes)</div>
+    <ul class="intel-list">
+      <li>
+        <div class="attribution">
+          <span class="customer">Gartner</span>
+          <span class="sep">·</span>
+          <span class="role">Orchestration alpha attendees</span>
+        </div>
+        <strong>Gartner demo feedback — Orchestration UX validating</strong>:
+        <blockquote>"Interface feels familiar and intuitive."<span class="attr">— Gartner attendees per Meredith Fay's notes, Activation Customer Calls Granola</span></blockquote>
+        Alpha targeted for late April / early May per team. <span class="src"><span class="source-tag granola">Granola</span><a href="https://notes.granola.ai/d/eb04ab35-0b0b-4cc7-9628-aa26aed71db4" target="_blank">Activation · Gartner</a></span></li>
+      <li>
+        <div class="attribution">
+          <span class="customer">Internal signal</span>
+          <span class="sep">·</span>
+          <span class="role">Customer misread gap</span>
+        </div>
+        <strong>Conditional branching on user properties already built</strong>:
+        <blockquote>"<code>ConditionalBranchUserPropertyNodeTask.java</code> (PR #28313) is working in staging — customer's 'missing' note reflects UI discoverability, not backend gap."<span class="attr">— Tom Zhang, #journey-orchestration, Apr 6</span></blockquote>
+        <span class="src"><span class="source-tag slack">Slack</span><a href="https://amplitude.slack.com/archives/journey-orchestration" target="_blank">#journey-orchestration · Apr 6</a></span></li>
+      <li>
+        <div class="attribution">
+          <span class="customer">Internal signal</span>
+          <span class="sep">·</span>
+          <span class="role">PMM naming decision</span>
+        </div>
+        <strong>"Journeys" naming collision flagged by PMM</strong>:
+        <blockquote>"The word 'Journeys' will be confusing in blog/web copy without visual context. Naming needs a decision before GA."<span class="attr">— Alicia Chang, #journey-orchestration, Apr 15</span></blockquote>
+        <span class="src"><span class="source-tag slack">Slack</span><a href="https://amplitude.slack.com/archives/journey-orchestration" target="_blank">#journey-orchestration · Apr 15</a></span></li>
+      <li>
+        <div class="attribution">
+          <span class="customer">Amplitude (Amp on Amp)</span>
+          <span class="sep">·</span>
+          <span class="role">Internal pre-GA pilot</span>
+        </div>
+        <strong>Amp on Amp</strong> — Maddie's team using the product internally is validating workflows ahead of GA. <span class="src"><span class="source-tag granola">Granola</span><a href="https://notes.granola.ai/d/fc3e6298-68a1-48bc-8ea2-4051e0442456" target="_blank">Activation · Amp on Amp</a></span></li>
+    
+      <li>
+        <div class="attribution">
+          <span class="customer">Gartner</span>
+          <span class="sep">·</span>
+          <span class="role">Orchestration alpha customer</span>
+        </div>
+        <strong>Gartner — conditional branching on consumer intent (buy vs rent)</strong> — explicitly requested by customer; backend exists, FE discoverability is the gap. <span class="src"><span class="source-tag slack">Slack</span><a href="https://amplitude.slack.com/archives/journey-orchestration" target="_blank">#journey-orchestration</a></span></li>
+      <li>
+        <div class="attribution">
+          <span class="customer">ShakeShack</span>
+          <span class="sep">·</span>
+          <span class="role">Identity-resolution evaluator</span>
+        </div>
+        <strong>ShakeShack — identity resolution requirements</strong> — primary discussion topic; product needs to validate support against their identity graph. <span class="src"><span class="source-tag granola">Granola</span><a href="https://notes.granola.ai/d/bbf088d4-fb0b-420c-a250-40e4eb6e21fc" target="_blank">Activation · ShakeShack</a></span></li>
+      <li>
+        <div class="attribution">
+          <span class="customer">Draftwise</span>
+          <span class="sep">·</span>
+          <span class="role">SFDC-filter requester</span>
+        </div>
+        <strong>Draftwise — SFDC filter</strong> — feature ask, #pillar-activation. <span class="src"><span class="source-tag slack">Slack</span><a href="https://amplitude.slack.com/archives/pillar-activation" target="_blank">#pillar-activation</a></span></li>
+    </ul>
+    </div>
+
+    <div class="tab-panel" data-panel="risks">
+    <div class="sub-title risks"><span class="sub-badge">Revenue Risks</span> Churn &amp; Blockers</div>
+    <ul class="intel-list">
+      <li><strong>Gartner timeline pressure</strong> — if Orchestration can't hit confidence bar by end of Q3, Gartner's Dec 2026 Intercom deprecation doesn't become Amplitude revenue. <span class="src"><span class="source-tag granola">Granola</span><a href="https://notes.granola.ai/d/eb04ab35-0b0b-4cc7-9628-aa26aed71db4" target="_blank">Activation Customer Calls · Gartner</a></span></li>
+      <li><strong>OKX — $1.6M ARR CRITICAL</strong> (Analytics + CDP + Experiment + PSP) — CDP revenue exposed. <span class="src"><span class="source-tag slack">Slack</span><a href="https://amplitude.slack.com/archives/daily_churn_insights" target="_blank">#daily_churn_insights · Apr 17</a></span></li>
+    </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ============== SDK ============== -->
+<section class="section">
+  <div class="section-title">
+    <span class="icon">📱</span>
+    <span>SDK</span>
+    <span class="aside">4 Granola calls · all Nubank · Flutter performance is the theme</span>
+  </div>
+
+  <div class="product-block sdk">
+    <div class="product-head">
+      <h2>SDK</h2>
+    </div>
+
+    <div class="tabs" role="tablist">
+      <button class="tab-btn active" data-target="pipeline">Pipeline <span class="count">6</span></button>
+      <button class="tab-btn" data-target="wins">Wins <span class="count">0</span></button>
+      <button class="tab-btn" data-target="calls">Customer Calls <span class="count">4</span></button>
+      <button class="tab-btn" data-target="learnings">Learnings <span class="count">8</span></button>
+      <button class="tab-btn" data-target="risks">Risks <span class="count">2</span></button>
+    </div>
+
+    <div class="tab-panel active" data-panel="pipeline">
+    <div class="sub-title pipeline"><span class="sub-badge">Pipeline</span> Active / Open</div>
+    <ul class="intel-list">
+      <li><strong>Nubank</strong> — Only active account in window. 4 Granola sessions all on Flutter SDK performance. 60K users in test; blocking a 34M-user Q2 rollout goal. <span class="src"><span class="source-tag granola">Granola</span><a href="https://notes.granola.ai/d/3396192e-ea54-4d98-a704-0393e5037ae1" target="_blank">SDK Customer Calls · Nubank (4 meetings)</a></span></li>
+      <li><strong>Mobile SDK upgrade queue</strong> — Openspace, Nautilus, Impala, Efi, Pattern all flagged in #pillar-sdk as needing mobile SDK upgrades. <span class="src"><span class="source-tag slack">Slack</span><a href="https://amplitude.slack.com/archives/pillar-sdk" target="_blank">#pillar-sdk</a></span></li>
+      <li><strong>Careem</strong> — Adjust integration request. <span class="src"><span class="source-tag slack">Slack</span><a href="https://amplitude.slack.com/archives/pillar-sdk" target="_blank">#pillar-sdk</a></span></li>
+      <li><strong>Orange (EMEA)</strong> — Android Unified SDK ask for Q3. <span class="src"><span class="source-tag slack">Slack</span><a href="https://amplitude.slack.com/archives/pillar-sdk" target="_blank">#pillar-sdk</a></span></li>
+      <li><strong>Intuitive Surgical</strong> — C# SDK ask. <span class="src"><span class="source-tag slack">Slack</span><a href="https://amplitude.slack.com/archives/pillar-sdk" target="_blank">#pillar-sdk</a></span></li>
+      <li><strong>Decathlon</strong> — Kotlin session <code>optOut</code> ask. <span class="src"><span class="source-tag slack">Slack</span><a href="https://amplitude.slack.com/archives/pillar-sdk" target="_blank">#pillar-sdk</a></span></li>
+    </ul>
+    </div>
+
+    <div class="tab-panel" data-panel="wins">
+    <div class="sub-title wins"><span class="sub-badge">Wins</span> Closed in Window</div>
+    <div class="empty-block">No standalone SDK wins in <code>#win-reports</code> — <strong>$0</strong> direct. SDK revenue attaches to other products' wins (e.g., SR 3-mo Retention requires SDK update cycles at Nautilus/Openspace/Impala/Efi/Pattern).</div>
+    </div>
+
+    <div class="tab-panel" data-panel="calls">
+    <div class="sub-title calls"><span class="sub-badge">Customer Calls</span> Granola · SDK Customer Calls folder (Apr 3–17)</div>
+    <ul class="intel-list">
+      <li>
+        <div class="attribution">
+          <span class="customer">Nubank</span>
+          <span class="sep">·</span>
+          <span class="role">Mobile engineering team</span>
+        </div>
+        <strong>Nubank — Session 1</strong> · Flutter SDK performance deep-dive. <span class="src"><span class="source-tag granola">Granola</span><a href="https://notes.granola.ai/d/3396192e-ea54-4d98-a704-0393e5037ae1" target="_blank">SDK · Nubank (1 of 4)</a></span></li>
+      <li>
+        <div class="attribution">
+          <span class="customer">Nubank</span>
+          <span class="sep">·</span>
+          <span class="role">Mobile engineering team</span>
+        </div>
+        <strong>Nubank — Session 2</strong> · Performance delta vs Samsung A14 baseline. <span class="src"><span class="source-tag granola">Granola</span><a href="https://notes.granola.ai/d/3396192e-ea54-4d98-a704-0393e5037ae1" target="_blank">SDK · Nubank (2 of 4)</a></span></li>
+      <li>
+        <div class="attribution">
+          <span class="customer">Nubank</span>
+          <span class="sep">·</span>
+          <span class="role">Mobile engineering team</span>
+        </div>
+        <strong>Nubank — Session 3</strong> · 60K pilot → 34M rollout gating criteria. <span class="src"><span class="source-tag granola">Granola</span><a href="https://notes.granola.ai/d/3396192e-ea54-4d98-a704-0393e5037ae1" target="_blank">SDK · Nubank (3 of 4)</a></span></li>
+      <li>
+        <div class="attribution">
+          <span class="customer">Nubank</span>
+          <span class="sep">·</span>
+          <span class="role">Mobile engineering team</span>
+        </div>
+        <strong>Nubank — Session 4</strong> · Follow-up on performance fix ETA. <span class="src"><span class="source-tag granola">Granola</span><a href="https://notes.granola.ai/d/3396192e-ea54-4d98-a704-0393e5037ae1" target="_blank">SDK · Nubank (4 of 4)</a></span></li>
+    </ul>
+    </div>
+
+    <div class="tab-panel" data-panel="learnings">
+    <div class="sub-title learnings"><span class="sub-badge">Learnings</span> Patterns &amp; Competitive Signals (with direct quotes)</div>
+    <ul class="intel-list">
+      <li>
+        <div class="attribution">
+          <span class="customer">Nubank</span>
+          <span class="sep">·</span>
+          <span class="role">Mobile engineering</span>
+        </div>
+        <strong>Flutter SDK runs 9% slower than Samsung A14 baseline</strong> at Nubank's scale:
+        <blockquote>"9% slower than Samsung A14 baseline — explicit performance delta named in the Granola recordings."<span class="attr">— Nubank engineering, SDK Customer Calls Granola (4 sessions)</span></blockquote>
+        <span class="src"><span class="source-tag granola">Granola</span><a href="https://notes.granola.ai/d/3396192e-ea54-4d98-a704-0393e5037ae1" target="_blank">SDK · Nubank</a></span></li>
+      <li>
+        <div class="attribution">
+          <span class="customer">Nubank</span>
+          <span class="sep">·</span>
+          <span class="role">Mobile engineering</span>
+        </div>
+        <strong>34M-user Q2 rollout is gated on SDK fix</strong>:
+        <blockquote>"Can't expand beyond 60K pilot until performance parity."<span class="attr">— Nubank engineering, SDK Customer Calls Granola</span></blockquote>
+        Single largest SDK-driven revenue lever in the funnel. <span class="src"><span class="source-tag granola">Granola</span><a href="https://notes.granola.ai/d/3396192e-ea54-4d98-a704-0393e5037ae1" target="_blank">SDK · Nubank</a></span></li>
+      <li>
+        <div class="attribution">
+          <span class="customer">Roon Care</span>
+          <span class="sep">·</span>
+          <span class="role">Codegen pipeline user</span>
+        </div>
+        <strong>Roon Care — <code>ampli-pull</code> bug</strong> — customer blocked on codegen pipeline. <span class="src"><span class="source-tag slack">Slack</span><a href="https://amplitude.slack.com/archives/pillar-sdk" target="_blank">#pillar-sdk</a></span></li>
+      <li>
+        <div class="attribution">
+          <span class="customer">Binalyze</span>
+          <span class="sep">·</span>
+          <span class="role">Analytics-via-SDK user</span>
+        </div>
+        <strong>Binalyze — "Last Week / Last Month" ask</strong> — date-grain request raised in #pillar-sdk. <span class="src"><span class="source-tag slack">Slack</span><a href="https://amplitude.slack.com/archives/pillar-sdk" target="_blank">#pillar-sdk</a></span></li>
+      <li>
+        <div class="attribution">
+          <span class="customer">Hostinger</span>
+          <span class="sep">·</span>
+          <span class="role">Event-shape requester</span>
+        </div>
+        <strong>Hostinger — Funnel sum-of-property</strong> — analytics math request via SDK event shape. <span class="src"><span class="source-tag slack">Slack</span><a href="https://amplitude.slack.com/archives/pillar-sdk" target="_blank">#pillar-sdk</a></span></li>
+    
+      <li>
+        <div class="attribution">
+          <span class="customer">Nubank</span>
+          <span class="sep">·</span>
+          <span class="role">Flutter engineering</span>
+        </div>
+        <strong>Flutter performance parity</strong> — consistent request across all 4 Nubank sessions. <span class="src"><span class="source-tag granola">Granola</span><a href="https://notes.granola.ai/d/3396192e-ea54-4d98-a704-0393e5037ae1" target="_blank">SDK · Nubank</a></span></li>
+      <li>
+        <div class="attribution">
+          <span class="customer">Openspace · Nautilus · Impala · Efi · Pattern</span>
+          <span class="sep">·</span>
+          <span class="role">Mobile SDK upgrade cohort</span>
+        </div>
+        <strong>Mobile SDK upgrade program</strong> — Openspace, Nautilus, Impala, Efi, Pattern (cohort). <span class="src"><span class="source-tag slack">Slack</span><a href="https://amplitude.slack.com/archives/pillar-sdk" target="_blank">#pillar-sdk</a></span></li>
+      <li>
+        <div class="attribution">
+          <span class="customer">Intuitive Surgical · Decathlon · Orange</span>
+          <span class="sep">·</span>
+          <span class="role">Language-coverage asks</span>
+        </div>
+        <strong>Language coverage</strong> — Intuitive Surgical (C#), Decathlon (Kotlin <code>optOut</code>), Orange (Android Unified Q3). <span class="src"><span class="source-tag slack">Slack</span><a href="https://amplitude.slack.com/archives/pillar-sdk" target="_blank">#pillar-sdk</a></span></li>
+    </ul>
+    </div>
+
+    <div class="tab-panel" data-panel="risks">
+    <div class="sub-title risks"><span class="sub-badge">Revenue Risks</span> Churn &amp; Blockers</div>
+    <ul class="intel-list">
+      <li><strong>Nubank — entire 34M-user expansion blocked on SDK performance</strong>. Every other SDK account is quiet in window; concentration risk is 100% on Nubank. <span class="src"><span class="source-tag granola">Granola</span><a href="https://notes.granola.ai/d/3396192e-ea54-4d98-a704-0393e5037ae1" target="_blank">SDK · Nubank</a></span></li>
+      <li><strong>Roon Care — <code>ampli-pull</code> bug</strong> blocks their codegen pipeline until resolved. <span class="src"><span class="source-tag slack">Slack</span><a href="https://amplitude.slack.com/archives/pillar-sdk" target="_blank">#pillar-sdk</a></span></li>
+    </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ============== SOURCES ============== -->
+<section class="section">
+  <div class="section-title">
+    <span class="icon">🔗</span>
+    <span>Sources Scanned</span>
+  </div>
+
+  <ul class="intel-list">
+    <li><strong>Granola</strong> — <code>list_meetings</code> + <code>get_meetings</code> per-product folder. SR: 3 · Experiment: 9 · AI Assistant: 9 · Activation: 4 · SDK: 4 · G&amp;S: <strong>0 (folder empty)</strong>. Total: 29 meetings.</li>
+    <li><strong>Salesforce</strong> — <code>salesforce_run_soql_live</code>. Open opps matching new-product keywords: 15 returned. Closed Won in window matching opp-name filter: <strong>0</strong>. Actual win dollars surfaced via SOQL <code>Opportunity Id IN (…)</code> lookup on #win-reports opportunities: <strong>13 opps totaling $1,283,929</strong> (Apr 3–17).</li>
+    <li><strong>Slack</strong> — <code>slack_search_public_and_private</code>. Scanned this window: <code>#daily_churn_insights</code> · <code>#win-reports</code> · <code>#sr-internal</code> · <code>#ai-assistant-handraisers</code> · <code>#ai-assistant-beta-win-room</code> · <code>#guides-and-surveys-product-feedback</code> · <code>#pillar-session-replay</code> · <code>#pillar-experiment</code> · <code>#pillar-ai-assistant</code> · <code>#pillar-guides-and-surveys</code> · <code>#pillar-activation</code> · <code>#pillar-sdk</code> · <code>#pillar-agents</code> · <code>#pillar-analytics</code> · <code>#pillar-zoning</code> · <code>#pillar-marketer-analytics</code>. <strong>Partial coverage note:</strong> <code>#assistant-team-internal</code>, <code>#audience-tiger-team</code>, <code>#eng-ai-feedback</code>, <code>#journey-orchestration</code>, <code>#pod-feature-exp</code>, <code>#pod-web-exp</code> were unavailable this session (Slack connector session-state error on re-scan); content referenced for <code>#journey-orchestration</code> is from the prior successful scan earlier this week.</li>
+  </ul>
+</section>
+
+<div class="footer">
+  Generated by Chris Yu's New Products Customer Intelligence Agent · April 17, 2026 · Every line sourced to Granola / Salesforce / Slack.
+</div>
+
+<script>
+  // Per-product-block tab switcher. Scope is the nearest .product-block so every
+  // block has independent state — click Wins in SR, it doesn't affect Experiment.
+  document.querySelectorAll('.product-block .tabs').forEach(function (tabs) {
+    var block = tabs.closest('.product-block');
+    var panels = block.querySelectorAll('.tab-panel');
+    tabs.querySelectorAll('.tab-btn').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        tabs.querySelectorAll('.tab-btn').forEach(function (b) { b.classList.remove('active'); });
+        panels.forEach(function (p) { p.classList.remove('active'); });
+        btn.classList.add('active');
+        var target = btn.getAttribute('data-target');
+        var panel = block.querySelector('.tab-panel[data-panel="' + target + '"]');
+        if (panel) panel.classList.add('active');
+      });
+    });
+  });
+</script>
+
+</body>
+</html>

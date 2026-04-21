@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>New Products — ARR Scorecard — As of Apr 20, 2026</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+  :root {
+    --amp-blue: #1F2144;
+    --amp-purple: #5B45BB;
+    --amp-teal: #00A89D;
+    --amp-orange: #F37B20;
+    --amp-red: #E5484D;
+    --amp-green: #30A46C;
+    --text: #1a1a2e;
+    --text-secondary: #4a4a6a;
+    --bg: #ffffff;
+    --bg-section: #f8f8fc;
+    --border: #e4e4ed;
+    --accent-bg: #f0edf9;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    color: var(--text); background: var(--bg); line-height: 1.6;
+    max-width: 1020px; margin: 0 auto; padding: 40px 32px 80px;
+  }
+  a { color: var(--amp-purple); text-decoration: none; font-weight: 600; }
+  a:hover { text-decoration: underline; }
+
+  /* Header */
+  .header { border-bottom: 3px solid var(--amp-purple); padding-bottom: 20px; margin-bottom: 28px; }
+  .header h1 { font-size: 26px; font-weight: 800; color: var(--amp-blue); letter-spacing: -0.5px; }
+  .header-meta { display: flex; flex-wrap: wrap; gap: 6px 20px; margin-top: 6px; font-size: 13px; color: var(--text-secondary); }
+  .header-meta strong { color: var(--amp-blue); }
+
+  /* Source Tags */
+  .source-tag { display: inline-block; padding: 1px 6px; border-radius: 3px; font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; vertical-align: middle; margin-left: 4px; }
+  .source-tag.sr   { background: #dbeafe; color: #1e40af; }
+  .source-tag.exp  { background: #fce7f3; color: #9d174d; }
+  .source-tag.act  { background: #fef3c7; color: #92400e; }
+  .source-tag.aia  { background: #ede9fe; color: #5b21b6; }
+  .source-tag.gs   { background: #ccfbf1; color: #115e59; }
+  .source-tag.aif  { background: #ffedd5; color: #9a3412; }
+  .source-tag.multi{ background: #dcfce7; color: #166534; }
+  .blade-tag { display: inline-block; padding: 1px 5px; border-radius: 3px; font-size: 8px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.4px; vertical-align: middle; margin-left: 2px; background: #f1f5f9; color: #64748b; border: 1px solid #e2e8f0; }
+
+  /* Section */
+  .section { margin-bottom: 32px; }
+  .section-title { font-size: 16px; font-weight: 700; color: var(--amp-blue); padding-bottom: 8px; border-bottom: 2px solid var(--amp-purple); margin-bottom: 14px; display: flex; align-items: center; gap: 8px; }
+  .section-title .icon { font-size: 18px; }
+
+  /* Tables */
+  table { width: 100%; border-collapse: collapse; font-size: 12px; margin-top: 4px; }
+  thead th { background: var(--amp-blue); color: white; padding: 8px 12px; text-align: left; font-weight: 600; font-size: 10px; text-transform: uppercase; letter-spacing: 0.5px; }
+  tbody td { padding: 8px 12px; border-bottom: 1px solid var(--border); vertical-align: top; }
+  tbody tr:nth-child(even) { background: var(--bg-section); }
+  .total-row td { font-weight: 800; background: var(--accent-bg) !important; border-top: 2px solid var(--amp-purple); }
+
+  /* Footer */
+  .footer { margin-top: 44px; padding-top: 16px; border-top: 1px solid var(--border); font-size: 10px; color: #999; text-align: center; }
+</style>
+</head>
+<body>
+
+<!-- ═══════════ HEADER ═══════════ -->
+<div class="header">
+  <h1>New Products — ARR Scorecard</h1>
+  <div class="header-meta">
+    <span><strong>As of Monday, April 20, 2026</strong></span>
+    <span>Quarter: <strong>Q2 FY26</strong> (Day 20 of 91)</span>
+    <span>Owner: <strong>Chris Yu</strong>, Head of New Products</span>
+  </div>
+</div>
+
+<!-- ═══════════ ARR SCORECARD ═══════════ -->
+<div class="section">
+  <div class="section-title"><span class="icon">📈</span> ARR Scorecard</div>
+  <table>
+    <thead>
+      <tr>
+        <th>Product</th>
+        <th>Current ARR</th>
+        <th>Accounts</th>
+        <th>QTD Net New</th>
+        <th>Q2 Goal</th>
+        <th>Trend</th>
+        <th>Source</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Session Replay</strong> <span class="blade-tag">blade</span></td>
+        <td><strong>$10.91M</strong></td>
+        <td>693</td>
+        <td style="color:var(--amp-green);">+$123K</td>
+        <td>$12.9M</td>
+        <td style="color:var(--amp-green);">▲▲ +947.6% (Mar vs Feb)</td>
+        <td><span class="source-tag sr">SR</span></td>
+      </tr>
+      <tr>
+        <td><strong>Feature Experiment</strong> <span class="blade-tag">blade</span></td>
+        <td><strong>$39.18M</strong></td>
+        <td>760</td>
+        <td style="color:var(--amp-red);">−$16K</td>
+        <td>$41.9M</td>
+        <td style="color:var(--amp-green);">▲▲ +245.8% (Mar vs Feb)</td>
+        <td><span class="source-tag exp">EXP</span></td>
+      </tr>
+      <tr>
+        <td><strong>Web Experiment</strong> <span class="blade-tag">blade</span></td>
+        <td><strong>$5.68M</strong></td>
+        <td>193</td>
+        <td style="color:var(--amp-red);">−$3K</td>
+        <td>$6.9M</td>
+        <td style="color:var(--amp-green);">▲▲ +790.2% (Mar vs Feb)</td>
+        <td><span class="source-tag exp">EXP</span></td>
+      </tr>
+      <tr>
+        <td><strong>CDP / Audiences</strong> <span class="blade-tag">blade</span></td>
+        <td><strong>$27.17M</strong></td>
+        <td>501</td>
+        <td style="color:var(--text-secondary);">$0</td>
+        <td>—</td>
+        <td style="color:var(--amp-red);">▼ −91.5% (Mar vs Feb)</td>
+        <td><span class="source-tag act">ACT</span></td>
+      </tr>
+      <tr>
+        <td><strong>Activation</strong> <span class="blade-tag">blade</span></td>
+        <td><strong>$536K</strong></td>
+        <td>12</td>
+        <td style="color:var(--text-secondary);">$0</td>
+        <td>$28.6M</td>
+        <td style="color:var(--amp-green);">▲▲ +6,632.9% (Mar vs Feb)</td>
+        <td><span class="source-tag act">ACT</span></td>
+      </tr>
+      <tr>
+        <td><strong>AI Assistant</strong> <span class="blade-tag">blade</span></td>
+        <td><strong>$100.7K</strong></td>
+        <td>8</td>
+        <td style="color:var(--text-secondary);">$0</td>
+        <td>$0.5M</td>
+        <td style="color:var(--amp-green);">▲ new (Mar vs Feb)</td>
+        <td><span class="source-tag aia">AIA</span></td>
+      </tr>
+      <tr>
+        <td><strong>Guides &amp; Surveys</strong> <span class="blade-tag">blade</span></td>
+        <td><strong>$15.32M</strong></td>
+        <td>369</td>
+        <td style="color:var(--amp-green);">+$384K</td>
+        <td>$18.2M</td>
+        <td style="color:var(--amp-green);">▲▲ +296.4% (Mar vs Feb)</td>
+        <td><span class="source-tag gs">G&amp;S</span></td>
+      </tr>
+      <tr>
+        <td><strong>AI Feedback</strong> <span class="blade-tag">blade</span></td>
+        <td><strong>$848.6K</strong></td>
+        <td>34</td>
+        <td style="color:var(--amp-green);">+$15K</td>
+        <td>$1.1M</td>
+        <td style="color:var(--amp-red);">▼ −30.7% (Mar vs Feb)</td>
+        <td><span class="source-tag aif">AIF</span></td>
+      </tr>
+      <tr class="total-row">
+        <td><strong>TOTAL NP ARR</strong></td>
+        <td><strong>$99.74M</strong></td>
+        <td><strong>2,570</strong></td>
+        <td style="color:var(--amp-green);"><strong>+$503K</strong></td>
+        <td><strong>$110.1M</strong></td>
+        <td style="color:var(--amp-green);"><strong>▲▲ +200.7% (Mar vs Feb)</strong></td>
+        <td><span class="source-tag multi">MULTI</span></td>
+      </tr>
+    </tbody>
+  </table>
+  <div style="font-size:10px; color:#999; margin-top:6px;">Source: Snowflake <code>PROD_FINANCE.L3_DWH.ACCOUNT_BLADE_ARR_DAILY</code> (actuals, max snapshot Apr 20) · EPD Metrics Tracker Q2 2026 | EPD VMTM Scorecard (goals) · As of Apr 20, 2026. Blade-ARR values unchanged WoW — no new Q2 activity dated Apr 13–20; all QTD net new still dated Apr 1 (typical lumpy pattern — ARR movements cluster on quarter boundaries).</div>
+  <div style="font-size:10px; color:#999; margin-top:4px;">QTD Net New = lands + expands + churn since Apr 1, 2026. Trend = last completed month vs the month before, locked for the duration of the current month. Currently showing <strong>Mar 2026 vs Feb 2026</strong>; refreshes on May 1 to Apr vs Mar. Feature Experiment combines <code>EXPERIMENT</code> + <code>FEATURE EXPERIMENTATION</code> blades. Accounts total is blade-account count (not unique). Q2 Goal "—" = no goal tracked in EPD sheet.</div>
+</div>
+
+<div class="footer">
+  Generated by the ARR Scorecard automation · Refresh cadence: weekly
+</div>
+
+</body>
+</html>
